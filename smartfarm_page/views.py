@@ -4,3 +4,14 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'index.html')
+
+def str_smartfarm1(request):
+    return render(request, 'str_smartfarm1.html')
+
+def kids_pattern1(request):
+    return render(request, 'kids_pattern1.html')
+
+def finedust1(request):
+    return render(request, 'finedust1.html')
+
+
