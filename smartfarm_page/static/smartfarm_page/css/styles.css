@@ -235,8 +235,8 @@ sup {
 }
 
 a {
-  color: #0d6efd;
-  text-decoration: underline;
+  color: #000000;
+  text-decoration: none;
 }
 a:hover {
   color: #0a58ca;
@@ -11303,9 +11303,8 @@ textarea.form-control-lg {
 header.masthead {
   position: relative;
   background-color: #f8f9fa;
-  background: url("../assets/img/aict_bg.jpg") no-repeat center center;
-  height: 1000px
-  background-size: cover;
+  background: url("../assets/img/aict1-1.jpg") no-repeat center center;
+  background-size: 1700px;
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
@@ -11317,7 +11316,7 @@ header.masthead:before {
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 header.masthead h1, header.masthead .h1 {
   font-size: 2rem;
