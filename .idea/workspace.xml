@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ff1a2bf5-506a-4318-9fb7-1e0ddf2002ed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/str_bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/str_bg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/finedust1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/finedust1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
+=======
+>>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,9 +77,13 @@
       <map>
         <entry key="MAIN">
           <value>
+<<<<<<< HEAD
+            <State />
+=======
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+>>>>>>> 0a8f14c158285ecffb8743d48a60c02babddb383
           </value>
         </entry>
       </map>
