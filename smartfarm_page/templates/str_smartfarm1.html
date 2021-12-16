@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>AICT 공공융합플랫폼</title>
+        <title>AICT 공공융합플랫폼 :: 딸기 스마트팜 분석</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'smartfarm_page/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
@@ -16,8 +16,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
-
-
     </head>
     <body>
         <!-- Navigation-->
@@ -29,10 +27,23 @@
                 </a>
             </div>
         </nav>
-        <!-- Top Image-->
+        <!-- input data-->
         <section class="pt-4 bg-light">
             <div class="container px-xl-6 bg-light">
-                <div class="img-fluid" style="height:1700px; opacity: 0.6; background-repeat: no-repeat; background-image: url('../static/smartfarm_page/assets/img/str_bg.png');">
+                <div class="img-fluid" style="height:350px; opacity: 0.6; background-repeat: no-repeat; background-image: url('../static/smartfarm_page/assets/img/str_bg.png');">
+                </div>
+                <div class="row gx-lg-5">
+                    <h2 class="text-center">이번 주 딸기 생산량 예측</h2>
+                    <div class="row mb-3"></div>
+                    <h5 class="text-center">지난 2주 간의 딸기 환경 변수와 생육 변수 데이터를 업로드하여 이번주 딸기 생산량을 예측해보세요.</h5>
+                    <div class="row mb-4"></div>
+                    <img src="{% static 'smartfarm_page/assets/img/str_page_content.png' %}" style="display: block; margin: 0 auto; width:950px; height:90px;" alt="">
+
+                    <div class="row mb-5"></div>
+                    <div class="row mb-5"></div>
+                    <h3 class="text-center">데이터 업로드</h3>
+                    <div class="row mb-3"></div>
+                    <h5 class="text-center">농장의 스마트팜(Smart Farm) 환경 변수 데이터를 업로드해 주세요.</h5>
                 </div>
             </div>
         </section>
