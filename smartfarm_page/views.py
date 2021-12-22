@@ -14,4 +14,8 @@ def kids_pattern1(request):
 def finedust1(request):
     return render(request, 'finedust1.html')
 
+def str_smartfarm2(request):
+    return render(request, 'str_smartfarm2.html')
+
+
 
