@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="54f052d2-886e-4984-b060-e14b90c5840d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/styles.css" afterDir="false" />
@@ -9,6 +10,16 @@
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
+=======
+    <list default="true" id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/finedust1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/finedust1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/smartfarm_page/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/smartfarm_page/js/scripts.js" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +72,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="54f052d2-886e-4984-b060-e14b90c5840d" name="Default Changelist" comment="" />
+=======
+      <changelist id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="" />
+>>>>>>> master
       <created>1637887644670</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
