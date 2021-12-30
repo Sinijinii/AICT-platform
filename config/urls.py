@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('smartfarm_page.urls')),
     # smartfarm_page/로 시작되는 페이지의 요청은 전부 smartfarm_page/urls.py에 있는 url 정보를 참고한다.
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
