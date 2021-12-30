@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/finedust1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/finedust1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/smartfarm_page/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/smartfarm_page/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -37,11 +39,11 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
     </key>
   </component>
   <component name="RunDashboard">
