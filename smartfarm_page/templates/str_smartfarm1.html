@@ -55,7 +55,7 @@
                         <div class="col-md-12">
                             <div class="d-flex justify-content-center"> <!-- 블록 가운데 정렬-->
                                 <form method="post" action="{% url 'fileupload' %}" enctype="multipart/form-data">
-                                    {% csrf_token %}
+                                    {% csrf_token %}    <!-- 보안을 위해 반드시 필요. 없으면 장고에서 request 거절-->
                                     <div class="file-drop-area">
                                         <span class="choose-file-button">파일 선택</span>
                                         <span class="file-message">또는 여기로 파일을 드래그해 가져와 주세요.</span>
@@ -72,40 +72,43 @@
                 <div class="row mb-5"></div>
                 <h5 class="text-center">2. 농장의 생육 데이터를 수기로 입력해 주세요.</h5>
                 <div class="row mb-3"></div>
-                <div class="row justify-content-center round">
-                    <div class="col-lg-10 col-md-12 ">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5 col-md-6 col-sm-12">
-                                <h6 class="text-center">1주일 전</h6>
-                                <div class="form-group"><label for="chojang">초장</label><input type="text" class="form-control" id="chojang" placeholder="cm"> </div>
-                                <div class="form-group"> <label for="yubsoo">엽수</label> <input type="text" class="form-control" id="yubsoo" placeholder="장"> </div>
-                                <div class="form-group"><label for="yubpoc">엽폭</label><input type="text" class="form-control" id="yubpoc" placeholder="cm"> </div>
-                                <div class="form-group"> <label for="max_yubjang">최대 엽장</label> <input type="text" class="form-control" id="max_yubjang" placeholder="cm"> </div>
-                                <div class="form-group"><label for="yubbyungjang">엽병장</label> <input type="text" class="form-control" id="yubbyungjang" placeholder="cm"> </div>
-                                <div class="form-group"><label for="gwanbu">관부직경</label> <input type="text" class="form-control" id="gwanbu" placeholder="cm"> </div>
-                                <div class="form-group"><label for="frtst">열매 개수</label> <input type="text" class="form-control" id="frtst" placeholder="개"> </div>
+                <form method="post" action="{% url 'input_value' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row justify-content-center round">
+                        <div class="col-lg-10 col-md-12 ">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-6 col-sm-12">
+                                    <h6 class="text-center">1주일 전</h6>
+                                    <!-- for: id와 연결.  name: key가 되어 input으로 입력받은 값이 value로 dict 형태로 전송-->
+                                    <div class="form-group"><label for="chojang">초장</label><input type="float" class="form-control" id="chojang" name="week1[]" placeholder="cm" required> </div>
+                                    <div class="form-group"> <label for="max_yubjang">최대 엽장</label> <input type="float" class="form-control" id="max_yubjang" name="week1[]" placeholder="cm" required> </div>
+                                    <div class="form-group"><label for="yubpoc">엽폭</label><input type="float" class="form-control" id="yubpoc" name="week1[]" placeholder="cm" required> </div>
+                                    <div class="form-group"><label for="yubbyungjang">엽병장</label> <input type="float" class="form-control" id="yubbyungjang" name="week1[]" placeholder="cm" required> </div>
+                                    <div class="form-group"> <label for="yubsoo">엽수</label> <input type="float" class="form-control" id="yubsoo" name="week1[]" placeholder="장" required> </div>
+                                    <div class="form-group"><label for="gwanbu">관부직경</label> <input type="float" class="form-control" id="gwanbu" name="week1[]" placeholder="cm" required> </div>
+                                    <div class="form-group"><label for="frtstCo">열매 개수</label> <input type="float" class="form-control" id="frtstCo" name="week1[]" placeholder="개" required> </div>
+                                </div>
+                                <div class="col-lg-5 col-md-6 col-sm-12">
+                                    <h6 class="text-center">2주일 전</h6>
+                                    <div class="form-group"><label for="chojang">초장</label><input type="float" class="form-control" id="chojang" name="week2[]" placeholder="cm" required> </div>
+                                    <div class="form-group"> <label for="max_yubjang">최대 엽장</label> <input type="float" class="form-control" id="max_yubjang" name="week2[]" placeholder="cm" required> </div>
+                                    <div class="form-group"><label for="yubpoc">엽폭</label><input type="float" class="form-control" id="yubpoc" name="week2[]" placeholder="cm" required> </div>
+                                    <div class="form-group"><label for="yubbyungjang">엽병장</label> <input type="float" class="form-control" id="yubbyungjang" name="week2[]" placeholder="cm" required> </div>
+                                    <div class="form-group"> <label for="yubsoo">엽수</label> <input type="float" class="form-control" id="yubsoo" name="week2[]" placeholder="장" required> </div>
+                                    <div class="form-group"><label for="gwanbu">관부직경</label> <input type="float" class="form-control" id="gwanbu" name="week2[]" placeholder="cm" required> </div>
+                                    <div class="form-group"><label for="frtstCo">열매 개수</label> <input type="float" class="form-control" id="frtstCo" name="week2[]" placeholder="개" required> </div>
+                                </div>
                             </div>
-                            <div class="col-lg-5 col-md-6 col-sm-12">
-                                <h6 class="text-center">2주일 전</h6>
-                                <div class="form-group"><label for="chojang">초장</label><input type="text" class="form-control" id="chojang" placeholder="cm"> </div>
-                                <div class="form-group"> <label for="yubsoo">엽수</label> <input type="text" class="form-control" id="yubsoo" placeholder="장"> </div>
-                                <div class="form-group"><label for="yubpoc">엽폭</label><input type="text" class="form-control" id="yubpoc" placeholder="cm"> </div>
-                                <div class="form-group"> <label for="max_yubjang">최대 엽장</label> <input type="text" class="form-control" id="max_yubjang" placeholder="cm"> </div>
-                                <div class="form-group"><label for="yubbyungjang">엽병장</label> <input type="text" class="form-control" id="yubbyungjang" placeholder="cm"> </div>
-                                <div class="form-group"><label for="gwanbu">관부직경</label> <input type="text" class="form-control" id="gwanbu" placeholder="cm"> </div>
-                                <div class="form-group"><label for="frtst">열매 개수</label> <input type="text" class="form-control" id="frtst" placeholder="개"> </div>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 col-lg-10 col-12">
-                                <div class="mb-2 mt-4">
-                                    <div class="text-center"><input type="submit" class="btn btn-success col-3" value="다음"></div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-12 col-lg-10 col-12">
+                                    <div class="mb-2 mt-4">
+                                        <div class="text-center"><input type="submit" class="btn btn-success col-3" value="분석 결과 확인"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
 

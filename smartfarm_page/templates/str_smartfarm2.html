@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>AICT 공공융합플랫폼 :: 딸기 스마트팜 분석</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'smartfarm_page/assets/favicon.ico' %}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
+        <link href="{% static 'smartfarm_page/css/file_dropdown.css' %}?after" rel="stylesheet" />
+
+    </head>
+    <body>
+         <!-- Predicted output-->
+        <section class="pt-4 bg-light">
+            <div class="container px-xl-6 bg-light">
+                <div class="row gx-lg-5">
+                    <p> {{ predict_result }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="row mb-5"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://aict.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.gg.go.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'smartfarm_page/js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
