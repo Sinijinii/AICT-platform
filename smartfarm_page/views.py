@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import FileUploadForm
+from .models import FileUploadModel
 
 # Create your views here.
 
+# open urls
 def index(request):
     return render(request, 'index.html')
 
@@ -18,5 +22,17 @@ def finedust1(request):
     return render(request, 'finedust1.html')
 
 
-
-
+def upload_file(request):
+    if request.method == 'POST':
+        file = request.FILES['uploadFromPC']
+        uploadFile = FileUploadModel(
+            file=file,
+        )
+        uploadFile.save()
+        return redirect('fileupload')
+    else:
+        fileuploadForm = FileUploadForm
+        context = {
+            'fileuploadForm': fileuploadForm,
+        }
+        return render(request, 'str_smartfarm1.html', context)

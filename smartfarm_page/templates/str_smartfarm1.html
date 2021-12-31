@@ -54,11 +54,16 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="d-flex justify-content-center"> <!-- 블록 가운데 정렬-->
-                                <div class="file-drop-area">
-                                    <span class="choose-file-button">파일 선택</span>
-                                    <span class="file-message">또는 여기로 파일을 드래그해 가져와 주세요.</span>
-                                    <input class="file-input" type="file" multiple>
-                                </div>
+                                <form method="post" action="{% url 'fileupload' %}" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="file-drop-area">
+                                        <span class="choose-file-button">파일 선택</span>
+                                        <span class="file-message">또는 여기로 파일을 드래그해 가져와 주세요.</span>
+                                        <input class="file-input" name="uploadFromPC" id="uploadFromPC" type="file" multiple required>
+                                    </div>
+                                    <div class="row mb-3"></div>
+                                    <div class="text-center"><input type="submit" class="btn btn-success col-3" value="선택 완료"></div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -95,10 +100,8 @@
                         <div class="row justify-content-center">
                             <div class="col-md-12 col-lg-10 col-12">
                                 <div class="mb-2 mt-4">
-
                                     <div class="text-center">
-                                        <a href ="str_smartfarm2" class="btn btn-success btn-block"><medium class="font-weight-bold" >다 음</medium> </a>
-                                    </div>
+                                    <a href ="str_smartfarm2" class="btn-success btn-block"><medium class="btn btn-success col-3">분석 결과 확인</medium></a>
                                 </div>
                             </div>
                         </div>

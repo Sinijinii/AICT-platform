@@ -6,8 +6,6 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-<<<<<<< HEAD
-=======
 // file upload drag & drop
 $(document).on('change', '.file-input', function() {
 
@@ -22,4 +20,4 @@ textbox.text(fileName);
 textbox.text(filesCount + ' 개의 파일이 선택되었습니다.');
 }
 });
->>>>>>> master
+
