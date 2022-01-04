@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9214b670-fe25-47dc-b72a-771b3961873a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋_BWh4Vx5.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋_H39nj6P.xlsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/LSTM_model.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/media/전국통합_환경.xlsx" beforeDir="false" />
