@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9214b670-fe25-47dc-b72a-771b3961873a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋_BWh4Vx5.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋_H39nj6P.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/LSTM_model.h5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/전국통합_환경.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/sb-admin-2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-bar-demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-pie-demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +63,16 @@
       <updated>1637887644670</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
