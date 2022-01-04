@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/공공융합플랫폼 API 기술명세서.hwp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
@@ -38,6 +37,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\static\smartfarm_page\assets" />
       <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\templates" />
     </key>
     <key name="CopyFile.RECENT_KEYS">

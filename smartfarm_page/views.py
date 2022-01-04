@@ -56,8 +56,6 @@ def input_value(request):
 import os
 import pandas as pd
 import numpy as np
-import tensorflow as tf
-import tensorflow.keras as keras
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 
@@ -98,3 +96,18 @@ def data_analysis(week1, week2):
     y_pred_future = sc_predict.inverse_transform(predictions_future)
     result = y_pred_future[0][0]
     return round(result, 2)
+
+# API 명세서 한글 파일 다운로드 기능
+from django.http import HttpResponse
+import mimetypes
+import urllib
+
+def download_API_file(request):
+    file_path = './smartfarm_page/static/smartfarm_page/assets/공공융합플랫폼 API 기술명세서.hwp'
+    file_name = '공공융합플랫폼 API 기술명세서.hwp'
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            quote_file_url = urllib.parse.quote(file_name.encode('utf-8'))
+            response = HttpResponse(fh.read(), content_type=mimetypes.guess_type(file_name))
+            response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
+            return response
