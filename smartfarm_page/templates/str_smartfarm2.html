@@ -8,181 +8,91 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>AICT 공공융합플랫폼 :: 딸기 스마트팜 분석</title>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.esm.min.js"></script>
-<!--        Chartjs CDN-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'smartfarm_page/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
-        <link href="{% static 'smartfarm_page/css/file_dropdown.css' %}?after" rel="stylesheet" />
 
+        <!-- Custom fonts for this template-->
+        <link href="{% static 'smartfarm_page/vendor/fontawesome-free/css/all.min.css'%}?after" rel="stylesheet" type="text/css">
+        <!-- Chartjs CSS CDN-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+        <!-- Custom styles for this template-->
+        <link href="{% static 'smartfarm_page/css/sb-admin-2.css' %}?after" rel="stylesheet" />
+        <link href="{% static 'smartfarm_page/css/sb-admin-2.min.css' %}?after" rel="stylesheet" />
+        <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
     </head>
 
-
     <body>
-
         <!-- Navigation-->
          <nav class="navbar navbar-expand-sm navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="../">
                     <img src="{% static 'smartfarm_page/assets/img/logo.png' %}" width="160" height="50" alt="">
-                    <a class="profile"><img class="img-profile rounded-circle"
-                                    src="{% static 'smartfarm_page/assets/img/undraw_profile.svg' %}"width="160" height="50" alt=""> </a>
+                    <a class="profile"><img class="img-profile rounded-circle" src="{% static 'smartfarm_page/assets/img/undraw_profile.svg' %}"width="160" height="50" alt=""> </a>
                 </a>
             </div>
         </nav>
-        <!-- input data-->
-        <section class="pt-4 bg-light">
+
+        <!-- Predicted output-->
+        <div class="pt-4 bg-light">
             <div class="container px-xl-6 bg-light">
                 <!-- 상단 딸기 이미지 삽입-->
-
-
-        </nav>
-
-
-<head>
-
-    <title>SMART FARM</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{% static 'smartfarm_page/vendor/fontawesome-free/css/all.min.css'%}?after" rel="stylesheet" type="text/css">
-<!--    #폰트-->
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-<!--    #사용한 CSS-->
-    <!-- Custom styles for this template-->
-    <link href="{% static 'smartfarm_page/css/sb-admin-2.css' %}?after" rel="stylesheet" />
-    <link href="{% static 'smartfarm_page/css/sb-admin-2.min.css' %}?after" rel="stylesheet" />
-
-</head>
-
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                    aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Settings
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Activity Log
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
-                    </a>
+                <div class="img-fluid" style="height:350px; opacity: 0.6; background-repeat: no-repeat; background-image: url('../static/smartfarm_page/assets/img/str_bg.png');">
                 </div>
-                        </li>
+                <div class="row gx-lg-5">
+                    <h2 class="text-center">이번 주 딸기 생산량 예측 결과</h2>
+                    <div class="row gx-lg-5">
+                        <h2 class="text-center" style="color: MediumBlue"> {{ predict_result }} </h2> <h5 class="text-center"> (개/단위 면적)</h5>
 
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800"></h1>
-                    <p class="mb-4"> 딸기 농장 데이터 분석 결과</p>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-<!--                        <div class="col-xl-8 col-lg-7">-->
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 외부 온도</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-
-                                    </div>
-                                    <hr>
-                                    Styling for the area chart can be found in the
-                                    <code>/js/demo/chart-area-demo.js</code> file.
-                                </div>
-                            </div>
-
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 외부 온도</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart2"></canvas>
-
-                                    </div>
-                                    <hr>
-                                    Styling for the area chart can be found in the
-                                    <code>/js/demo/chart-area-demo.js</code> file.
-                                </div>
-                            </div>
-
-
-
-                     </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                    </div>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+
+                <div class="row mb-5"></div>
+                <div class="row mb-5"></div>
+                <div class="row gx-lg-5">
+                    <h4 class="text-center">우수농가 평균과 나의 농장 비교하기</h4>
+                <!-- inTemp_graph-->
+                <div class="row mb-5"></div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 온도</h6>
+                    </div>
+                    <div class="card-body ">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <!-- inHum_graph-->
+                <div class="row mb-3"></div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 습도</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart2"></canvas>
+                        </div>
+                        <hr>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
+            <div class="row mb-3"></div>
+            <input type="submit" class="btn btn-secondary col-4"  value="우수 농가 API 조회 명세서 다운로드"></div>
 
 
-            <!-- Footer-->
-        <footer class="footer bg-light">
+       <!-- Footer-->
+           <footer class="footer bg-light">
             <div class="row mb-5"></div>
             <div class="container">
                 <div class="row">
@@ -233,9 +143,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
-</html>
-
 
 
     <!-- Bootstrap core JavaScript-->
@@ -253,9 +160,5 @@
 
     <!-- Page level custom scripts -->
     <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
-    <script src="{% static 'smartfarm_page/js/chart-pie-demo.js' %}"></script>
-    <script src="{% static 'smartfarm_page/js/chart-bar-demo.js' %}"></script>
-
-
-</section>
-</body>
+    </body>
+</html>

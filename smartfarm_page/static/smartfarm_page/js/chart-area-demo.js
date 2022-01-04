@@ -87,8 +87,8 @@ function number_format(number, decimals, dec_point, thousands_sep) {
                   }
                 },
                 gridLines: {
-                  color: "rgb(234, 236, 244)",
-                  zeroLineColor: "rgb(234, 236, 244)",
+                  color: "rgb(0, 0, 0)",
+                  zeroLineColor: "rgb(0, 0, 0)",
                   drawBorder: false,
                   borderDash: [2],
                   zeroLineBorderDash: [2]
@@ -115,7 +115,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
               callbacks: {
                 label: function(tooltipItem, chart) {
                   var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                  return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                  return number_format(tooltipItem.yLabel) + "℃";
                 }
               }
             }
@@ -235,7 +235,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
               callbacks: {
                 label: function(tooltipItem, chart) {
                   var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                  return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                  return number_format(tooltipItem.yLabel) + "%";
                 }
               }
             }

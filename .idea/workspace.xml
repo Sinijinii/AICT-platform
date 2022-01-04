@@ -1,34 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="54f052d2-886e-4984-b060-e14b90c5840d" name="Default Changelist" comment="">
+    <list default="true" id="9214b670-fe25-47dc-b72a-771b3961873a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/LSTM_model.h5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
-=======
-    <list default="true" id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/전국통합_환경.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/sb-admin-2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-bar-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-pie-demo.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/static/smartfarm_page/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/smartfarm_page/js/scripts.js" afterDir="false" />
->>>>>>> master
-=======
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
->>>>>>> e6b28cb57ea31dcfd94fae9c0a35af469a7996f4
->>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -53,15 +39,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../startbootstrap-landing-page-gh-pages/index.html" />
+    <property name="last_opened_file_path" value="C:/Miniconda3/envs/django_practice" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,11 +67,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="54f052d2-886e-4984-b060-e14b90c5840d" name="Default Changelist" comment="" />
-=======
       <changelist id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="" />
->>>>>>> master
       <created>1637887644670</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
