@@ -53,36 +53,10 @@
                 <div class="row gx-lg-5">
                     <h3 class="text-center">우수농가 평균과 나의 농장 비교하기</h3>
                 <!-- inTemp_graph-->
-                <div class="row mb-5"></div>
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 온도</h6>
-                    </div>
-                    <div class="card-body ">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-                <!-- inHum_graph-->
                 <div class="row mb-3"></div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 습도</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart2"></canvas>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-                <!--임의로 만들어보는 그래프1 -->
-                <div class="row mb-3"></div>
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 내부 CO2</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 온도</h6>
                     </div>
                     <div class="card-body">
                         <div class="chart-area">
@@ -159,81 +133,81 @@
         <!-- Page level custom scripts -->
         <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
 
-<script>
-// 차트를 그럴 영역을 dom요소로 가져온다.
-var chartArea = document.getElementById('line1')
-// 차트를 생성한다.
-var myChart = new Chart(chartArea, {
-    // ①차트의 종류(String)
-    type: 'line',
-    // ②차트의 데이터(Object)
-    data: {
-        // ③x축에 들어갈 이름들(Array)
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','a','b','c','d','e','f'],
-        // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
-        datasets: [{
-            // ⑤dataset의 이름(String)
-            label: 'My Farm',
-            // ⑥dataset값(Array)
-            data: [12, 19, 3, 5, 2, 3,5,5,5,5,5,5],
+        <script>
+        // 차트를 그럴 영역을 dom요소로 가져온다.
+        var chartArea = document.getElementById('line1')
+        // 차트를 생성한다.
+        var myChart = new Chart(chartArea, {
+            // ①차트의 종류(String)
+            type: 'line',
+            // ②차트의 데이터(Object)
+            data: {
+                // ③x축에 들어갈 이름들(Array)
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','a','b','c','d','e','f'],
+                // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
+                datasets: [{
+                    // ⑤dataset의 이름(String)
+                    label: 'My Farm',
+                    // ⑥dataset값(Array)
+                    data: [12, 19, 3, 5, 2, 3,5,5,5,5,5,5],
 
-            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-            borderColor: 'rgb(255, 99, 132)',
-            fill : false,
-            // ⑨dataset의 선 두께(Number)
-            borderWidth: 3
-        },{
-            // ⑤dataset의 이름(String)
-            label: '# of Votes',
-            // ⑥dataset값(Array)
-            data: [2, 2, 3, 5, 19, 17,5,4,2,10,15,5],
-            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-            borderColor: 'rgb(0, 0, 0)',
-            fill : false,
-            // ⑨dataset의 선 두께(Number)
-            borderWidth: 3
-            }],
-    // ⑩차트의 설정(Object)
-    options: {
-    maintainAspectRatio: false,
+                    // ⑧dataset의 선 색(rgba값을 String으로 표현)
+                    borderColor: 'rgb(255, 99, 132)',
+                    fill : false,
+                    // ⑨dataset의 선 두께(Number)
+                    borderWidth: 3
+                },{
+                    // ⑤dataset의 이름(String)
+                    label: '# of Votes',
+                    // ⑥dataset값(Array)
+                    data: [2, 2, 3, 5, 19, 17,5,4,2,10,15,5],
+                    // ⑧dataset의 선 색(rgba값을 String으로 표현)
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill : false,
+                    // ⑨dataset의 선 두께(Number)
+                    borderWidth: 3
+                    }],
+            // ⑩차트의 설정(Object)
+            options: {
+            maintainAspectRatio: false,
 
-    scales: {
-      xAxes: [{
+            scales: {
+              xAxes: [{
 
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          maxTicksLimit: 5,
-          padding: 10,
-          // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return '$' + number_format(value);
+                ticks: {
+                  maxTicksLimit: 7
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  maxTicksLimit: 5,
+                  padding: 10,
+                  // Include a dollar sign in the ticks
+                  callback: function(value, index, values) {
+                    return '$' + number_format(value);
+                  }
+                },
+                gridLines: {
+                  color: "rgb(0, 0, 0)",
+                  zeroLineColor: "rgb(0, 0, 0)",
+                  drawBorder: false,
+                  borderDash: [2],
+                  zeroLineBorderDash: [2]
+                }
+              }],
+            },
+            legend: {
+              display: false
+            },
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              titleMarginBottom: 10,
+            }
           }
-        },
-        gridLines: {
-          color: "rgb(0, 0, 0)",
-          zeroLineColor: "rgb(0, 0, 0)",
-          drawBorder: false,
-          borderDash: [2],
-          zeroLineBorderDash: [2]
-        }
-      }],
-    },
-    legend: {
-      display: false
-    },
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      titleMarginBottom: 10,
-    }
-  }
-  }
-});
-</script>
+          }
+        });
+        </script>
 
     </body>
 </html>
