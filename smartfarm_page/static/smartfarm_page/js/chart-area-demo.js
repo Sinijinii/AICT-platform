@@ -56,23 +56,10 @@ var myLineChart = new Chart(ctx, {
   },
   options: {
     maintainAspectRatio: false,
-    layout: {
-      padding: {
-        left: 10,
-        right: 25,
-        top: 25,
-        bottom: 0
-      }
-    },
+
     scales: {
       xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: false,
-          drawBorder: false
-        },
+
         ticks: {
           maxTicksLimit: 7
         }
@@ -124,6 +111,7 @@ var myLineChart = new Chart(ctx, {
 
 //##########################################################################################################
 
+
 var ctx = document.getElementById("myAreaChart2");
 var myLineChart = new Chart(ctx, {
   data: {
@@ -160,10 +148,7 @@ var myLineChart = new Chart(ctx, {
         time: {
           unit: 'date'
         },
-        gridLines: {
-          display: false,
-          drawBorder: false
-        },
+
         ticks: {
           maxTicksLimit: 7
         }
