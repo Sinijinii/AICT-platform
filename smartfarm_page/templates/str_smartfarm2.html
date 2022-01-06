@@ -153,116 +153,116 @@
 
         <script>
         // 차트를 그럴 영역을 dom요소로 가져온다.
-        var chartArea = document.getElementById('line1')
-        // 차트를 생성한다.
-        var myChart = new Chart(chartArea, {
-            // ①차트의 종류(String)
-            type: 'line',
-            // ②차트의 데이터(Object)
-            data: {
-                // ③x축에 들어갈 이름들(Array)
-                labels: ['2021-02-07', '2021-02-14', '2021-02-21', '2021-02-28', '2021-03-07', '2021-03-14', '2021-03-21', '2021-03-28', '2021-04-04', '2021-04-11', '2021-04-18', '2021-04-25', '2021-05-02', '2021-05-09', '2021-05-16', '2021-05-23', '2021-05-30'],
-                // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
+            var chartArea = document.getElementById('line1')
+                // 차트를 생성한다.
+                var myChart = new Chart(chartArea, {
+                    // ①차트의 종류(String)
+                    type: 'line',
+                    // ②차트의 데이터(Object)
+                    data: {
+                        // ③x축에 들어갈 이름들(Array)
+                        labels: ['2021-02-07', '2021-02-14', '2021-02-21', '2021-02-28', '2021-03-07', '2021-03-14', '2021-03-21', '2021-03-28', '2021-04-04', '2021-04-11', '2021-04-18', '2021-04-25', '2021-05-02', '2021-05-09', '2021-05-16', '2021-05-23', '2021-05-30'],
+                        // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
+                        datasets: [{
+                            // ⑤dataset의 이름(String)
+                            label: 'My Farm',
+                            // ⑥dataset값(Array)
+                            data: [2, 19, 3, 5, 2, 3,5,5,5,5,5,5],
+
+                            // ⑧dataset의 선 색(rgba값을 String으로 표현)
+                            borderColor: 'rgb(255, 99, 132)',
+                            fill : false,
+                            // ⑨dataset의 선 두께(Number)
+                            borderWidth: 3
+                        },{
+                            // ⑤dataset의 이름(String)
+                            label: 'Best Farm',
+                            // ⑥dataset값(Array)
+                            data: [2, 2, 3, 5, 19, 17,5,4,2,10,15,5],
+                            // ⑧dataset의 선 색(rgba값을 String으로 표현)
+                            borderColor: 'rgb(0, 0, 0)',
+                            fill : false,
+                            // ⑨dataset의 선 두께(Number)
+                            borderWidth: 3
+                            }],
+                        // ⑩차트의 설정(Object)
+                        options: {
+                        responsive : true,
+                        maintainAspectRatio: false,
+                        title : {
+                        display : true,
+                        text : 'Comparison of Temp diff Best farm and My farm'
+                        },
+                        scales: {
+                          xAxes: [{
+                            display: true,
+                            scaleLabel:{
+                                display : true
+                            },
+                            ticks: {
+                              maxTicksLimit: 7
+                            }
+                          }],
+                          yAxes: [{
+                            display : true,
+                            ticks: {
+                              maxTicksLimit: 5,
+                              padding: 10,
+                              // Include a dollar sign in the ticks
+                              callback: function(value, index, values) {
+                                return '$' + number_format(value);
+                              }
+                            },
+                            scaleLabel:{
+                                display: true,
+                            },
+                            gridLines: {
+                              color: "rgb(0, 0, 0)",
+                              zeroLineColor: "rgb(0, 0, 0)",
+                              drawBorder: false,
+                              borderDash: [2],
+                              zeroLineBorderDash: [2]
+                            }
+                          }],
+                        },
+
+                        tooltips: {
+                          backgroundColor: "rgb(255,255,255)",
+                          bodyFontColor: "#858796",
+                          titleMarginBottom: 10,
+                        }
+                      }
+                      }
+
+                    });
+
+
+
+
+
+            new Chart(document.getElementById("line-chart"), {
+              type: 'line',
+              data: {
+                labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
                 datasets: [{
-                    // ⑤dataset의 이름(String)
-                    label: 'My Farm',
-                    // ⑥dataset값(Array)
-                    data: [2, 19, 3, 5, 2, 3,5,5,5,5,5,5],
-
-                    // ⑧dataset의 선 색(rgba값을 String으로 표현)
-                    borderColor: 'rgb(255, 99, 132)',
-                    fill : false,
-                    // ⑨dataset의 선 두께(Number)
-                    borderWidth: 3
-                },{
-                    // ⑤dataset의 이름(String)
-                    label: 'Best Farm',
-                    // ⑥dataset값(Array)
-                    data: [2, 2, 3, 5, 19, 17,5,4,2,10,15,5],
-                    // ⑧dataset의 선 색(rgba값을 String으로 표현)
-                    borderColor: 'rgb(0, 0, 0)',
-                    fill : false,
-                    // ⑨dataset의 선 두께(Number)
-                    borderWidth: 3
-                    }],
-            // ⑩차트의 설정(Object)
-            options: {
-            responsive : true,
-            maintainAspectRatio: false,
-            title : {
-            display : true,
-            text : 'Comparison of Temp diff Best farm and My farm'
-            },
-            scales: {
-              xAxes: [{
-                display: true,
-                scaleLabel:{
-                    display : true
-                },
-                ticks: {
-                  maxTicksLimit: 7
-                }
-              }],
-              yAxes: [{
-                display : true,
-                ticks: {
-                  maxTicksLimit: 5,
-                  padding: 10,
-                  // Include a dollar sign in the ticks
-                  callback: function(value, index, values) {
-                    return '$' + number_format(value);
+                    data: [86,114,106,106,107,111,133,221,783,2478],
+                    label: "유정민",
+                    borderColor: "#3e95cd",
+                    fill: false
+                  }, {
+                    data: [6,3,2,2,7,26,82,172,312,433],
+                    label: "정민",
+                    borderColor: "#c45850",
+                    fill: false
                   }
-                },
-                scaleLabel:{
-                    display: true,
-                },
-                gridLines: {
-                  color: "rgb(0, 0, 0)",
-                  zeroLineColor: "rgb(0, 0, 0)",
-                  drawBorder: false,
-                  borderDash: [2],
-                  zeroLineBorderDash: [2]
+                ]
+              },
+              options: {
+                title: {
+                  display: true,
                 }
-              }],
-            },
-
-            tooltips: {
-              backgroundColor: "rgb(255,255,255)",
-              bodyFontColor: "#858796",
-              titleMarginBottom: 10,
-            }
-          }
-          }
-
-        });
-
-
-
-
-
-        new Chart(document.getElementById("line-chart"), {
-          type: 'line',
-          data: {
-            labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
-            datasets: [{
-                data: [86,114,106,106,107,111,133,221,783,2478],
-                label: "유정민",
-                borderColor: "#3e95cd",
-                fill: false
-              }, {
-                data: [6,3,2,2,7,26,82,172,312,433],
-                label: "정민",
-                borderColor: "#c45850",
-                fill: false
               }
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-            }
-          }
-        });
+            });
 
         </script>
     </body>
