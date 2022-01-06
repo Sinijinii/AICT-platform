@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9214b670-fe25-47dc-b72a-771b3961873a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋_5Fq0VRy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋_g93IuXa.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
