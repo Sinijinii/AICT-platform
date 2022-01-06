@@ -28,3 +28,20 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 
+
+
+var chartArea = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(chartArea, {
+    type: 'line',
+    data : {
+    labels:[],
+    datasets :[{
+          label: "생산량",
+          data: []
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          // ⑧dataset의 선 색(rgba값을 String으로 표현)
+          borderColor: 'rgba(255, 99, 132, 1)',
+          // ⑨dataset의 선 두께(Number)
+          borderWidth: 1
+        }]
+    },
