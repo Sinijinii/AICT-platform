@@ -67,6 +67,7 @@ def input_value(request):
         most_recent_file = recent_file()
         df = pd.read_excel(most_recent_file)
         date = list(df['수집일'])
+        date = [dd.strftime('%Y-%m-%d') for dd in date]
         acInso = list(df['외부 일사량'])
         inTemp = list(df['내부온도'])
         inHum = list(df['내부습도'])

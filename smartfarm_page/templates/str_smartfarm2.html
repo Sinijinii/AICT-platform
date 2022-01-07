@@ -16,17 +16,14 @@
         <link rel="icon" type="image/x-icon" href="{% static 'smartfarm_page/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-
         <!-- Chartjs CSS CDN-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <!--Using JS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <!-- Custom styles for this template-->
         <link href="{% static 'smartfarm_page/css/sb-admin-2.css' %}?after" rel="stylesheet" />
-        <link href="{% static 'smartfarm_page/css/sb-admin-2.min.css' %}?after" rel="stylesheet" />
         <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
-
     </head>
 
     <body>
@@ -47,99 +44,79 @@
                 <div class="img-fluid" style="height:350px; opacity: 0.6; background-repeat: no-repeat; background-image: url('../static/smartfarm_page/assets/img/str_bg.png');"></div>
                 <div class="row gx-lg-5">
                     <h2 class="text-center">이번 주 딸기 생산량 예측 결과</h2>
-                    <div class="row gx-lg-5">
-                        <h2 class="text-center" style="color: MediumBlue"> {{ predict_result }} </h2> <h5 class="text-center"> (개/단위 면적)</h5>
-                    </div>
+                    <h2 class="text-center" style="color: MediumBlue"> {{ predict_result }} </h2> <h5 class="text-center"> (개/단위 면적)</h5>
                 </div>
 
                 <div class="row mb-5"></div>
                 <div class="row mb-5"></div>
                 <div class="row gx-lg-5">
                     <h3 class="text-center">우수농가 평균과 나의 농장 비교하기</h3>
-
-                <!-- inTemp_graph-->
-                <div class="row mb-5"></div>
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 온도</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                        </div>
-                        <hr>
-                    </div>
+                    <div class="row mb-3"></div>
                 </div>
 
-                <!-- inHum_graph-->
+                <!-- inTemp_graph-->
                 <div class="row mb-3"></div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 습도</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 온도</h6>
                     </div>
                     <div class="card-body">
                         <div class="chart-area">
-                            <canvas id="myAreaChart2"></canvas>
+                            <canvas id="line1" width="1200" height="300"></canvas>
                         </div>
                         <hr>
                     </div>
                 </div>
-                </div>
 
-                <form action="{% url 'API_doc_download' %}">
-                    <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
+                <div class="row mb-5"></div>
+                <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
                     <div class="row mb-3"></div>
                     <input type="submit" class="btn btn-secondary col-4"  value="우수 농가 API 조회 명세서 다운로드">
-                    </div>
-                </form>
-
+                </div>
             </div>
         </div>
 
        <!-- Footer-->
-            <footer class="footer bg-light">
-                <div class="row mb-5"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                            <ul class="list-inline mb-2">
-                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
-                                <li class="list-inline-item">⋅</li>
-                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
-                                <li class="list-inline-item">⋅</li>
-                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
-                                <li class="list-inline-item">⋅</li>
-                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
-
-                            </ul>
-                            <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
-                        </div>
-                        <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item me-4">
-                                    <a href="https://aict.snu.ac.kr/">
-                                        <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item me-4">
-                                    <a href="https://www.snu.ac.kr/">
-                                        <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item me-4">
-                                    <a href="https://www.gg.go.kr/">
-                                        <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+        <footer class="footer bg-light">
+            <div class="row mb-5"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://aict.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.gg.go.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
 
-
-
-         <!-- Jquery-->
+        <!-- Jquery-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -158,50 +135,47 @@
         <!-- Page level custom scripts -->
         <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
 
+        <script>
+            // 차트를 그럴 영역을 dom요소로 가져온다.
+            var chartArea = document.getElementById('line1')
 
-        <script language="JavaScript">
-            var ctx = document.getElementById("myAreaChart");
-            var myLineChart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: ['2017-09-17','2017-09-24','2017-10-01','2017-10-08','2017-10-15','2017-10-22','2017-10-29','2017-11-05','2017-11-12','2017-11-19','2017-11-26','2017-12-03','2017-12-10',
-    '2017-12-17','2017-12-24','2017-12-31','2018-01-07','2018-01-14','2018-01-21','2018-01-28','2018-02-04','2018-02-11','2018-02-18','2018-02-25','2018-03-04','2018-03-11','2018-03-18','2018-03-25',
-    '2018-04-01','2018-04-08','2018-04-15','2018-04-22','2018-04-29','2018-05-06','2018-05-13','2018-05-20','2018-05-27'],,
-                datasets: [{
-                  label: "생산량",
-                  lineTension: 0.3,
-                  backgroundColor: "rgba(78, 115, 223, 0.05)",
-                  borderColor: "rgba(78, 115, 223, 1)",
-                  pointRadius: 3,
-                  pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                  pointBorderColor: "rgba(78, 115, 223, 1)",
-                  pointHoverRadius: 3,
-                  pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-                  pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-                  pointHitRadius: 10,
-                  pointBorderWidth: 2,
-                  data: {{ context|get_dict:graph_data.date }},
-                }],
-              },
-              options: {
+            // 차트를 생성한다.
+            var myChart = new Chart(chartArea, {
+                // ①차트의 종류(String)
+                type: 'line',
+                // ②차트의 데이터(Object)
+                data: {
+                    // ③x축에 들어갈 이름들(Array)
+                    labels: {{ graph_data | get_dict:"date" | safe }},
+                    // ④실제 차트에 표시할 데이터들(Array), dataset 객체들을 담고 있다.
+                    datasets: [{
+                        // ⑤dataset의 이름(String)
+                        label: 'My Farm',
+                        // ⑥dataset값(Array)
+                        data: {{ graph_data | get_dict:"inTemp" | safe }},
+                        // ⑧dataset의 선 색(rgba값을 String으로 표현)
+                        borderColor: 'rgb(255, 99, 132)',
+                        fill : false,
+                        // ⑨dataset의 선 두께(Number)
+                        borderWidth: 3
+                    },{
+                        // ⑤dataset의 이름(String)
+                        label: '# of Votes',
+                        // ⑥dataset값(Array)
+                        data: {{ graph_data | get_dict:"inHum" | safe }},
+                        // ⑧dataset의 선 색(rgba값을 String으로 표현)
+                        borderColor: 'rgb(0, 0, 0)',
+                        fill : false,
+                        // ⑨dataset의 선 두께(Number)
+                        borderWidth: 3
+                        }],
+                // ⑩차트의 설정(Object)
+                options: {
                 maintainAspectRatio: false,
-                layout: {
-                  padding: {
-                    left: 10,
-                    right: 25,
-                    top: 25,
-                    bottom: 0
-                  }
-                },
+
                 scales: {
                   xAxes: [{
-                    time: {
-                      unit: 'date'
-                    },
-                    gridLines: {
-                      display: false,
-                      drawBorder: false
-                    },
+
                     ticks: {
                       maxTicksLimit: 7
                     }
@@ -231,145 +205,10 @@
                   backgroundColor: "rgb(255,255,255)",
                   bodyFontColor: "#858796",
                   titleMarginBottom: 10,
-                  titleFontColor: '#6e707e',
-                  titleFontSize: 14,
-                  borderColor: '#dddfeb',
-                  borderWidth: 1,
-                  xPadding: 15,
-                  yPadding: 15,
-                  displayColors: false,
-                  intersect: false,
-                  mode: 'index',
-                  caretPadding: 10,
-                  callbacks: {
-                    label: function(tooltipItem, chart) {
-                      var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                      return number_format(tooltipItem.yLabel) + "℃";
-                    }
-                  }
                 }
               }
-            });
-
-            // chart2
-            var ctx = document.getElementById("myAreaChart2");
-            var myLineChart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: ['2017-09-17','2017-09-24','2017-10-01','2017-10-08','2017-10-15','2017-10-22','2017-10-29','2017-11-05','2017-11-12','2017-11-19','2017-11-26','2017-12-03','2017-12-10',
-    '2017-12-17','2017-12-24','2017-12-31','2018-01-07','2018-01-14','2018-01-21','2018-01-28','2018-02-04','2018-02-11','2018-02-18','2018-02-25','2018-03-04','2018-03-11','2018-03-18','2018-03-25',
-    '2018-04-01','2018-04-08','2018-04-15','2018-04-22','2018-04-29','2018-05-06','2018-05-13','2018-05-20','2018-05-27'],
-                datasets: [{
-                  label: "생산량",
-                  lineTension: 0.3,
-                  backgroundColor: "rgba(78, 115, 223, 0.05)",
-                  borderColor: "rgba(78, 115, 223, 1)",
-                  pointRadius: 3,
-                  pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                  pointBorderColor: "rgba(78, 115, 223, 1)",
-                  pointHoverRadius: 3,
-                  pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-                  pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-                  pointHitRadius: 10,
-                  pointBorderWidth: 2,
-                  data: ['0.0', '0.0', '0.0', '0.0','0.0','0.0','0.0','0.0','3.6','5.66666666666667','7.0','6.66666666666667','6.33333333333333','5.5','5.0','0.0','0.0','0.0','4.0','5.0',
-    '4.83333333333333','5.416666666666665','6.0','7.0','7.6', '7.66666666666667','10.5','10.8333333333333','10.0','13.6','11.1666666666667','9.16666666666667','9.5','7.33333333333333','5.8',
-    '5.83333333333333','4.5'
-    ],
-                }],
-              },
-              type: 'line',
-              data: {
-                labels: ['2017-09-17','2017-09-24','2017-10-01','2017-10-08','2017-10-15','2017-10-22','2017-10-29','2017-11-05','2017-11-12','2017-11-19','2017-11-26','2017-12-03','2017-12-10',
-    '2017-12-17','2017-12-24','2017-12-31','2018-01-07','2018-01-14','2018-01-21','2018-01-28','2018-02-04','2018-02-11','2018-02-18','2018-02-25','2018-03-04','2018-03-11','2018-03-18','2018-03-25',
-    '2018-04-01','2018-04-08','2018-04-15','2018-04-22','2018-04-29','2018-05-06','2018-05-13','2018-05-20','2018-05-27'],
-                datasets: [{
-                  label: "생산량2",
-                  lineTension: 0.3,
-                  backgroundColor: "rgba(78, 115, 223, 0.05)",
-                  borderColor: "rgba(0, 0, 0, 1)",
-                  pointRadius: 3,
-                  pointBackgroundColor: "rgba(0, 0, 0, 1)",
-                  pointBorderColor: "rgba(0, 0, 0, 1)",
-                  pointHoverRadius: 3,
-                  pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-                  pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-                  pointHitRadius: 10,
-                  pointBorderWidth: 2,
-                  data: ['0.0', '0.0', '0.0', '0.0','0.0','0.0','0.0','0.0','3','5','7','0','0','0','5.5','5.0','0.0','0.0','0.0','4.0','5.0',
-    '4','5','6.0','7.0','7.6', '7','10.5','0','10.0','13.6','11','9','9.5','7','5.8',
-    '5','4.5'
-    ],
-                }],
-              },
-              options: {
-                maintainAspectRatio: false,
-                layout: {
-                  padding: {
-                    left: 10,
-                    right: 25,
-                    top: 25,
-                    bottom: 0
-                  }
-                },
-                scales: {
-                  xAxes: [{
-                    time: {
-                      unit: 'date'
-                    },
-                    gridLines: {
-                      display: false,
-                      drawBorder: false
-                    },
-                    ticks: {
-                      maxTicksLimit: 7
-                    }
-                  }],
-                  yAxes: [{
-                    ticks: {
-                      maxTicksLimit: 5,
-                      padding: 10,
-                      // Include a dollar sign in the ticks
-                      callback: function(value, index, values) {
-                        return '$' + number_format(value);
-                      }
-                    },
-                    gridLines: {
-                      color: "rgb(0, 0, 0)",
-                      zeroLineColor: "rgb(0, 0, 0)",
-                      drawBorder: false,
-                      borderDash: [2],
-                      zeroLineBorderDash: [2]
-                    }
-                  }],
-                },
-                legend: {
-                  display: false
-                },
-                tooltips: {
-                  backgroundColor: "rgb(255,255,255)",
-                  bodyFontColor: "#000000",
-                  titleMarginBottom: 10,
-                  titleFontColor: '#000000',
-                  titleFontSize: 14,
-                  borderColor: '#dddfeb',
-                  borderWidth: 1,
-                  xPadding: 15,
-                  yPadding: 15,
-                  displayColors: false,
-                  intersect: false,
-                  mode: 'index',
-                  caretPadding: 10,
-                  callbacks: {
-                    label: function(tooltipItem, chart) {
-                      var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                      return number_format(tooltipItem.yLabel) + "%";
-                    }
-                  }
-                }
               }
             });
         </script>
-
     </body>
 </html>
