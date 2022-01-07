@@ -63,18 +63,31 @@ def input_value(request):
 
         result = data_analysis(week1, week2)
 
-        # 그래프 그리기 위해 환경변수 data return
+        # 그래프 그리기 위해 해당 농가 환경변수 data 정리
         most_recent_file = recent_file()
         df = pd.read_excel(most_recent_file)
-        date = list(df['수집일'])
-        date = [dd.strftime('%Y-%m-%d') for dd in date]
+        myFarm_date = list(df['주차'])
+        # date = [dd.strftime('%Y-%m-%d') for dd in date]
         acInso = list(df['외부 일사량'])
         inTemp = list(df['내부온도'])
         inHum = list(df['내부습도'])
         inCO2 = list(df['내부CO2'])
-        env_dict = {'date': date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
+        myFarm_dict = {'date': myFarm_date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
 
-        return render(request, 'str_smartfarm2.html', context={'predict_result': result, 'graph_data': env_dict})
+        # 우수 농가 환경변수 data 정리
+        df = pd.read_excel('./smartfarm_page/static/smartfarm_page/assets/웹 시험용 기본농가 우수 평균 데이터셋.xlsx')
+        date = list(df['주차'])
+        # date = [dd.strftime('%Y-%m-%d') for dd in date]
+        ## label을 기본농가 시작점 ~ 우수농가 끝점으로 맞추기
+        start = date.index(myFarm_date[0])
+        date = date[start:]
+        acInso = list(df['외부 일사량'])
+        inTemp = list(df['내부온도'])
+        inHum = list(df['내부습도'])
+        inCO2 = list(df['내부CO2'])
+        bestFarm_dict = {'date': date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
+
+        return render(request, 'str_smartfarm2.html', context={'predict_result': result, 'graph_data': myFarm_dict, 'bestFarm_data': bestFarm_dict})
 
     else:
         return render(request, 'str_smartfarm1.html')
