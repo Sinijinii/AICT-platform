@@ -39,6 +39,21 @@ def upload_file(request):
         }
         return render(request, 'str_smartfarm1.html', context)
 
+
+# 가장 생성시각이 큰(가장 최근인) 파일을 리턴
+def recent_file():
+    media_path = "./media/"
+    each_file_path_and_gen_time = []
+    for each_file_name in os.listdir(media_path):
+        each_file_path = media_path + each_file_name
+        each_file_gen_time = os.path.getctime(each_file_path)  # getctime: 입력받은 경로에 대한 생성 시간을 리턴
+        each_file_path_and_gen_time.append(
+            (each_file_path, each_file_gen_time)
+        )
+    most_recent_file = max(each_file_path_and_gen_time, key=lambda x: x[1])[0]
+    return most_recent_file
+
+# 사용자가 직접 입력한 생육변수 데이터 가져와서 예측값 return
 def input_value(request):
     if request.method == 'POST':
         week1 = request.POST.getlist('week1[]')
@@ -47,32 +62,47 @@ def input_value(request):
         week2 = list(map(float, week2))
 
         result = data_analysis(week1, week2)
-        return render(request, 'str_smartfarm2.html', {'predict_result': result})
+
+        # 그래프 그리기 위해 해당 농가 환경변수 data 정리
+        most_recent_file = recent_file()
+        df = pd.read_excel(most_recent_file)
+        myFarm_date = list(df['주차'])
+        # date = [dd.strftime('%Y-%m-%d') for dd in date]
+        acInso = list(df['외부 일사량'])
+        inTemp = list(df['내부온도'])
+        inHum = list(df['내부습도'])
+        inCO2 = list(df['내부CO2'])
+        myFarm_dict = {'date': myFarm_date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
+
+        # 우수 농가 환경변수 data 정리
+        df = pd.read_excel('./smartfarm_page/static/smartfarm_page/assets/웹 시험용 기본농가 우수 평균 데이터셋.xlsx')
+        date = list(df['주차'])
+        # date = [dd.strftime('%Y-%m-%d') for dd in date]
+        ## label을 기본농가 시작점 ~ 우수농가 끝점으로 맞추기
+        start = date.index(myFarm_date[0])
+        date = date[start:]
+        acInso = list(df['외부 일사량'])
+        inTemp = list(df['내부온도'])
+        inHum = list(df['내부습도'])
+        inCO2 = list(df['내부CO2'])
+        bestFarm_dict = {'date': date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
+
+        return render(request, 'str_smartfarm2.html', context={'predict_result': result, 'graph_data': myFarm_dict, 'bestFarm_data': bestFarm_dict})
 
     else:
         return render(request, 'str_smartfarm1.html')
 
-# trained model 가져와 predict 해서 착과수 예측
+
 import os
 import pandas as pd
 import numpy as np
-import tensorflow as tf
-import tensorflow.keras as keras
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 
+# trained model 가져와 predict 해서 착과수 예측
 def data_analysis(week1, week2):
     # 사용자가 업로드한 가장 최근 파일 가져오기
-    media_path = "./media/"
-    each_file_path_and_gen_time = []
-    for each_file_name in os.listdir(media_path):
-        each_file_path = media_path + each_file_name
-        each_file_gen_time = os.path.getctime(each_file_path)        # getctime: 입력받은 경로에 대한 생성 시간을 리턴
-        each_file_path_and_gen_time.append(
-            (each_file_path, each_file_gen_time)
-        )
-    # 가장 생성시각이 큰(가장 최근인) 파일을 리턴
-    most_recent_file = max(each_file_path_and_gen_time, key=lambda x: x[1])[0]
+    most_recent_file = recent_file()
 
     # 데이터셋 생성
     df = pd.read_excel(most_recent_file)
@@ -98,3 +128,19 @@ def data_analysis(week1, week2):
     y_pred_future = sc_predict.inverse_transform(predictions_future)
     result = y_pred_future[0][0]
     return round(result, 2)
+
+
+# API 명세서 한글 파일 다운로드 기능
+from django.http import HttpResponse
+import mimetypes
+import urllib
+
+def download_API_file(request):
+    file_path = './smartfarm_page/static/smartfarm_page/assets/공공융합플랫폼 API 기술명세서.hwp'
+    file_name = '공공융합플랫폼 API 기술명세서.hwp'
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            quote_file_url = urllib.parse.quote(file_name.encode('utf-8'))
+            response = HttpResponse(fh.read(), content_type=mimetypes.guess_type(file_name))
+            response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
+            return response

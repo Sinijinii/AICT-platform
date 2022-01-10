@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9214b670-fe25-47dc-b72a-771b3961873a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋_5Fq0VRy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋_Fe0OBwT.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋_g93IuXa.xlsx" beforeDir="false" />
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋_VyOF0ai.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/chart-area-demo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="aict_JM" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,7 +60,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="" />
+      <changelist id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="" />
       <created>1637887644670</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
