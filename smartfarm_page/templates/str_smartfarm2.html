@@ -49,46 +49,70 @@
                 <div class="row mb-5"></div>
                 <div class="row gx-rg-5">
                     <h3 class="text-center">우수농가 평균과 나의 농장 비교하기</h3>
-                    <div class="row mb-3"></div>
+                    <div class="row mb-4"></div>
 
-                    <!-- inTemp_graph-->
+                    <!-- graph-->
                     <div class="col-sm-1"></div>
                     <div class="col-sm-10">
+                        <!-- inTemp_graph-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 온도</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">내부 온도</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="line1" width="1200" height="400"></canvas>
+                                    <canvas id="inTemp" width="1200" height="400"></canvas>
                                 </div>
                                 <hr>
                             </div>
                         </div>
+                        <!-- inHum_graph-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">우수농가 평균 내부 습도</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">내부 습도</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="line-chart" width="1200" height="400"></canvas>
+                                    <canvas id="inHum" width="1200" height="400"></canvas>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <!-- acInso_graph-->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">외부 일사량</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="acInso" width="1200" height="400"></canvas>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <!-- inCO2_graph-->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">내부 CO2</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="inCO2" width="1200" height="400"></canvas>
                                 </div>
                                 <hr>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="row mb-5"></div>
-                <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
-                <div class="row mb-3"></div>
-                <input type="submit" class="btn btn-secondary col-4"  value="우수 농가 API 조회 명세서 다운로드">
-                </div>
+                <form action="{% url 'API_doc_download' %}">
+                    <div class="row mb-5"></div>
+                    <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
+                        <div class="row mb-3"></div>
+                        <input type="submit" class="btn btn-secondary col-4"  value="우수 농가 API 조회 명세서 다운로드">
+                    </div>
+                </form>
             </div>
         </div>
-
 
        <!-- Footer-->
            <footer class="footer bg-light">
@@ -152,8 +176,8 @@
         <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
 
         <script>
-        // 차트를 그럴 영역을 dom요소로 가져온다.
-            var chartArea = document.getElementById('line1')
+            // 차트를 그럴 영역을 dom요소로 가져온다.
+            var chartArea = document.getElementById('inTemp')
                 // 차트를 생성한다.
                 var myChart = new Chart(chartArea, {
                     // ①차트의 종류(String)
@@ -161,13 +185,13 @@
                     // ②차트의 데이터(Object)
                     data: {
                         // ③x축에 들어갈 이름들(Array)
-                        labels: ['2021-02-07', '2021-02-14', '2021-02-21', '2021-02-28', '2021-03-07', '2021-03-14', '2021-03-21', '2021-03-28', '2021-04-04', '2021-04-11', '2021-04-18', '2021-04-25', '2021-05-02', '2021-05-09', '2021-05-16', '2021-05-23', '2021-05-30'],
+                        labels: {{ bestFarm_data | get_dict:"date" | safe }},
                         // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
                         datasets: [{
                             // ⑤dataset의 이름(String)
                             label: 'My Farm',
                             // ⑥dataset값(Array)
-                            data: [2, 19, 3, 5, 2, 3,5,5,5,5,5,5],
+                            data: {{ graph_data | get_dict:"inTemp" | safe }},
 
                             // ⑧dataset의 선 색(rgba값을 String으로 표현)
                             borderColor: 'rgb(255, 99, 132)',
@@ -178,7 +202,7 @@
                             // ⑤dataset의 이름(String)
                             label: 'Best Farm',
                             // ⑥dataset값(Array)
-                            data: [2, 2, 3, 5, 19, 17,5,4,2,10,15,5],
+                            data: {{ bestFarm_data | get_dict:"inTemp" | safe }},
                             // ⑧dataset의 선 색(rgba값을 String으로 표현)
                             borderColor: 'rgb(0, 0, 0)',
                             fill : false,
@@ -233,26 +257,70 @@
                         }
                       }
                       }
-
                     });
 
 
-
-
-
-            new Chart(document.getElementById("line-chart"), {
+            new Chart(document.getElementById("inHum"), {
               type: 'line',
               data: {
-                labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+                labels: {{ bestFarm_data | get_dict:"date" | safe }},
                 datasets: [{
-                    data: [86,114,106,106,107,111,133,221,783,2478],
-                    label: "유정민",
-                    borderColor: "#3e95cd",
+                    data: {{ graph_data | get_dict:"inHum" | safe }},
+                    label: 'My Farm',
+                    borderColor:'rgb(255, 99, 132)',
                     fill: false
                   }, {
-                    data: [6,3,2,2,7,26,82,172,312,433],
-                    label: "정민",
-                    borderColor: "#c45850",
+                    data: {{ bestFarm_data | get_dict:"inHum" | safe }},
+                    label: 'Best Farm',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false
+                  }
+                ]
+              },
+              options: {
+                title: {
+                  display: true,
+                }
+              }
+            });
+
+            new Chart(document.getElementById("acInso"), {
+              type: 'line',
+              data: {
+                labels: {{ bestFarm_data | get_dict:"date" | safe }},
+                datasets: [{
+                    data: {{ graph_data | get_dict:"acInso" | safe }},
+                    label: 'My Farm',
+                    borderColor:'rgb(255, 99, 132)',
+                    fill: false
+                  }, {
+                    data: {{ bestFarm_data | get_dict:"acInso" | safe }},
+                    label: 'Best Farm',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false
+                  }
+                ]
+              },
+              options: {
+                title: {
+                  display: true,
+                }
+              }
+            });
+
+            new Chart(document.getElementById("inCO2"), {
+              type: 'line',
+              data: {
+                labels: {{ bestFarm_data | get_dict:"date" | safe }},
+                datasets: [{
+                    data: {{ graph_data | get_dict:"inCO2" | safe }},
+                    label: 'My Farm',
+                    borderColor:'rgb(255, 99, 132)',
+                    fill: false
+                  }, {
+                    data: {{ bestFarm_data | get_dict:"inCO2" | safe }},
+                    label: 'Best Farm',
+                    borderColor: 'rgb(0, 0, 0)',
                     fill: false
                   }
                 ]
