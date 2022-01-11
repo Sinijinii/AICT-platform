@@ -12,8 +12,8 @@ def str_smartfarm1(request):
 def kids_pattern1(request):
     return render(request, 'kids_pattern1.html')
 
-def finedust1(request):
-    return render(request, 'finedust1.html')
+def library1(request):
+    return render(request, 'library1.html')
 
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
@@ -53,6 +53,8 @@ def recent_file():
     most_recent_file = max(each_file_path_and_gen_time, key=lambda x: x[1])[0]
     return most_recent_file
 
+import numpy as np
+
 # 사용자가 직접 입력한 생육변수 데이터 가져와서 예측값 return
 def input_value(request):
     if request.method == 'POST':
@@ -68,10 +70,10 @@ def input_value(request):
         df = pd.read_excel(most_recent_file)
         myFarm_date = list(df['주차'])
         # date = [dd.strftime('%Y-%m-%d') for dd in date]
-        acInso = list(df['외부 일사량'])
-        inTemp = list(df['내부온도'])
-        inHum = list(df['내부습도'])
-        inCO2 = list(df['내부CO2'])
+        acInso = list(np.round(list(df['외부 일사량']), 2))
+        inTemp = list(np.round(list(df['내부온도']), 2))
+        inHum = list(np.round(list(df['내부습도']), 2))
+        inCO2 = list(np.round(list(df['내부CO2']), 2))
         myFarm_dict = {'date': myFarm_date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
 
         # 우수 농가 환경변수 data 정리
@@ -81,10 +83,10 @@ def input_value(request):
         ## label을 기본농가 시작점 ~ 우수농가 끝점으로 맞추기
         start = date.index(myFarm_date[0])
         date = date[start:]
-        acInso = list(df['외부 일사량'])
-        inTemp = list(df['내부온도'])
-        inHum = list(df['내부습도'])
-        inCO2 = list(df['내부CO2'])
+        acInso = list(np.round(list(df['외부 일사량']), 2))
+        inTemp = list(np.round(list(df['내부온도']), 2))
+        inHum = list(np.round(list(df['내부습도']), 2))
+        inCO2 = list(np.round(list(df['내부CO2']), 2))
         bestFarm_dict = {'date': date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
 
         return render(request, 'str_smartfarm2.html', context={'predict_result': result, 'graph_data': myFarm_dict, 'bestFarm_data': bestFarm_dict})
@@ -95,7 +97,6 @@ def input_value(request):
 
 import os
 import pandas as pd
-import numpy as np
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 
@@ -128,7 +129,6 @@ def data_analysis(week1, week2):
     y_pred_future = sc_predict.inverse_transform(predictions_future)
     result = y_pred_future[0][0]
     return round(result, 2)
-
 
 # API 명세서 한글 파일 다운로드 기능
 from django.http import HttpResponse
