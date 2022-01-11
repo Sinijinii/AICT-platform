@@ -41,6 +41,8 @@
                 <!-- 상단 딸기 이미지 삽입-->
                 <div class="img-fluid" style="height:350px; opacity: 0.6; background-repeat: no-repeat; background-image: url('../static/smartfarm_page/assets/img/str_bg.png');"></div>
                 <div class="row gx-lg-5">
+                <img src="{% static 'smartfarm_page/assets/img/step2.png' %}" style="display: block; margin: 0 auto; width:950px; height:90px;" alt="">
+                <div class="row mb-5"></div>
                     <h2 class="text-center">이번 주 딸기 생산량 예측 결과</h2>
                     <h2 class="text-center" style="color: MediumBlue"> {{ predict_result }} </h2> <h5 class="text-center"> (개/단위 면적)</h5>
                 </div>
@@ -52,8 +54,7 @@
                     <div class="row mb-4"></div>
 
                     <!-- graph-->
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <!-- inTemp_graph-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -61,49 +62,51 @@
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="inTemp" width="1200" height="400"></canvas>
+                                    <canvas id="inTemp" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-sm-6">
                         <!-- inHum_graph-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">내부 습도</h6>
+                                <h6 class="m-0 font-weight-bold text-primary" >내부 습도</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="inHum" width="1200" height="400"></canvas>
+                                    <canvas id="inHum" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
+                    </div>
                         <!-- acInso_graph-->
+                    <div class="col-sm-6">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">외부 일사량</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="acInso" width="1200" height="400"></canvas>
+                                    <canvas id="acInso" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
+                    </div>
                         <!-- inCO2_graph-->
+                    <div class="col-sm-6">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">내부 CO2</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="inCO2" width="1200" height="400"></canvas>
+                                    <canvas id="inCO2" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
                     </div>
-                </div>
+
                 <form action="{% url 'API_doc_download' %}">
                     <div class="row mb-5"></div>
                     <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
@@ -225,7 +228,8 @@
                             },
                             ticks: {
                               maxTicksLimit: 7
-                            }
+                            },
+                            labelString: '주'
                           }],
                           yAxes: [{
                             display : true,
@@ -267,12 +271,12 @@
                 datasets: [{
                     data: {{ graph_data | get_dict:"inHum" | safe }},
                     label: 'My Farm',
-                    borderColor: "#3e95cd",
+                    borderColor:'#0096c6',
                     fill: false
                   }, {
                     data: {{ bestFarm_data | get_dict:"inHum" | safe }},
                     label: 'Best Farm',
-                    borderColor: "#c45850",
+                    borderColor: 'rgb(0, 0, 0)',
                     fill: false
                   }
                 ]
@@ -291,12 +295,12 @@
                 datasets: [{
                     data: {{ graph_data | get_dict:"acInso" | safe }},
                     label: 'My Farm',
-                    borderColor: "#3e95cd",
+                    borderColor: '#FFA500',
                     fill: false
                   }, {
                     data: {{ bestFarm_data | get_dict:"acInso" | safe }},
                     label: 'Best Farm',
-                    borderColor: "#c45850",
+                    borderColor: 'rgb(0, 0, 0)',
                     fill: false
                   }
                 ]
@@ -315,12 +319,12 @@
                 datasets: [{
                     data: {{ graph_data | get_dict:"inCO2" | safe }},
                     label: 'My Farm',
-                    borderColor: "#3e95cd",
+                    borderColor:'#9400D3',
                     fill: false
                   }, {
                     data: {{ bestFarm_data | get_dict:"inCO2" | safe }},
                     label: 'Best Farm',
-                    borderColor: "#c45850",
+                    borderColor: 'rgb(0, 0, 0)',
                     fill: false
                   }
                 ]
