@@ -106,6 +106,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
                 <form action="{% url 'API_doc_download' %}">
                     <div class="row mb-5"></div>
@@ -180,88 +181,66 @@
 
         <script>
             // 차트를 그럴 영역을 dom요소로 가져온다.
-            var chartArea = document.getElementById('inTemp')
-                // 차트를 생성한다.
-                var myChart = new Chart(chartArea, {
-                    // ①차트의 종류(String)
-                    type: 'line',
-                    // ②차트의 데이터(Object)
-                    data: {
-                        // ③x축에 들어갈 이름들(Array)
-                        labels: {{ bestFarm_data | get_dict:"date" | safe }},
-                        // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
-                        datasets: [{
-                            // ⑤dataset의 이름(String)
-                            label: 'My Farm',
-                            // ⑥dataset값(Array)
-                            data: {{ graph_data | get_dict:"inTemp" | safe }},
+            new Chart(document.getElementById("inTemp"), {
+              type: 'line',
+              data: {
+                labels: {{ bestFarm_data | get_dict:"date" | safe }},
+                datasets: [{
+                    data: {{ graph_data | get_dict:"inTemp" | safe }},
+                    label: 'My Farm',
+                    borderColor:'rgb(255, 99, 132)',
+                    fill: false,
+                    tension:0
+                  }, {
+                    data: {{ bestFarm_data | get_dict:"inTemp" | safe }},
+                    label: 'Best Farm',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false,
+                    tension:0
+                  }
+                ]
+              },
 
-                            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-                            borderColor: 'rgb(255, 99, 132)',
-                            fill : false,
-                            // ⑨dataset의 선 두께(Number)
-                            borderWidth: 3
-                        },{
-                            // ⑤dataset의 이름(String)
-                            label: 'Best Farm',
-                            // ⑥dataset값(Array)
-                            data: {{ bestFarm_data | get_dict:"inTemp" | safe }},
-                            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-                            borderColor: 'rgb(0, 0, 0)',
-                            fill : false,
-                            // ⑨dataset의 선 두께(Number)
-                            borderWidth: 3
-                            }],
-                        // ⑩차트의 설정(Object)
-                        options: {
-                        responsive : true,
-                        maintainAspectRatio: false,
-                        title : {
-                        display : true,
-                        text : 'Comparison of Temp diff Best farm and My farm'
-                        },
-                        scales: {
-                          xAxes: [{
-                            display: true,
-                            scaleLabel:{
-                                display : true
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Temp (℃)"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
                             },
-                            ticks: {
-                              maxTicksLimit: 7
-                            },
-                            labelString: '주'
-                          }],
-                          yAxes: [{
-                            display : true,
-                            ticks: {
-                              maxTicksLimit: 5,
-                              padding: 10,
-                              // Include a dollar sign in the ticks
-                              callback: function(value, index, values) {
-                                return '$' + number_format(value);
-                              }
-                            },
-                            scaleLabel:{
-                                display: true,
-                            },
-                            gridLines: {
-                              color: "rgb(0, 0, 0)",
-                              zeroLineColor: "rgb(0, 0, 0)",
-                              drawBorder: false,
-                              borderDash: [2],
-                              zeroLineBorderDash: [2]
-                            }
-                          }],
-                        },
 
-                        tooltips: {
-                          backgroundColor: "rgb(255,255,255)",
-                          bodyFontColor: "#858796",
-                          titleMarginBottom: 10,
-                        }
-                      }
-                      }
-                    });
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' ℃';
+                          }
+
+                  }
+                }
+                }
+            });
+
 
 
             new Chart(document.getElementById("inHum"), {
@@ -272,20 +251,55 @@
                     data: {{ graph_data | get_dict:"inHum" | safe }},
                     label: 'My Farm',
                     borderColor:'#0096c6',
-                    fill: false
+                    fill: false,
+                    tension:0
                   }, {
                     data: {{ bestFarm_data | get_dict:"inHum" | safe }},
                     label: 'Best Farm',
                     borderColor: 'rgb(0, 0, 0)',
-                    fill: false
+                    fill: false,
+                    tension:0
                   }
                 ]
               },
               options: {
                 title: {
                   display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Humidity (%)"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' %';
+                          }
+
+                  }
                 }
-              }
+                }
             });
 
             new Chart(document.getElementById("acInso"), {
@@ -296,20 +310,55 @@
                     data: {{ graph_data | get_dict:"acInso" | safe }},
                     label: 'My Farm',
                     borderColor: '#FFA500',
-                    fill: false
+                    fill: false,
+                    tension:0
                   }, {
                     data: {{ bestFarm_data | get_dict:"acInso" | safe }},
                     label: 'Best Farm',
                     borderColor: 'rgb(0, 0, 0)',
-                    fill: false
+                    fill: false,
+                    tension:0
                   }
                 ]
               },
               options: {
                 title: {
                   display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Insolation (kWh/㎡)"
+                         },
+                      },
+                     ],
+                  },
+                  tooltips: {
+                  mode:'x',
+                  callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' kWh/㎡';
+                          }
+
+                  }
+                  }
                 }
-              }
             });
 
             new Chart(document.getElementById("inCO2"), {
@@ -320,20 +369,55 @@
                     data: {{ graph_data | get_dict:"inCO2" | safe }},
                     label: 'My Farm',
                     borderColor:'#9400D3',
-                    fill: false
+                    fill: false,
+                    tension:0
                   }, {
                     data: {{ bestFarm_data | get_dict:"inCO2" | safe }},
                     label: 'Best Farm',
                     borderColor: 'rgb(0, 0, 0)',
-                    fill: false
+                    fill: false,
+                    tension:0
                   }
                 ]
               },
               options: {
                 title: {
                   display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "CO2 (ppm)"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' ppm';
+                          }
+
+                  }
                 }
-              }
+                }
             });
 
         </script>
