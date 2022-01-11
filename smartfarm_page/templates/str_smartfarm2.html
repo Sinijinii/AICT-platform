@@ -41,6 +41,8 @@
                 <!-- 상단 딸기 이미지 삽입-->
                 <div class="img-fluid" style="height:350px; opacity: 0.6; background-repeat: no-repeat; background-image: url('../static/smartfarm_page/assets/img/str_bg.png');"></div>
                 <div class="row gx-lg-5">
+                <img src="{% static 'smartfarm_page/assets/img/str_page_content2.png' %}" style="display: block; margin: 0 auto; width:950px; height:90px;" alt="">
+                <div class="row mb-5"></div>
                     <h2 class="text-center">이번 주 딸기 생산량 예측 결과</h2>
                     <h2 class="text-center" style="color: MediumBlue"> {{ predict_result }} </h2> <h5 class="text-center"> (개/단위 면적)</h5>
                 </div>
@@ -52,8 +54,7 @@
                     <div class="row mb-4"></div>
 
                     <!-- graph-->
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <!-- inTemp_graph-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -61,49 +62,52 @@
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="inTemp" width="1200" height="400"></canvas>
+                                    <canvas id="inTemp" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-sm-6">
                         <!-- inHum_graph-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">내부 습도</h6>
+                                <h6 class="m-0 font-weight-bold text-primary" >내부 습도</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="inHum" width="1200" height="400"></canvas>
+                                    <canvas id="inHum" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
+                    </div>
                         <!-- acInso_graph-->
+                    <div class="col-sm-6">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">외부 일사량</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="acInso" width="1200" height="400"></canvas>
+                                    <canvas id="acInso" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
+                    </div>
                         <!-- inCO2_graph-->
+                    <div class="col-sm-6">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">내부 CO2</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="inCO2" width="1200" height="400"></canvas>
+                                    <canvas id="inCO2" width="1200" height="500"></canvas>
                                 </div>
-                                <hr>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <form action="{% url 'API_doc_download' %}">
                     <div class="row mb-5"></div>
                     <div class="text-center"> 👇 더 많은 데이터가 필요하다면 이곳을 참고해주세요 👀
@@ -176,87 +180,66 @@
 
         <script>
             // 차트를 그럴 영역을 dom요소로 가져온다.
-            var chartArea = document.getElementById('inTemp')
-                // 차트를 생성한다.
-                var myChart = new Chart(chartArea, {
-                    // ①차트의 종류(String)
-                    type: 'line',
-                    // ②차트의 데이터(Object)
-                    data: {
-                        // ③x축에 들어갈 이름들(Array)
-                        labels: {{ bestFarm_data | get_dict:"date" | safe }},
-                        // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
-                        datasets: [{
-                            // ⑤dataset의 이름(String)
-                            label: 'My Farm',
-                            // ⑥dataset값(Array)
-                            data: {{ graph_data | get_dict:"inTemp" | safe }},
+            new Chart(document.getElementById("inTemp"), {
+              type: 'line',
+              data: {
+                labels: {{ bestFarm_data | get_dict:"date" | safe }},
+                datasets: [{
+                    data: {{ graph_data | get_dict:"inTemp" | safe }},
+                    label: 'My Farm',
+                    borderColor:'rgb(255, 99, 132)',
+                    fill: false,
+                    tension:0
+                  }, {
+                    data: {{ bestFarm_data | get_dict:"inTemp" | safe }},
+                    label: 'Best Farm',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false,
+                    tension:0
+                  }
+                ]
+              },
 
-                            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-                            borderColor: 'rgb(255, 99, 132)',
-                            fill : false,
-                            // ⑨dataset의 선 두께(Number)
-                            borderWidth: 3
-                        },{
-                            // ⑤dataset의 이름(String)
-                            label: 'Best Farm',
-                            // ⑥dataset값(Array)
-                            data: {{ bestFarm_data | get_dict:"inTemp" | safe }},
-                            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-                            borderColor: 'rgb(0, 0, 0)',
-                            fill : false,
-                            // ⑨dataset의 선 두께(Number)
-                            borderWidth: 3
-                            }],
-                        // ⑩차트의 설정(Object)
-                        options: {
-                        responsive : true,
-                        maintainAspectRatio: false,
-                        title : {
-                        display : true,
-                        text : 'Comparison of Temp diff Best farm and My farm'
-                        },
-                        scales: {
-                          xAxes: [{
-                            display: true,
-                            scaleLabel:{
-                                display : true
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Temp (℃)"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
                             },
-                            ticks: {
-                              maxTicksLimit: 7
-                            }
-                          }],
-                          yAxes: [{
-                            display : true,
-                            ticks: {
-                              maxTicksLimit: 5,
-                              padding: 10,
-                              // Include a dollar sign in the ticks
-                              callback: function(value, index, values) {
-                                return '$' + number_format(value);
-                              }
-                            },
-                            scaleLabel:{
-                                display: true,
-                            },
-                            gridLines: {
-                              color: "rgb(0, 0, 0)",
-                              zeroLineColor: "rgb(0, 0, 0)",
-                              drawBorder: false,
-                              borderDash: [2],
-                              zeroLineBorderDash: [2]
-                            }
-                          }],
-                        },
 
-                        tooltips: {
-                          backgroundColor: "rgb(255,255,255)",
-                          bodyFontColor: "#858796",
-                          titleMarginBottom: 10,
-                        }
-                      }
-                      }
-                    });
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' ℃';
+                          }
+
+                  }
+                }
+                }
+            });
+
 
 
             new Chart(document.getElementById("inHum"), {
@@ -266,21 +249,56 @@
                 datasets: [{
                     data: {{ graph_data | get_dict:"inHum" | safe }},
                     label: 'My Farm',
-                    borderColor: "#3e95cd",
-                    fill: false
+                    borderColor:'#0096c6',
+                    fill: false,
+                    tension:0
                   }, {
                     data: {{ bestFarm_data | get_dict:"inHum" | safe }},
                     label: 'Best Farm',
-                    borderColor: "#c45850",
-                    fill: false
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false,
+                    tension:0
                   }
                 ]
               },
               options: {
                 title: {
                   display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Humidity (%)"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' %';
+                          }
+
+                  }
                 }
-              }
+                }
             });
 
             new Chart(document.getElementById("acInso"), {
@@ -290,21 +308,56 @@
                 datasets: [{
                     data: {{ graph_data | get_dict:"acInso" | safe }},
                     label: 'My Farm',
-                    borderColor: "#3e95cd",
-                    fill: false
+                    borderColor: '#FFA500',
+                    fill: false,
+                    tension:0
                   }, {
                     data: {{ bestFarm_data | get_dict:"acInso" | safe }},
                     label: 'Best Farm',
-                    borderColor: "#c45850",
-                    fill: false
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false,
+                    tension:0
                   }
                 ]
               },
               options: {
                 title: {
                   display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Insolation (kWh/㎡)"
+                         },
+                      },
+                     ],
+                  },
+                  tooltips: {
+                  mode:'x',
+                  callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' kWh/㎡';
+                          }
+
+                  }
+                  }
                 }
-              }
             });
 
             new Chart(document.getElementById("inCO2"), {
@@ -314,21 +367,56 @@
                 datasets: [{
                     data: {{ graph_data | get_dict:"inCO2" | safe }},
                     label: 'My Farm',
-                    borderColor: "#3e95cd",
-                    fill: false
+                    borderColor:'#9400D3',
+                    fill: false,
+                    tension:0
                   }, {
                     data: {{ bestFarm_data | get_dict:"inCO2" | safe }},
                     label: 'Best Farm',
-                    borderColor: "#c45850",
-                    fill: false
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false,
+                    tension:0
                   }
                 ]
               },
               options: {
                 title: {
                   display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                         },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "CO2 (ppm)"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] + '주차';
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + ' ppm';
+                          }
+
+                  }
                 }
-              }
+                }
             });
 
         </script>
