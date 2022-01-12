@@ -1,33 +1,206 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>AICT 공공융합플랫폼 :: 영유아 스마트 케어</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'smartfarm_page/assets/favicon.ico' %}" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
+<!doctype html>
+<html>
+<head>
+<!-- Basic Page Needs
+    ================================================== -->
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영유아보육안전</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-sm navbar-light bg-light static-top">
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'smartfarm_page/css/kids/bootstrap.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'smartfarm_page/css/kids/font-awesome.css' %}?after">
+
+<!-- Slider
+    ================================================== -->
+<link href="{% static 'smartfarm_page/css/kids/owl.carousel.css' %}?after" rel="stylesheet" media="screen">
+<link href="{% static 'smartfarm_page/css/kids/owl.theme.css' %}?after" rel="stylesheet" media="screen">
+<link href="{% static 'smartfarm_page/css/kids/animate.css' %}?after" rel="stylesheet" media="screen">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="{% static 'smartfarm_page/css/stylehj.css' %}?after">
+<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700|Montserrat:100,200,300,300i,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="page" style="background-color:#F3F6F6">
+
+<!-- Navigation
+    ==========================================-->
+<nav id="top-menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span>공공융합플랫폼</span></a> </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <!--nav icon-->
+      <a id="nav-icon"> <span></span> <span></span> <span></span> </a>
+      <!--nav icon end-->
+
+      <ul id="nav-top" class="nav navbar-nav navbar-right">
+		   <li><a href="{% url 'main'%}" class="page-scroll">Home</a></li>
+			<li><a href="{% url 'str_smartfarm1'%}" class="page-scroll">딸기 스마트팜</a></li>
+			<li><a href="#" class="page-scroll">영유아 스마트 케어</a></li>
+			<li><a href="{% url 'finedust1'%}" class="page-scroll">미세먼지 현황 분석</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- banner Page
+    ==========================================-->
+<div id="page-banner" style="background-image: url({% static 'smartfarm_page/assets/img/children.jpg' %});">
+  <div class="content  wow fdeInUp">
+    <div class="container ">
+<!--
+      <h1>영유아 스마트 케어</h1>
+-->
+    </div>
+  </div>
+</div>
+
+<!--page body-->
+
+  <div class="container">
+      <br><br><br><br><br>
+    <div class="row">
+      <!--blog posts container-->
+      <div class="col-md-offset-3 col-md-6 page-block">
+          <h1 class="text-center" style="color: #484949;">영유아 스마트 케어</h1><br>
+          <h2 class="text-center">아이의 정보를 입력하세요.</h2><br><br>
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputName" style="font-size:15px;">이름</label>
+                    <input type="text" class="form-control" id="exampleInputName" placeholder="Name" style="height:45px;font-size:15px;">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputcheck" style="font-size:15px;">어린이집</label>
+                    <select name="checkbox" class="form-control" id="exampleInputcheck" placeholder="어린이집" style="height:45px;font-size:15px;">
+                        <option value="예닮어린이집" >예닮어린이집
+                        <option value="평택어린이집">평택어린이집
+                        </select><br>
+                    <label for="exampleInputcheck" style="font-size:15px;">반</label>
+                    <select name="checkbox" class="form-control" id="exampleInputcheck2" placeholder="반" style="height:45px;font-size:15px;">
+                        <optgroup label="예닮어린이집">
+                            <option value="ara">아라반</option>
+                            <option value="hana">하나반</option>
+                            <option value="narae">나래반</option>
+                            <option value="ato">아토반</option>
+                            <option value="maru">마루반</option>
+                            <option value="nuri">누리반</option>
+                        <optgroup label="평택어린이집">
+                            <option value="6old" >독수리반
+                            <option value="5old">다람쥐반
+                            <option value="4old">병아리반
+                            </select><br>
+                </div>
+
+<!--                 <div class="form-group">-->
+<!--                    <label for="exampleInputPassword1">Password</label>-->
+<!--                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+<!--                </div>-->
+                <div class="form-group">
+                    <label for="exampleInputPassword1" style="font-size:15px;">Password ※(초기 : 생년월일6자리) </label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" style="height:45px;font-size:15px;">
+                </div><br>
+                <button type="submit" class="btn btn-primary">LOGIN</button><br><br><br><br><br><br><br><br><br><br><br><br>
+        </form>
+
+      <!--blog posts container-->
+
+    </div>
+  </div>
+ </div>
+</div>
+<!--<div class="clearfix"></div>-->
+
+        <div class="row mb-5"></div>
+        <footer class="footer bg-light" style="background-color:#DCDCDC">
+            <br><br><br>
             <div class="container">
-                <a class="navbar-brand" href="../">
-                    <img src="{% static 'smartfarm_page/assets/img/logo.png' %}" width="160" height="50" alt="">
-                    <a class="btn btn-primary" href="#signup">LOGIN </a>
-                </a>
-            </div>
-        </nav>
-    </body>
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://aict.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.gg.go.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><br><br>
+        </footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/SmoothScroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/jquery.isotope.js' %}"></script>
+<script src="{% static 'smartfarm_page/js/kids/owl.carousel.js' %}"></script>
+<script src="{% static 'smartfarm_page/js/kids/jquery.waypoints.min.js' %}"></script>
+<!-- Javascripts
+    ================================================== -->
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/main.js' %}"></script>
+<script src="{% static 'smartfarm_page/js/kids/wow.min.js' %}"></script>
+<script>
+    jQuery(document).ready(function( $ ) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
+</script>
+<script>
+new WOW().init();
+</script>
+</body>
 </html>
