@@ -12,8 +12,8 @@ def str_smartfarm1(request):
 def kids_pattern1(request):
     return render(request, 'kids_pattern1.html')
 
-def library1(request):
-    return render(request, 'library1.html')
+def covid19(request):
+    return render(request, 'covid19.html')
 
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
