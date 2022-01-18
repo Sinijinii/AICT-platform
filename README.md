@@ -1,4 +1,4 @@
-# AICT - Platformroject
+# AICT - PlatformProject
 ## ⚜Project⚜
 공공융합플랫폼 페이지 구현 <br>
 ☝딸기 스마트팜 데이터를 활용한 딸기 생산량 예측 모델 개발<br>
