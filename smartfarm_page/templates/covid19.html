@@ -16,6 +16,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
+                <!-- Chartjs CSS CDN-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <!--Using JS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Custom styles for this template-->
+        <link href="{% static 'smartfarm_page/css/sb-admin-2.css' %}?after" rel="stylesheet" />
+        <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -25,7 +32,202 @@
                     <img src="{% static 'smartfarm_page/assets/img/logo.png' %}" width="160" height="50" alt="">
                     <a class="btn btn-primary" href="#signup">LOGIN </a>
                 </a>
+
             </div>
         </nav>
+
+        <div class="pt-4 bg-light">
+        <div class="row mb-5"></div>
+        <div class="row mb-5"></div>
+
+            <div class="container px-xl-6 bg-light">
+                {% block content %}
+                <h2 class="text-center">오늘의 코로나 확진자 수는 {{ today_total_num }} 명입니다. </h2><br>
+                {% endblock %}
+            <div class="col-md-2"></div>
+
+        <div class="row mb-5"></div>
+
+            <!-- 선형 그래프   -->
+            <div class="row gx-rg-5">
+            <div class="col-md-8">
+                <!-- inHum_graph-->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary" >코로나 현황</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="covid_happen" width="1200" height="500"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary"> 국내 발생 / 해외 유입 현황</h6>
+                    </div>
+
+
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie" width="1200" height="800">
+                            <canvas id="myPieChart" width="1200" height="500"></canvas>
+                        </div>
+                        <div class="mt-3 text-center small">
+                            <h6 class="text-center">국내 발생 :  {{ region_num }}명 , 해외 유입 :  {{ abroad_num }}명  </h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        <!-- Jquery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'smartfarm_page/js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+        <!-- Page level plugins -->
+        <script src="{% static 'smartfarm_page/js/Chart.min.js' %}"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
+        <script src="{% static 'smartfarm_page/js/chart-pie-demo.js' %}"></script>
+        <script src="{% static 'smartfarm_page/js/chart-bar-demo.js' %}"></script>
+
+
+        <script>
+            var ctx = document.getElementById("myPieChart");
+            var myPieChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["국내", "해외"],
+                datasets: [{
+                  data: [{{ region_num }}, {{ abroad_num }}],
+                  backgroundColor: ['#4e73df', '#D3D3D3'],
+                  hoverBackgroundColor: ['#2e59d9', '#D3D3D3'],
+                  hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+              },
+              options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                  backgroundColor: "rgb(255,255,255)",
+                  bodyFontColor: "#858796",
+                  borderColor: '#dddfeb',
+                  borderWidth: 1,
+                  xPadding: 15,
+                  yPadding: 15,
+                  displayColors: false,
+                  caretPadding: 10,
+                },
+                legend: {
+                  display: false
+                },
+                cutoutPercentage: 40,
+              },
+            });
+
+
+
+            new Chart(document.getElementById("covid_happen"), {
+            type: 'bar',
+            data: {
+                labels: {{ change_covid_date | safe }},
+                datasets: [{
+                    label: '코로나 누적 확진자 수',
+                    data: {{ change_covid_patient | safe }},
+                    borderColor: "#1cc88a",
+                    backgroundColor: "#1cc88a",
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] ;
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + '명';
+                        }
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                        },
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 600000,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: '명'
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
     </body>
 </html>
