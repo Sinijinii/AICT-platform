@@ -144,3 +144,27 @@ def download_API_file(request):
             response = HttpResponse(fh.read(), content_type=mimetypes.guess_type(file_name))
             response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
             return response
+
+# 네이버 뉴스 크롤링
+import requests
+from bs4 import BeautifulSoup
+
+def news_crawling(request):
+    raw = requests.get("https://search.naver.com/search.naver?where=news&sm=tab_jum&query=코로나",
+                       headers={'User-Agent': 'Mozilla/5.0'}, verify=False)
+    html = BeautifulSoup(raw.text, "html.parser")
+    articles = html.select("ul.list_news > li")
+
+    news_lst = []
+    num = 0
+    for ar in articles:
+        num += 1
+        title = ar.select_one("a.news_tit").text
+        time = ar.select_one("span.info").text
+        link = ar.select_one("a.news_tit")['href']
+        news_lst.append([title, time, link])
+        if num == 5:
+            break
+    return news_lst
+
+
