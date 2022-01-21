@@ -4543,7 +4543,7 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
 }
 
 .card-title {
@@ -7888,7 +7888,7 @@ textarea.form-control-lg {
 
 .bg-gradient {
   background-image: var(--bs-gradient) !important;
-}
+  }
 
 .user-select-all {
   -webkit-user-select: all !important;
@@ -11299,6 +11299,11 @@ textarea.form-control-lg {
 }
 .features-icons .features-icons-item .features-icons-icon i {
   font-size: 4.5rem;
+}
+
+header.background{
+  position: relative;
+  background: url("../assets/img/corona_background2.png") no-repeat center;
 }
 
 header.masthead {
