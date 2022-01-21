@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:get_dict="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,6 +16,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
+                <!-- Chartjs CSS CDN-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <!--Using JS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Custom styles for this template-->
+        <link href="{% static 'smartfarm_page/css/sb-admin-2.css' %}?after" rel="stylesheet" />
+        <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -25,7 +32,229 @@
                     <img src="{% static 'smartfarm_page/assets/img/logo.png' %}" width="160" height="50" alt="">
                     <a class="btn btn-primary" href="#signup">LOGIN </a>
                 </a>
+
             </div>
         </nav>
+
+        <div class="pt-4 bg-light">
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+
+            <div class="container px-xl-6 bg-light">
+                {% block content %}
+                <h2 class="text-center">오늘의 코로나 확진자 수는 {{ graph_dict | get_dict:"today_total_num" }} 명입니다. </h2><br>
+                {% endblock %}
+                <div class="col-md-2"></div>
+                <div class="row mb-5"></div>
+
+                <!-- 선형 그래프  -->
+                <div class="row gx-rg-5">
+                    <div class="col-md-8">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary" >코로나 현황</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="covid_happen" width="1200" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- pie chart -->
+                    <div class="col-md-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary"> 국내 발생 / 해외 유입 현황</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-pie" width="1200" height="800">
+                                    <canvas id="myPieChart" width="1200" height="500"></canvas>
+                                </div>
+                                <div class="mt-3 text-center small">
+                                    <h6 class="text-center">국내 발생 :  {{ graph_dict | get_dict:"region_num" }}명 , 해외 유입 :  {{ graph_dict | get_dict:"abroad_num" }}명  </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Crawling  -->
+                <div class="row mb-5"></div>
+                <div class="row mb-5"></div>
+                <h2 class="text-center">📰 실시간 뉴스 토픽 📰 </h2>
+                <div class="row mb-5"></div>
+                <div class="card-group">
+                    {% for news in news_lst %}
+                    <div class="col-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ news | get_dict:'image' }}" alt="Card image cap">
+                            <div class="card-body h-100">
+                                <h5 class="card-title"> {{ news | get_dict:"title" }}</h5>
+                                <p class="card-text"> {{ news | get_dict:"time" }}</p>
+                                <p class="card-text"> {{ news | get_dict:"pub" }}</p>
+                                <a href="{{ news | get_dict:'link' }}" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Footer-->
+                <div class="row mb-5"></div>
+                <footer class="footer bg-light">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                                <ul class="list-inline mb-2">
+                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                                    <li class="list-inline-item">⋅</li>
+                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                                    <li class="list-inline-item">⋅</li>
+                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                                    <li class="list-inline-item">⋅</li>
+                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+
+                                </ul>
+                                <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                            </div>
+                            <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item me-4">
+                                        <a href="https://aict.snu.ac.kr/">
+                                            <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item me-4">
+                                        <a href="https://www.snu.ac.kr/">
+                                            <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item me-4">
+                                        <a href="https://www.gg.go.kr/">
+                                            <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        <!-- Jquery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'smartfarm_page/js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+        <!-- Page level plugins -->
+        <script src="{% static 'smartfarm_page/js/Chart.min.js' %}"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
+        <script src="{% static 'smartfarm_page/js/chart-pie-demo.js' %}"></script>
+        <script src="{% static 'smartfarm_page/js/chart-bar-demo.js' %}"></script>
+
+
+        <script>
+            var ctx = document.getElementById("myPieChart");
+            var myPieChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["국내", "해외"],
+                datasets: [{
+                  data: [{{ graph_dict | get_dict:"region_num" | safe }}, {{ graph_dict | get_dict:"abroad_num" | safe }}],
+                  backgroundColor: ['#4e73df', '#D3D3D3'],
+                  hoverBackgroundColor: ['#2e59d9', '#D3D3D3'],
+                  hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+              },
+              options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                  backgroundColor: "rgb(255,255,255)",
+                  bodyFontColor: "#858796",
+                  borderColor: '#dddfeb',
+                  borderWidth: 1,
+                  xPadding: 15,
+                  yPadding: 15,
+                  displayColors: false,
+                  caretPadding: 10,
+                },
+                legend: {
+                  display: false
+                },
+                cutoutPercentage: 40,
+              },
+            });
+
+            new Chart(document.getElementById("covid_happen"), {
+            type: 'bar',
+            data: {
+                labels: {{ graph_dict | get_dict:"change_covid_date" | safe }},
+                datasets: [{
+                    label: '코로나 누적 확진자 수',
+                    data: {{ graph_dict | get_dict:"change_covid_patient" | safe }},
+                    borderColor: "#1cc88a",
+                    backgroundColor: "#1cc88a",
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index] ;
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel + '명';
+                        }
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                        },
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 600000,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: '명'
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
     </body>
 </html>

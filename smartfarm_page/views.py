@@ -13,7 +13,10 @@ def kids_pattern1(request):
     return render(request, 'kids_pattern1.html')
 
 def covid19(request):
-    return render(request, 'covid19.html')
+    graph_dict = covid_graph()
+    news_lst = news_crawling()
+
+    return render(request, 'covid19.html', context={'graph_dict':graph_dict, 'news_lst':news_lst})
 
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
@@ -149,7 +152,7 @@ def download_API_file(request):
 import requests
 from bs4 import BeautifulSoup
 
-def news_crawling(request):
+def news_crawling():
     raw = requests.get("https://search.naver.com/search.naver?where=news&sm=tab_jum&query=코로나",
                        headers={'User-Agent': 'Mozilla/5.0'}, verify=False)
     html = BeautifulSoup(raw.text, "html.parser")
@@ -158,13 +161,94 @@ def news_crawling(request):
     news_lst = []
     num = 0
     for ar in articles:
-        num += 1
         title = ar.select_one("a.news_tit").text
         time = ar.select_one("span.info").text
         link = ar.select_one("a.news_tit")['href']
-        news_lst.append([title, time, link])
-        if num == 5:
+        pub = ar.select_one("a.info").text.split(' ')[0].replace('언론사', '')
+        image = ar.select_one('div > a > img')['src']
+        if pub == '스포츠동아':
+            continue
+        news_lst.append({'title':title, 'pub':pub, 'time':time, 'link':link, 'image':image})
+        num += 1
+        if num == 6:
             break
     return news_lst
 
+# 코로나 확진자수 api 데이터 가져오기
+import time
+from dateutil.parser import parse
+from urllib.parse import unquote
+import xml.etree.ElementTree as el
+import pandas as pd
+import datetime
+import xml.etree.ElementTree as ET
 
+def covid_graph():
+    serviceURL = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'
+    # 인증키
+    serviceKey = 'wJJLUr7wt7dy1QImckWHqfneTIXSE7zW+O9NBD3289VJUF7tCq4XdyIhvS2vSXGEXDWDg/8ysAK0vYYQZfh+wg=='
+    # 서비스키가 utf8로 인코딩되어 있어서 unquote로 디코딩에서 get요청을 보내야 응답이 정상적으로 옵니다.
+    serviceKey_decode = unquote(serviceKey)
+
+    pageNo = '2'
+    numOfRows = '10'
+    startCreateDt = '20220101'
+    endCreateDt = time.strftime('%Y%m%d', time.localtime(time.time()))
+    # api문서대로 파라미터를 설정합니다
+    parameters = {"serviceKey": serviceKey_decode, "pageNo": pageNo, "numOfRows": numOfRows,
+                  "startCreateDt": startCreateDt, "endCreateDt": endCreateDt}
+
+    # get요청을 보냅니다.
+    response = requests.get(serviceURL, params=parameters)
+
+    # 200이면 서버응답이 제대로 되었다는 뜻
+    if response.status_code == 200:
+        tree = ET.fromstring(response.text)
+        iter = tree.iter(tag="item")
+
+        df = pd.DataFrame()
+
+        for element in iter:
+            element_dict = {}
+
+            element_dict['일시'] = element.find('createDt').text  # 일시
+            element_dict['사망자 수'] = element.find('deathCnt').text  # 사망자
+            element_dict['시도명'] = element.find('gubun').text  # 지역
+            element_dict['전일대비 증감'] = element.find('incDec').text  # 전일대비증감수
+            element_dict['확진자 수'] = element.find('defCnt').text  # 확진자수
+            element_dict['격리해제 수'] = element.find('isolClearCnt').text  # 격리해제수
+            element_dict['지역발생 수'] = element.find('localOccCnt').text  # 지역발생수
+            element_dict['해외유입'] = element.find('overFlowCnt').text  # 해외유입수
+            element_dict['10만명당 발생률'] = element.find('qurRate').text  # 10만명당 발생률
+            element_dict['id'] = element.find('seq').text  # 게시글 번호(고유값)
+            element_dict['기준일시'] = element.find('stdDay')  # 기준일시
+            df = df.append(element_dict, ignore_index=True)
+
+        df['일시'] = pd.to_datetime(df['일시'], format="%Y %m %d")
+        df['사망자 수'] = pd.to_numeric(df['사망자 수'])
+        df['전일대비 증감'] = pd.to_numeric(df['전일대비 증감'])
+        df['확진자 수'] = pd.to_numeric(df['확진자 수'])
+        df['격리해제 수'] = pd.to_numeric(df['격리해제 수'])
+        df['지역발생 수'] = pd.to_numeric(df['지역발생 수'])
+        df['해외유입'] = pd.to_numeric(df['해외유입'])
+        # df['10만명당 발생률'] = pd.to_numeric(df['10만명당 발생률'])
+
+        df['일시'] = df["일시"].dt.strftime("%Y-%m-%d")
+
+        now = datetime.datetime.now()
+        nowDate = now.strftime('%Y-%m-%d')
+
+        total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")
+        total_num = total_covid_df['확진자 수'].iloc[0]
+        region_num = total_covid_df['지역발생 수'].iloc[0]
+        abroad_num = total_covid_df['해외유입'].iloc[0]
+        today_total_num = region_num + abroad_num
+
+        change_covid_df = df.query("시도명 == '합계'")
+        change_covid_date = list( change_covid_df['일시'])
+        change_covid_patient = list(change_covid_df['확진자 수'])
+        today_acc_covid_patient = change_covid_patient[0]
+
+        covid_graph_dict = {'covid_total' : format(total_num,',d'), 'region_num' : region_num, 'abroad_num': format(abroad_num, ',d'), 'today_total_num': format(today_total_num,',d'), 'change_covid_date' :change_covid_date[::-1],
+                                                         'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
+        return covid_graph_dict
