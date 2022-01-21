@@ -25,6 +25,7 @@
         <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
     </head>
     <body>
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-sm navbar-light bg-light static-top">
             <div class="container">
@@ -32,57 +33,76 @@
                     <img src="{% static 'smartfarm_page/assets/img/logo.png' %}" width="160" height="50" alt="">
                     <a class="btn btn-primary" href="#signup">LOGIN </a>
                 </a>
-
             </div>
         </nav>
+        <!-- 상단 이미지 삽입-->
+        <header class="background bg-light">
 
-        <div class="pt-4 bg-light">
-        <div class="row mb-5"></div>
-        <div class="row mb-5"></div>
 
-            <div class="container px-xl-6 bg-light">
-                {% block content %}
-                <h2 class="text-center">오늘의 코로나 확진자 수는 {{ today_total_num }} 명입니다. </h2><br>
-                {% endblock %}
-            <div class="col-md-2"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
+            <div class="row mb-5"></div>
 
-        <div class="row mb-5"></div>
+            <section>
+            <div class="row mb-5"></div>
+                <div class="container px-xl-6 bg-light">
+                    <div class="row mb-5"></div>
 
-            <!-- 선형 그래프   -->
-            <div class="row gx-rg-5">
-            <div class="col-md-8">
-                <!-- inHum_graph-->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" >코로나 현황</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="covid_happen" width="1200" height="500"></canvas>
+                    {% block content %}
+                    <h2 class="text-center">오늘의 코로나 확진자 수는 <span style="color:blue">{{ today_total_num }}</span> 명이며, </h2><br>
+                    <h4 class="text-center">누적 코로나 확진자 수는 {{today_acc_covid_patient }} 명입니다 </h4>
+                    {% endblock %}
+                <div class="col-md-2"></div>
+
+            <div class="row mb-5"></div>
+
+                <!-- 선형 그래프   -->
+                <div class="row gx-rg-5">
+                <div class="col-md-8">
+                    <!-- inHum_graph-->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" >코로나 현황</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="covid_happen" width="1200" height="500"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary"> 국내 발생 / 해외 유입 현황</h6>
-                    </div>
-
-
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-pie" width="1200" height="800">
-                            <canvas id="myPieChart" width="1200" height="500"></canvas>
-                        </div>
-                        <div class="mt-3 text-center small">
-                            <h6 class="text-center">국내 발생 :  {{ region_num }}명 , 해외 유입 :  {{ abroad_num }}명  </h6>
+                <div class="col-md-4">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary"> 국내 발생 / 해외 유입 현황</h6>
                         </div>
 
+
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-pie" width="1200" height="800">
+                                <canvas id="myPieChart" width="1200" height="500"></canvas>
+                            </div>
+<!--                                <h6 class="text-center">국내 발생 :  {{ region_num }}명 , 해외 유입 :  {{ abroad_num }}명  </h6>-->
+                                <div class="mt-3 text-center small">
+                                <div class="row mb-4"></div>
+
+                            </div>
+
+                        </div>
                     </div>
+                 </div>
                 </div>
             </div>
+        </section>
+    </header>
+
 
 
 
@@ -135,7 +155,8 @@
                   caretPadding: 10,
                 },
                 legend: {
-                  display: false
+                  display: true,
+                  position: 'bottom',
                 },
                 cutoutPercentage: 40,
               },

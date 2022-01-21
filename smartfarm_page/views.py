@@ -218,9 +218,9 @@ def covid(request):
         change_covid_df = df.query("시도명 == '합계'")
         change_covid_date = list( change_covid_df['일시'])
         change_covid_patient = list(change_covid_df['확진자 수'])
-
-        return render(request, 'covid19.html',  context={'covid_total' : total_num, 'region_num' : region_num, 'abroad_num': abroad_num, 'today_total_num': today_total_num, 'change_covid_date' :change_covid_date[::-1],
-                                                         'change_covid_patient' : change_covid_patient[::-1]})
+        today_acc_covid_patient = change_covid_patient[0]
+        return render(request, 'covid19.html',  context={'covid_total' : format(total_num,',d'), 'region_num' : region_num, 'abroad_num': format(abroad_num, ',d'), 'today_total_num': format(today_total_num,',d'), 'change_covid_date' :change_covid_date[::-1],
+                                                         'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')})
 
 # data_dict = {'time' :element_dict['일시'], 'dead' : element_dict['사망자 수'], 'sidoName': list(element_dict['시도명']), 'today-yesterday' : list(element_dict['전일대비 증감']),
 #          'patient': element_dict['확진자 수'], 'isoClear': list(element_dict['격리해제 수']), 'local_occur': list(element_dict['지역발생 수']), 'Abroad': list(element_dict['해외유입'])}
