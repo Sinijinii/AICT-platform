@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/웹_시험용_데이터셋_M0WrvyY.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/corona_backgound.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/corona_background2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/covid19.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/covid19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
