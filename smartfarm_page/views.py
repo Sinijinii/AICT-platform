@@ -13,7 +13,10 @@ def kids_pattern1(request):
     return render(request, 'kids_pattern1.html')
 
 def covid19(request):
-    return render(request, 'covid19.html')
+    graph_dict = covid_graph()
+    news_lst = news_crawling()
+
+    return render(request, 'covid19.html', context={'graph_dict':graph_dict, 'news_lst':news_lst})
 
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
@@ -145,7 +148,33 @@ def download_API_file(request):
             response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
             return response
 
+# 네이버 뉴스 크롤링
 import requests
+from bs4 import BeautifulSoup
+
+def news_crawling():
+    raw = requests.get("https://search.naver.com/search.naver?where=news&sm=tab_jum&query=코로나",
+                       headers={'User-Agent': 'Mozilla/5.0'}, verify=False)
+    html = BeautifulSoup(raw.text, "html.parser")
+    articles = html.select("ul.list_news > li")
+
+    news_lst = []
+    num = 0
+    for ar in articles:
+        title = ar.select_one("a.news_tit").text
+        time = ar.select_one("span.info").text
+        link = ar.select_one("a.news_tit")['href']
+        pub = ar.select_one("a.info").text.split(' ')[0].replace('언론사', '')
+        image = ar.select_one('div > a > img')['src']
+        if pub == '스포츠동아':
+            continue
+        news_lst.append({'title':title, 'pub':pub, 'time':time, 'link':link, 'image':image})
+        num += 1
+        if num == 6:
+            break
+    return news_lst
+
+# 코로나 확진자수 api 데이터 가져오기
 import time
 from dateutil.parser import parse
 from urllib.parse import unquote
@@ -154,7 +183,7 @@ import pandas as pd
 import datetime
 import xml.etree.ElementTree as ET
 
-def covid(request):
+def covid_graph():
     serviceURL = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'
     # 인증키
     serviceKey = 'wJJLUr7wt7dy1QImckWHqfneTIXSE7zW+O9NBD3289VJUF7tCq4XdyIhvS2vSXGEXDWDg/8ysAK0vYYQZfh+wg=='
@@ -219,8 +248,7 @@ def covid(request):
         change_covid_date = list( change_covid_df['일시'])
         change_covid_patient = list(change_covid_df['확진자 수'])
         today_acc_covid_patient = change_covid_patient[0]
-        return render(request, 'covid19.html',  context={'covid_total' : format(total_num,',d'), 'region_num' : region_num, 'abroad_num': format(abroad_num, ',d'), 'today_total_num': format(today_total_num,',d'), 'change_covid_date' :change_covid_date[::-1],
-                                                         'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')})
 
-# data_dict = {'time' :element_dict['일시'], 'dead' : element_dict['사망자 수'], 'sidoName': list(element_dict['시도명']), 'today-yesterday' : list(element_dict['전일대비 증감']),
-#          'patient': element_dict['확진자 수'], 'isoClear': list(element_dict['격리해제 수']), 'local_occur': list(element_dict['지역발생 수']), 'Abroad': list(element_dict['해외유입'])}
+        covid_graph_dict = {'covid_total' : format(total_num,',d'), 'region_num' : region_num, 'abroad_num': format(abroad_num, ',d'), 'today_total_num': format(today_total_num,',d'), 'change_covid_date' :change_covid_date[::-1],
+                                                         'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
+        return covid_graph_dict
