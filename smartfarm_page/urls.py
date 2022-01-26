@@ -1,4 +1,6 @@
 from django.urls import path
+from requests import request
+
 from . import views
 
 urlpatterns = [
@@ -12,4 +14,5 @@ urlpatterns = [
     path('input_value/', views.input_value, name="input_value"),
     path('str_smartfarm2/', views.str_smartfarm2, name='str_smartfarm2'),
     path('API_doc_download/', views.download_API_file, name="API_doc_download"),
+    path('ex_xlsx_download/', views.download_ex_file, name="ex_xlsx_download"),
 ]
