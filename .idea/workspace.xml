@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
-    </list>
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

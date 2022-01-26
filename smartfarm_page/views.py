@@ -25,7 +25,6 @@ def str_smartfarm2(request):
 from django.shortcuts import render
 from .forms import FileUploadForm
 from .models import FileUploadModel
-from .models import InputValueModel
 
 def upload_file(request):
     if request.method == 'POST':        # POST 방식이면, 데이터가 담긴 제출된 form으로 간주
@@ -148,6 +147,16 @@ def download_API_file(request):
             response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
             return response
 
+def download_ex_file(request):
+    file_path = './smartfarm_page/static/smartfarm_page/assets/환경변수 데이터셋 Sample.xlsx'
+    file_name = '환경변수 데이터셋 Sample.xlsx'
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            quote_file_url = urllib.parse.quote(file_name.encode('utf-8'))
+            response = HttpResponse(fh.read(), content_type=mimetypes.guess_type(file_name))
+            response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
+            return response
+
 # 네이버 뉴스 크롤링
 import requests
 from bs4 import BeautifulSoup
@@ -242,9 +251,9 @@ def covid_graph():
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")
 
         if total_covid_df.empty:
-            yesterday = now - datetime.timedelta(days=1)
-            yesterdayDate = yesterday.strftime('%Y-%m-%d')
-            total_covid_df = df.query("(시도명 == '합계') and (일시 == @yesterdayDate)")
+            yesterday = (now - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+            total_covid_df = df.query("(시도명 == '합계') and (일시 == @yesterday)")
+
 
         total_num = total_covid_df['확진자 수'].iloc[0]
         region_num = total_covid_df['지역발생 수'].iloc[0]
