@@ -24,8 +24,9 @@
         <link href="{% static 'smartfarm_page/css/sb-admin-2.css' %}?after" rel="stylesheet" />
         <link href="{% static 'smartfarm_page/css/styles.css' %}?after" rel="stylesheet" />
     </head>
-    <body>
 
+
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-sm navbar-light bg-light static-top">
             <div class="container">
@@ -35,10 +36,9 @@
                 </a>
             </div>
         </nav>
+
         <!-- 상단 이미지 삽입-->
-        <header class="background bg-light">
-            <div class="row mb-5"></div>
-            <div class="row mb-5"></div>
+        <div class="background bg-light">
             <div class="row mb-5"></div>
             <div class="row mb-5"></div>
             <div class="row mb-5"></div>
@@ -46,27 +46,25 @@
             <div class="row mb-5"></div>
             <div class="row mb-5"></div>
 
-            <section>
-            <div class="row mb-5"></div>
-                <div class="container px-xl-6 bg-light">
-                    <div class="row mb-5"></div>
-
+            <div class="container px-xl-6 bg-white" style="border-radius: 30px">
+                <div class="row mb-5"></div>
                     {% block content %}
                     <h2 class="text-center">오늘의 코로나 확진자 수는 <span style="color:blue">{{ graph_dict | get_dict:"today_total_num" }}</span> 명이며, </h2><br>
                     <h4 class="text-center">누적 코로나 확진자 수는 {{ graph_dict | get_dict:"today_acc_covid_patient" }} 명입니다 </h4>
                     {% endblock %}
-                <div class="col-md-2"></div>
+                    <div class="col-md-2"></div>
+                <div class="row mb-5"></div>
 
-            <div class="row mb-5"></div>
-
-                <!-- 선형 그래프   -->
+                <!-- 막대 그래프 & 파이 그래프  -->
                 <div class="row gx-rg-5">
                     <div class="col-md-8">
-                        <!-- inHum_graph-->
+                        <!-- 막대 그래프-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary" >코로나 현황</h6>
                             </div>
+
+                            <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="covid_happen" width="1200" height="500"></canvas>
@@ -75,6 +73,7 @@
                         </div>
                     </div>
 
+                    <!-- 파이 그래프-->
                     <div class="col-md-4">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
@@ -87,79 +86,78 @@
                                 <div class="chart-pie" width="1200" height="800">
                                     <canvas id="myPieChart" width="1200" height="500"></canvas>
                                 </div>
-                                    <div class="mt-3 text-center small">
+                                <div class="mt-3 text-center small">
                                     <div class="row mb-4"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- News Crawling  -->
-                    <div class="row mb-5"></div>
-                    <div class="row mb-5"></div>
-                    <h2 class="text-center">📰 실시간 뉴스 토픽 📰 </h2>
-                    <div class="row mb-5"></div>
-                    <div class="card-group">
-                        {% for news in news_lst %}
-                        <div class="col-4">
-                            <div class="card h-100">
-                                <img class="card-img-top" src="{{ news | get_dict:'image' }}" alt="Card image cap">
-                                <div class="card-body h-100">
-                                    <h5 class="card-title"> {{ news | get_dict:"title" }}</h5>
-                                    <p class="card-text"> {{ news | get_dict:"time" }}</p>
-                                    <p class="card-text"> {{ news | get_dict:"pub" }}</p>
-                                    <a href="{{ news | get_dict:'link' }}" class="stretched-link"></a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-
-                </div>
                 </div>
 
-                <!-- Footer-->
+
+                <!-- News Crawling  -->
                 <div class="row mb-5"></div>
-                <footer class="footer bg-light">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                                <ul class="list-inline mb-2">
-                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
-                                    <li class="list-inline-item">⋅</li>
-                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
-                                    <li class="list-inline-item">⋅</li>
-                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
-                                    <li class="list-inline-item">⋅</li>
-                                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
-
-                                </ul>
-                                <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
-                            </div>
-                            <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item me-4">
-                                        <a href="https://aict.snu.ac.kr/">
-                                            <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item me-4">
-                                        <a href="https://www.snu.ac.kr/">
-                                            <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item me-4">
-                                        <a href="https://www.gg.go.kr/">
-                                            <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
-                                        </a>
-                                    </li>
-                                </ul>
+                <h2 class="text-center">📰 실시간 뉴스 토픽 📰 </h2>
+                <div class="row mb-5"></div>
+                <div class="card-group">
+                    {% for news in news_lst %}
+                    <div class="col-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ news | get_dict:'image' }}" alt="Card image cap">
+                            <div class="card-body h-100">
+                                <h5 class="card-title"> {{ news | get_dict:"title" }}</h5>
+                                <p class="card-text"> {{ news | get_dict:"time" }}</p>
+                                <p class="card-text"> {{ news | get_dict:"pub" }}</p>
+                                <a href="{{ news | get_dict:'link' }}" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </section>
-        </header>
+                    {% endfor %}
+                </div>
+                <div class="row mb-5"></div>
+                <div class="row mb-5"></div>
+            </div>
+
+            <!-- Footer-->
+            <footer class="footer bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                            <ul class="list-inline mb-2">
+                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                                <li class="list-inline-item">⋅</li>
+                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                                <li class="list-inline-item">⋅</li>
+                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                                <li class="list-inline-item">⋅</li>
+                                <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+                            </ul>
+                            <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                        </div>
+                        <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item me-4">
+                                    <a href="https://aict.snu.ac.kr/">
+                                        <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item me-4">
+                                    <a href="https://www.snu.ac.kr/">
+                                        <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item me-4">
+                                    <a href="https://www.gg.go.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
 
         <!-- Jquery-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
