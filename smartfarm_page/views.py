@@ -25,7 +25,6 @@ def str_smartfarm2(request):
 from django.shortcuts import render
 from .forms import FileUploadForm
 from .models import FileUploadModel
-from .models import InputValueModel
 
 def upload_file(request):
     if request.method == 'POST':        # POST 방식이면, 데이터가 담긴 제출된 form으로 간주
