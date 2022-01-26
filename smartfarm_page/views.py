@@ -247,10 +247,13 @@ def covid_graph():
         now = datetime.datetime.now()
         nowDate = now.strftime('%Y-%m-%d')
 
+
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")
+
         if total_covid_df.empty:
             yesterday = (now - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
             total_covid_df = df.query("(시도명 == '합계') and (일시 == @yesterday)")
+
 
         total_num = total_covid_df['확진자 수'].iloc[0]
         region_num = total_covid_df['지역발생 수'].iloc[0]
