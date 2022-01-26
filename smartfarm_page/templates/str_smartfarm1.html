@@ -25,7 +25,6 @@
             <div class="container">
                 <a class="navbar-brand" href="../">
                     <img src="{% static 'smartfarm_page/assets/img/logo.png' %}" width="160" height="50" alt="">
-                    <a class="btn btn-primary" href="#signup">LOGIN </a>
                 </a>
             </div>
         </nav>
@@ -49,6 +48,14 @@
                     <div class="row mb-3"></div>
                     <h5 class="text-center">1. 농장의 스마트팜(Smart Farm) 환경 데이터를 업로드해 주세요.</h5>
                     <div class="row mb-4"></div>
+
+                    <form action="{% url 'ex_xlsx_download' %}">
+                        <div class="text-center"> 👇 데이터는 아래의 양식을 채워서 업로드 해주세요.
+                            <div class="row mb-3"></div>
+                            <input type="submit" class="btn btn-outline-success col-3"  value="파일 양식 다운로드">
+                            <div class="row mb-5"></div>
+                        </div>
+                    </form>
                 </div>
                     <!-- File upload _ Drag & Drop-->
                     <div class="row">

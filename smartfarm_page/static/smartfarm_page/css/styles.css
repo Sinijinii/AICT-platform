@@ -11301,9 +11301,11 @@ textarea.form-control-lg {
   font-size: 4.5rem;
 }
 
-header.background{
+div.background{
   position: relative;
-  background: url("../assets/img/corona_background2.png") no-repeat center;
+  background: url("../assets/img/corona_background2.png") no-repeat top;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 header.masthead {
