@@ -25,6 +25,8 @@ def str_smartfarm2(request):
 from django.shortcuts import render
 from .forms import FileUploadForm
 from .models import FileUploadModel
+# ID(phone number) 전역변수로 할당
+phone_id = '0'
 
 def upload_file(request):
     if request.method == 'POST':        # POST 방식이면, 데이터가 담긴 제출된 form으로 간주
@@ -71,7 +73,6 @@ def input_value(request):
         most_recent_file = recent_file()
         df = pd.read_excel(most_recent_file)
         myFarm_date = list(df['주차'])
-        # date = [dd.strftime('%Y-%m-%d') for dd in date]
         acInso = list(np.round(list(df['외부 일사량']), 2))
         inTemp = list(np.round(list(df['내부온도']), 2))
         inHum = list(np.round(list(df['내부습도']), 2))
@@ -247,10 +248,13 @@ def covid_graph():
         now = datetime.datetime.now()
         nowDate = now.strftime('%Y-%m-%d')
 
+
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")
+
         if total_covid_df.empty:
             yesterday = (now - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
             total_covid_df = df.query("(시도명 == '합계') and (일시 == @yesterday)")
+
 
         total_num = total_covid_df['확진자 수'].iloc[0]
         region_num = total_covid_df['지역발생 수'].iloc[0]
@@ -265,3 +269,9 @@ def covid_graph():
         covid_graph_dict = {'covid_total' : format(total_num,',d'), 'region_num' : region_num, 'abroad_num': format(abroad_num, ',d'), 'today_total_num': format(today_total_num,',d'), 'change_covid_date' :change_covid_date[::-1],
                                                          'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
         return covid_graph_dict
+
+def input_number(request):
+    global phone_id
+    if request.method == 'POST':
+        phone_number = request.POST.get('phone_number2')
+        phone_id = phone_number

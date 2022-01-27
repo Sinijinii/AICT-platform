@@ -15,4 +15,5 @@ urlpatterns = [
     path('str_smartfarm2/', views.str_smartfarm2, name='str_smartfarm2'),
     path('API_doc_download/', views.download_API_file, name="API_doc_download"),
     path('ex_xlsx_download/', views.download_ex_file, name="ex_xlsx_download"),
+    path('input_number/', views.input_number, name="input_number"),
 ]
