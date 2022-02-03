@@ -16,57 +16,11 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/brch_HJ" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e672525-c1e1-4a6c-b4f5-c9e31fb33c04" name="Default Changelist" comment="combine pages">
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/data_preparation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/dbrouter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/demographics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/migrations/0003_inputvaluemodel_kids_data_alter_fileuploadmodel_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/migrations/0004_all_allkids_delete_kids_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/return.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/send_request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/demographics.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/_exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/_mysql.cp39-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/connections.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/CLIENT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/CR.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/ER.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/FIELD_TYPE.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/FLAG.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/converters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/cursors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/release.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/times.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/top_level.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/smartfarm_page - 바로 가기.lnk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -237,10 +191,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="25" y="53" width="998" height="718" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1641777604437" />
-    <state x="877" y="245" key="Vcs.Push.Dialog.v2" timestamp="1641973545695">
+    <state x="877" y="245" key="Vcs.Push.Dialog.v2" timestamp="1643870237132">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="877" y="245" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1641973545695" />
+    <state x="877" y="245" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1643870237132" />
     <state x="499" y="143" width="1233" height="627" key="dock-window-1" timestamp="1642658778862">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import AllKids
-
+from .models import All
 
 # 앱에서 어떤 기능을 할지에 대한 메인 로직을 담당하는 파일
 
