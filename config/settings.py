@@ -82,9 +82,18 @@ DATABASES = {
         'PASSWORD': 'aict1504!!',
         'HOST': 'localhost',
         'PORT': '3306',
+    },
+    'kids_db': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'aict_kids',
+        'USER': 'root',
+        'PASSWORD': 'aict1504!!',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
+DATABASE_ROUTERS = ['config.router.Router']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
