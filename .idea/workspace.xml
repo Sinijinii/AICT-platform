@@ -2,8 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/migrations/0003_inputvaluemodel_kids_data_alter_fileuploadmodel_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/migrations/0004_all_allkids_delete_kids_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/children.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/return.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/kids/owl.theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/SmoothScroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/jquery.1.11.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/jquery.isotope.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/jquery.waypoints.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/modernizr.custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/owl.carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/send_request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/js/kids/wow.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/demographics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/smartfarm_page/assets/img/children.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/_exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/_mysql.cp39-win_amd64.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/connections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/CLIENT.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/CR.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/ER.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/FIELD_TYPE.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/FLAG.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/constants/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/converters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/cursors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/release.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/MySQLdb/times.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Aict/Lib/site-packages/mysqlclient-2.1.0.dist-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/django_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django_practice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/covid19.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/covid19.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +87,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
