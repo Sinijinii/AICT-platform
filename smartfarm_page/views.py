@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from .models import AllKids
+from .models import All
 
 # 앱에서 어떤 기능을 할지에 대한 메인 로직을 담당하는 파일
 
@@ -6,8 +8,10 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'index.html')
 
+
 def str_smartfarm1(request):
     return render(request, 'str_smartfarm1.html')
+
 
 def kids_pattern1(request):
     return render(request, 'kids_pattern1.html')
@@ -20,6 +24,22 @@ def covid19(request):
 
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
+
+# kids_pattern
+def result(request):
+    students = AllKids.objects.values()
+    name = request.POST['name']
+    center = request.POST['C_name']
+    class_ = request.POST['class']
+    birth = request.POST['password']
+    names = AllKids.objects.filter(이름=name,어린이집=center, 반=class_, 생년월일=birth)
+    a=AllKids.objects.filter(이름=name).values('이름','어린이집','반','생년월일')
+    if AllKids.objects.filter(이름=name,어린이집=center, 반=class_, 생년월일=birth).exists():
+        not_exist = False
+    else:
+        not_exist = True
+    return render(request, 'result.html', {"students": students, "name":name,"not_exist":not_exist,"birth":birth,"a":a})
+
 
 # file upload
 from django.shortcuts import render
@@ -270,10 +290,6 @@ def covid_graph():
                                                          'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
         return covid_graph_dict
 
-
-
-
-
 from .models import User
 
 def input_number(request):
@@ -287,4 +303,3 @@ def input_number(request):
         user.save()
         # auth.login(request, user)
     return render(request, 'str_smartfarm1.html',{"phone_number":phone_number})
-
