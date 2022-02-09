@@ -43,10 +43,9 @@
 
                     <!-- 데이터 업로드-->
                     <div class="row gx-lg-5">
-
-                    <div class="row mb-5"></div>
-                    <div class="row mb-5"></div>
-                    <h3 class="text-center">사용자 핸드폰 번호(8자리) 입력</h3>
+                        <div class="row mb-5"></div>
+                        <div class="row mb-5"></div>
+                        <h3 class="text-center">사용자 핸드폰 번호(8자리) 입력</h3>
                         <div class="row mb-3"></div>
                         <form method="post" action="{% url 'input_number' %}" enctype="multipart/form-data">
                             {% csrf_token %}
@@ -60,22 +59,22 @@
                             </div>
                         </form>
 
-                    <div class="row mb-5"></div>
-                    <div class="row mb-5"></div>
+                        <div class="row mb-5"></div>
+                        <div class="row mb-5"></div>
 
-                    <h3 class="text-center">데이터 업로드</h3>
-                    <div class="row mb-3"></div>
-                    <h5 class="text-center">1. 농장의 스마트팜(Smart Farm) 환경 데이터를 업로드해 주세요.</h5>
-                    <div class="row mb-4"></div>
+                        <h3 class="text-center">데이터 업로드</h3>
+                        <div class="row mb-3"></div>
+                        <h5 class="text-center">1. 농장의 스마트팜(Smart Farm) 환경 데이터를 업로드해 주세요.</h5>
+                        <div class="row mb-4"></div>
 
-                    <form action="{% url 'ex_xlsx_download' %}">
-                        <div class="text-center"> 👇 데이터는 아래의 양식을 채워서 업로드 해주세요.
-                            <div class="row mb-3"></div>
-                            <input type="submit" class="btn btn-outline-success col-3"  value="파일 양식 다운로드">
-                            <div class="row mb-5"></div>
-                        </div>
-                    </form>
-                </div>
+                        <form action="{% url 'ex_xlsx_download' %}">
+                            <div class="text-center"> 👇 데이터는 아래의 양식을 채워서 업로드 해주세요.
+                                <div class="row mb-3"></div>
+                                <input type="submit" class="btn btn-outline-success col-3"  value="파일 양식 다운로드">
+                                <div class="row mb-5"></div>
+                            </div>
+                        </form>
+                    </div>
                     <!-- File upload _ Drag & Drop-->
                     <div class="row">
                         <div class="col-md-12">
@@ -135,6 +134,7 @@
                         </div>
                     </div>
                 </form>
+                </div>
             </div>
         </section>
 

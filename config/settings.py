@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'aict_str_smartfarm',
         'USER': 'root',
-        'PASSWORD': 'aict1504!',
+        'PASSWORD': 'aict1504!!',
         'HOST': 'localhost',
         'PORT': '3306',
     }

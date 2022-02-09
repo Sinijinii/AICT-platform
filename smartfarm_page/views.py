@@ -270,10 +270,6 @@ def covid_graph():
                                                          'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
         return covid_graph_dict
 
-
-
-
-
 from .models import User
 
 def input_number(request):
