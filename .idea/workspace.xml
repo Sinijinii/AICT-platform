@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/django_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django_practice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/demographics.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/웹_시험용_데이터셋.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0003_inputvaluemodel_kids_data_alter_fileuploadmodel_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0004_all_allkids_delete_kids_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0005_merge_20220209_1409.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/charts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/str_smartfarm1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -25,7 +25,7 @@ def covid19(request):
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
 
-# kids_pattern
+## kids_pattern
 def result(request):
     students = AllKids.objects.values()
     name = request.POST['name']
@@ -40,7 +40,7 @@ def result(request):
         not_exist = True
     return render(request, 'result.html', {"students": students, "name":name,"not_exist":not_exist,"birth":birth,"a":a})
 
-
+## str_smartfarm
 # file upload
 from django.shortcuts import render
 from .forms import FileUploadForm
@@ -79,13 +79,30 @@ def recent_file():
 
 import numpy as np
 
-# 사용자가 직접 입력한 생육변수 데이터 가져와서 예측값 return
+# 사용자가 직접 입력한 생육변수 데이터 가져와서 db에 저장 후 예측값 return
+from .models import Growth
+
 def input_value(request):
     if request.method == 'POST':
         week1 = request.POST.getlist('week1[]')
         week1 = list(map(float, week1))
         week2 = request.POST.getlist('week2[]')
         week2 = list(map(float, week2))
+
+        # 데이터 DB Growth 테이블에 저장
+        now = datetime.datetime.now()
+        now = now.strftime('%Y-%m-%d')
+        user_obj = Str_user.objects.get(user_id = phone_id)
+        farm_grow_1 = Growth(user_number=user_obj, input_date=now, chojang=week1[0],
+                             max_yeopjang=week1[1], yeaoppok=week1[2],
+                             yeopbyeongjang=week1[3], yeopsu=week1[4],
+                             stem_thick=week1[5], fruit=week1[6])
+        farm_grow_2 = Growth(user_number=user_obj, input_date=now, chojang=week2[0],
+                             max_yeopjang=week2[1], yeaoppok=week2[2],
+                             yeopbyeongjang=week2[3], yeopsu=week2[4],
+                             stem_thick=week2[5], fruit=week2[6])
+        farm_grow_1.save()
+        farm_grow_2.save()
 
         result = data_analysis(week1, week2)
 
@@ -290,16 +307,16 @@ def covid_graph():
                                                          'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
         return covid_graph_dict
 
-from .models import User
+from .models import Str_user
 
 def input_number(request):
     global phone_id
     if request.method == 'POST':
-        form = User(request.POST)
-        phone_number = request.POST.get('phone_number2')
-        phone_id = phone_number
-
-        user = User(user_id = phone_number)
-        user.save()
+        phone_id = request.POST.get('phone_number')
+        try:
+            user_num = Str_user.objects.get(user_id = phone_id)
+        except Str_user.DoesNotExist:
+            user_num = Str_user(user_id = phone_id)
+            user_num.save()
         # auth.login(request, user)
-    return render(request, 'str_smartfarm1.html',{"phone_number":phone_number})
+    return render(request, 'str_smartfarm1.html',{"phone_number":phone_id})
