@@ -28,41 +28,70 @@ def str_smartfarm2(request):
 ## kids_pattern
 def result(request):
     students = AllKids.objects.values()
-    name = request.POST['name']
+    Name = request.POST['name']
     center = request.POST['C_name']
     class_ = request.POST['class']
     birth = request.POST['password']
-    names = AllKids.objects.filter(이름=name,어린이집=center, 반=class_, 생년월일=birth)
-    a=AllKids.objects.filter(이름=name).values('이름','어린이집','반','생년월일')
-    if AllKids.objects.filter(이름=name,어린이집=center, 반=class_, 생년월일=birth).exists():
+    a=AllKids.objects.filter(이름=Name).values('이름','어린이집','반','생년월일','성별','성향')
+    if AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
         not_exist = True
-    return render(request, 'result.html', {"students": students, "name":name,"not_exist":not_exist,"birth":birth,"a":a})
+
+    if AllKids.objects.filter(성별='남'):
+        boy = True
+    else:
+        boy = False
+
+    if AllKids.objects.filter(성향='외향적'):
+        E = True
+    else:
+        E = False
+
+    # 측정정보
+    kid_d = All.objects.filter(name=Name).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name')
+    Heartrate=All.objects.filter(name=Name).values('day','time','heartrate')
+    step = All.objects.filter(name=Name).values('sc_field')
+    day = All.objects.filter(name=Name).values('day')
+    time = All.objects.filter(name=Name).values('time')
+    week = All.objects.filter(name=Name).values('week')
+    return render(request, 'result.html', {"students": students, "name":Name,"not_exist":not_exist,"birth":birth,"a":a, "boy":boy,"E":E,
+                                           "kid_d":kid_d,"heartrate":Heartrate,"step":step,"day":day,"time":time,"week":week})
 
 ## str_smartfarm
 # file upload
 from django.shortcuts import render
-from .forms import FileUploadForm
-from .models import FileUploadModel
+
 # ID(phone number) 전역변수로 할당
 phone_id = '0'
 
+from .models import Environment
+from django.conf import settings
+import io
+from sqlalchemy import create_engine
+
 def upload_file(request):
     if request.method == 'POST':        # POST 방식이면, 데이터가 담긴 제출된 form으로 간주
-        file = request.FILES['uploadFromPC']
-        uploadFile = FileUploadModel(
-            file=file,
+        file = request.FILES['uploadFromPC'].file
+        try:
+            data = pd.read_excel(io.BytesIO(file.read()))
+        except:
+            render(request, 'str_smartfarm1.html')
+
+        data_df = pd.read_excel(io.BytesIO(file.read()))
+        data_df['user_num'] = phone_id
+        data_df = data_df[['user_num', '시설ID', '수집일', '주차', '외부 일사량', '내부온도', '내부습도', '내부CO2']]
+        data_df.rename(columns = {'시설ID':'farm_id', '수집일':'date', '주차':'week', '외부 일사량':'out_isolation', '내부온도':'int_temp', '내부습도':'int_hum', '내부CO2':'int_CO2'}, inplace=True)
+        database_url = 'mysql://{user}:{password}@localhost/{database_name}'.format(
+            user=settings.DATABASES['default']['USER'],
+            password=settings.DATABASES['default']['PASSWORD'],
+            database_name=settings.DATABASES['default']['NAME'],
         )
-        uploadFile.save()
+        engine = create_engine(database_url, echo=False)
+        data_df.to_sql(name='environment', con=engine, index=False, if_exists='append')
         return redirect('fileupload')
     else:
-        fileuploadForm = FileUploadForm
-        context = {
-            'fileuploadForm': fileuploadForm,
-        }
-        return render(request, 'str_smartfarm1.html', context)
-
+        return render(request, 'str_smartfarm1.html')
 
 # 가장 생성시각이 큰(가장 최근인) 파일을 리턴
 def recent_file():
@@ -208,6 +237,10 @@ def news_crawling():
     news_lst = []
     num = 0
     for ar in articles:
+        try:    # 기사 이미지 없는 경우 pass
+            image = ar.select_one('div > a > img')['src']
+        except:
+            continue
         title = ar.select_one("a.news_tit").text
         time = ar.select_one("span.info").text
         link = ar.select_one("a.news_tit")['href']
@@ -285,13 +318,11 @@ def covid_graph():
         now = datetime.datetime.now()
         nowDate = now.strftime('%Y-%m-%d')
 
-
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")
 
         if total_covid_df.empty:
             yesterday = (now - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
             total_covid_df = df.query("(시도명 == '합계') and (일시 == @yesterday)")
-
 
         total_num = total_covid_df['확진자 수'].iloc[0]
         region_num = total_covid_df['지역발생 수'].iloc[0]
