@@ -26,19 +26,47 @@ def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
 
 ## kids_pattern
+
+from .models import AllKids
+from .models import All
+
 def result(request):
     students = AllKids.objects.values()
-    name = request.POST['name']
+    Name = request.POST['name']
     center = request.POST['C_name']
     class_ = request.POST['class']
     birth = request.POST['password']
-    names = AllKids.objects.filter(이름=name,어린이집=center, 반=class_, 생년월일=birth)
-    a=AllKids.objects.filter(이름=name).values('이름','어린이집','반','생년월일')
-    if AllKids.objects.filter(이름=name,어린이집=center, 반=class_, 생년월일=birth).exists():
+    a=AllKids.objects.filter(이름=Name).values('이름','어린이집','반','생년월일','성별','성향')
+    if AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
         not_exist = True
-    return render(request, 'result.html', {"students": students, "name":name,"not_exist":not_exist,"birth":birth,"a":a})
+
+    if AllKids.objects.filter(성별='남'):
+        boy = True
+    else:
+        boy = False
+
+    if AllKids.objects.filter(성향='외향적'):
+        E = True
+    else:
+        E = False
+
+
+    # 측정정보
+    kid_d = All.objects.filter(name=Name).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week',
+                                                 'name')
+
+    Heartrate=All.objects.filter(name=Name).values('day','time','heartrate')
+    step = All.objects.filter(name=Name).values('sc_field')
+    day = All.objects.filter(name=Name).values('day')
+    time = All.objects.filter(name=Name).values('time')
+    week = All.objects.filter(name=Name).values('week')
+
+    return render(request, 'result.html', {"students": students, "name":Name,"not_exist":not_exist,"birth":birth,"a":a, "boy":boy,"E":E,
+                                           "kid_d":kid_d,"heartrate":Heartrate,"step":step,"day":day,"time":time,"week":week})
+
+
 
 ## str_smartfarm
 # file upload
