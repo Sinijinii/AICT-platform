@@ -61,10 +61,10 @@
       <!--nav icon end-->
 
       <ul id="nav-top" class="nav navbar-nav navbar-right">
-		   <li><a href="{% url 'main'%}" class="page-scroll">Home</a></li>
-			<li><a href="{% url 'str_smartfarm1'%}" class="page-scroll">딸기 스마트팜</a></li>
-			<li><a href="#" class="page-scroll">영유아 스마트 케어</a></li>
-			<li><a href="{% url 'covid19'%}" class="page-scroll">코로나19 현황 분석</a></li>
+         <li><a href="{% url 'main'%}" class="page-scroll">Home</a></li>
+         <li><a href="{% url 'str_smartfarm1'%}" class="page-scroll">딸기 스마트팜</a></li>
+         <li><a href="#" class="page-scroll">영유아 스마트 케어</a></li>
+         <li><a href="{% url 'covid19'%}" class="page-scroll">코로나19 현황 분석</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
@@ -86,10 +86,24 @@
         <div style="float: left;">
             <h4 style="text-align:justify"> <br>이름 : {{name}} <br> 성별 : {{a.values.get.성별}} <br> 생년월일 : {{birth}} <br>어린이집 : {{a.values.get.어린이집}} <br>반 : {{a.values.get.반}}</h4>
         </div>
+        <div style="float: right;">
+            <form action="{% url 'pick_date'%}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div style="float: left; margin-right:20px; ">
+                    <label  style="font-size:15px; text-align:justify"> 날짜 선택 </label>
+                    <input name="date_pick" type="date" class="form-control"  min="2021-06-01" max="2021-06-18" value="2021-06-01" style="height:45px;width:120;font-size:15px; text-align:justify;">
+                    </div>
+                        <div style="float: left; margin-right:20px; "><br><br>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                </div></div></div>
+
+        </form>
 
 
 <!--
         <br>
+
         {% if E %}
             {% if boy %}
                 <div style="float: right;">
@@ -152,22 +166,25 @@
             <h4><a href="{% url 'kids_pattern1'%}" ><img src="{% static 'smartfarm_page/assets/img/return.png' %}" width="40" height="40" alt=""></a></h4>
           <br><br><br>
         {% else %}
-        <h2>{{ heartrate }}</h2>
-            <div class="col-sm-6">
+          <div class="pt-4 bg-light"; style="float: right; padding:50px;">
+            <div class="container px-xl-6 bg-light">
+                <div class="col-sm-6">
+
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">심박수</h6>
+                                <h6 class="m-0 font-weight-bold text-primary" >심박수</h6>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="myChart" width="500" height="500"></canvas>
+                                    <canvas id="myChart" width="1200" height="500"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
+            </div>
         {% endif %}
 
-
+          </div>
     </div>
   </div>
  </div>
@@ -176,8 +193,8 @@
 
 
 
-         <div class="row mb-5"></div>
-        <footer class="footer bg-light" style="background-color:#DCDCDC">
+        #<footer class="footer bg-light" style="background-color:#DCDCDC">
+            <div class="row mb-5"></div>
             <br><br><br>
             <div class="container">
                 <div class="row">
@@ -194,7 +211,7 @@
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
                     </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto" >
 
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
@@ -252,13 +269,13 @@ var myChart = new Chart(chartArea, {
     // ②차트의 데이터(Object)
     data: {
         // ③x축에 들어갈 이름들(Array)
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['ㅋ','ㅁ'],
         // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
         datasets: [{
             // ⑤dataset의 이름(String)
             label: '심박수',
             // ⑥dataset값(Array)
-            data: [12, 19, 3, 5, 2, 3],
+            data: {{ HR_ }},
             // ⑦dataset의 배경색(rgba값을 String으로 표현)
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             // ⑧dataset의 선 색(rgba값을 String으로 표현)

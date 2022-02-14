@@ -19,16 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/django_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django_practice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="merge master">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0002_remove_fileuploadmodel_title.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0003_auto_20220127_1457.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/migrations/0004_delete_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
@@ -110,6 +103,14 @@
       <option name="presentableId" value="Default" />
       <updated>1637887644670</updated>
     </task>
+    <task id="LOCAL-00001" summary="merge master">
+      <created>1644542778677</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644542778678</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,10 +125,18 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="merge master" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge master" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1032" y="164" key="SettingsEditor" timestamp="1644479881954">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1032" y="164" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1644479881954" />
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2" timestamp="1644542845272">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1644542845272" />
   </component>
 </project>

@@ -108,7 +108,7 @@ class AllKids(models.Model):
     반 = models.CharField(max_length=12, blank=True, null=True)
     성별 = models.CharField(max_length=5, blank=True, null=True)
     성향 = models.CharField(max_length=5, blank=True, null=True)
-    #밴드_id = models.CharField(db_column="밴드_ID", max_length=25)  # Field name made lowercase.
+    #b_id = models.CharField(db_column="밴드_ID", max_length=25)  # Field name made lowercase.
     어린이집 = models.CharField(max_length=12, blank=True, null=True)
 
     class Meta:
