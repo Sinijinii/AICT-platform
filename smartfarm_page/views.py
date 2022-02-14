@@ -37,10 +37,12 @@ def result(request):
     class_ = request.POST['class']
     birth = request.POST['password']
     a=AllKids.objects.filter(이름=Name).values('이름','어린이집','반','생년월일','성별','성향')
+    b= AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth)
+    print(b)
     if AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth).exists():
-        not_exist = True
-    else:
         not_exist = False
+    else:
+        not_exist = True
 
     if AllKids.objects.filter(성별='남'):
         boy = True
@@ -52,28 +54,37 @@ def result(request):
     else:
         E = False
     # 측정정보
-    kid_d = pd.DataFrame(list(All.objects.filter(name=Name).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name')))
+    kid_d = pd.DataFrame(list(All.objects.filter(name=Name).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
     HR=list(kid_d["heartrate"])
     step = list(kid_d["sc_field"])
     day = list(kid_d["day"])
     time = list(kid_d["time"])
     week = list(kid_d["week"])
+    cal = list(kid_d["cal"])
+    km = list(kid_d["km"])
+    zsc = list(kid_d["zsc"])
 
-    print(HR)
-    print(day)
     return render(request, 'result.html', {"students": students, "name":Name,"not_exist":not_exist,"birth":birth,"a":a, "boy":boy,"E":E,
-                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"HR":HR})
+                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"HR":HR,"cal":cal,"km":km,"zsc":zsc})
 
+from .models import AllKids
+from .models import All
 def pick_date(request):
     date_ = request.POST['date_pick']
-    Name_ = request.POST['name']
-    data_date = All.objects.filter(day=date_,이름=Name_).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name')
+    Name_ = '유혜린'
+    data_date = pd.DataFrame(list(All.objects.filter(day=date_,name=Name_).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name')))
+    if All.objects.filter(name=Name_,day=date_).exists():
+        not_exist = False
+    else:
+        not_exist = True
     HR_ = list(data_date["heartrate"])
     step_ = list(data_date["sc_field"])
     day_ = list(data_date["day"])
     time_ = list(data_date["time"])
     week_ = list(data_date["week"])
-    return render(request, 'result.html',{"step": step_, "day": day_, "time": time_, "week": week, "HR": HR_})
+    print(HR_,step_)
+
+    return render(request, 'result.html',{"step": step_, "day": day_, "time": time_, "week": week_, "HR": HR_,"not_exist":not_exist})
 
 
 
