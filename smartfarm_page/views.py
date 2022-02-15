@@ -17,7 +17,6 @@ def kids_pattern1(request):
 def covid19(request):
     graph_dict = covid_graph()
     news_lst = news_crawling()
-
     return render(request, 'covid19.html', context={'graph_dict':graph_dict, 'news_lst':news_lst})
 
 def str_smartfarm2(request):
@@ -31,7 +30,7 @@ def result(request):
     class_ = request.POST['class']
     birth = request.POST['password']
     a=AllKids.objects.filter(이름=Name).values('이름','어린이집','반','생년월일','성별','성향')
-    if AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth).exists():
+    if AllKids.objects.filter(이름=Name, 어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
         not_exist = True
@@ -59,15 +58,17 @@ def result(request):
 ## str_smartfarm
 # file upload
 from django.shortcuts import render
+from django.utils import timezone
+import copy
 
 # ID(phone number) 전역변수로 할당
 phone_id = '0'
+now = timezone.now()
 
 from .models import Environment
 from django.conf import settings
 import io
 from sqlalchemy import create_engine
-from openpyxl import load_workbook
 
 def upload_file(request):
     if request.method == 'POST':        # POST 방식이면, 데이터가 담긴 제출된 form으로 간주
@@ -79,8 +80,13 @@ def upload_file(request):
             render(request, 'str_smartfarm1.html')
 
         data_df['user_num'] = phone_id
-        data_df = data_df[['user_num', '시설ID', '수집일', '주차', '외부 일사량', '내부온도', '내부습도', '내부CO2']]
-        data_df.rename(columns = {'시설ID':'farm_id', '수집일':'date', '주차':'week', '외부 일사량':'out_isolation', '내부온도':'int_temp', '내부습도':'int_hum', '내부CO2':'int_CO2'}, inplace=True)
+        global now
+        now = timezone.now()
+        now = copy.deepcopy(now)
+        data_df['input_time'] = now
+
+        data_df = data_df[['user_num', '시설ID', '수집일', '주차', '외부 일사량', '내부온도', '내부습도', '내부CO2', 'input_time']]
+        data_df.rename(columns = {'시설ID':'farm_id', '수집일':'date', '주차':'week', '외부 일사량':'out_isolation', '내부온도':'in_temp', '내부습도':'in_hum', '내부CO2':'in_CO2'}, inplace=True)
         database_url = 'mysql://{user}:{password}@localhost/{database_name}'.format(
             user=settings.DATABASES['default']['USER'],
             password=settings.DATABASES['default']['PASSWORD'],
@@ -105,10 +111,12 @@ def recent_file():
     most_recent_file = max(each_file_path_and_gen_time, key=lambda x: x[1])[0]
     return most_recent_file
 
-import numpy as np
 
 # 사용자가 직접 입력한 생육변수 데이터 가져와서 db에 저장 후 예측값 return
 from .models import Growth
+from .models import BestFarmMean
+import numpy as np
+from datetime import timedelta
 
 def input_value(request):
     if request.method == 'POST':
@@ -118,14 +126,12 @@ def input_value(request):
         week2 = list(map(float, week2))
 
         # 데이터 DB Growth 테이블에 저장
-        now = datetime.datetime.now()
-        now = now.strftime('%Y-%m-%d')
         user_obj = Str_user.objects.get(user_id = phone_id)
-        farm_grow_1 = Growth(user_number=user_obj, input_date=now, chojang=week1[0],
+        farm_grow_1 = Growth(user_number=user_obj, input_time=now, chojang=week1[0],
                              max_yeopjang=week1[1], yeaoppok=week1[2],
                              yeopbyeongjang=week1[3], yeopsu=week1[4],
                              stem_thick=week1[5], fruit=week1[6])
-        farm_grow_2 = Growth(user_number=user_obj, input_date=now, chojang=week2[0],
+        farm_grow_2 = Growth(user_number=user_obj, input_time=now, chojang=week2[0],
                              max_yeopjang=week2[1], yeaoppok=week2[2],
                              yeopbyeongjang=week2[3], yeopsu=week2[4],
                              stem_thick=week2[5], fruit=week2[6])
@@ -135,26 +141,32 @@ def input_value(request):
         result = data_analysis(week1, week2)
 
         # 그래프 그리기 위해 해당 농가 환경변수 data 정리
-        most_recent_file = recent_file()
-        df = pd.read_excel(most_recent_file)
-        myFarm_date = list(df['주차'])
-        acInso = list(np.round(list(df['외부 일사량']), 2))
-        inTemp = list(np.round(list(df['내부온도']), 2))
-        inHum = list(np.round(list(df['내부습도']), 2))
-        inCO2 = list(np.round(list(df['내부CO2']), 2))
+        env_data = Environment.objects.filter(
+            Q(user_num=phone_id) & Q(input_time__range=[now - timedelta(seconds=1), now + timedelta(seconds=1)]))
+        df = read_frame(env_data)
+        myFarm_date = list(df['week'])
+        acInso = list(np.round(list(df['out_isolation']), 2))
+        inTemp = list(np.round(list(df['in_temp']), 2))
+        inHum = list(np.round(list(df['in_hum']), 2))
+        inCO2 = list(np.round(list(df['in_co2']), 2))
         myFarm_dict = {'date': myFarm_date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
 
         # 우수 농가 환경변수 data 정리
-        df = pd.read_excel('./smartfarm_page/static/smartfarm_page/assets/웹 시험용 기본농가 우수 평균 데이터셋.xlsx')
-        date = list(df['주차'])
+        bestfarm_data = BestFarmMean.objects.all()
+        df = read_frame(bestfarm_data)
+        date = list(df['week'])
         # date = [dd.strftime('%Y-%m-%d') for dd in date]
         ## label을 기본농가 시작점 ~ 우수농가 끝점으로 맞추기
         start = date.index(myFarm_date[0])
         date = date[start:]
-        acInso = list(np.round(list(df['외부 일사량']), 2))
-        inTemp = list(np.round(list(df['내부온도']), 2))
-        inHum = list(np.round(list(df['내부습도']), 2))
-        inCO2 = list(np.round(list(df['내부CO2']), 2))
+        acInso = list(np.round(list(df['acinso']), 2))
+        acInso = acInso[start:]
+        inTemp = list(np.round(list(df['intemp']), 2))
+        inTemp = inTemp[start:]
+        inHum = list(np.round(list(df['inhum']), 2))
+        inHum = inHum[start:]
+        inCO2 = list(np.round(list(df['inco2']), 2))
+        inCO2 = inCO2[start:]
         bestFarm_dict = {'date': date, 'acInso': acInso, 'inTemp': inTemp, 'inHum': inHum, 'inCO2': inCO2}
 
         return render(request, 'str_smartfarm2.html', context={'predict_result': result, 'graph_data': myFarm_dict, 'bestFarm_data': bestFarm_dict})
@@ -162,20 +174,21 @@ def input_value(request):
     else:
         return render(request, 'str_smartfarm1.html')
 
-
 import os
 import pandas as pd
+from django.db.models import Q
+from django_pandas.io import read_frame
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 
 # trained model 가져와 predict 해서 착과수 예측
 def data_analysis(week1, week2):
-    # DB에서 사용자가 업로드한 데이터 가져오기
-    most_recent_file = recent_file()
+    # DB에서 사용자가 업로드한 데이터 가져오기 - 범위 : 2sec
+    env_data = Environment.objects.filter(Q(user_num=phone_id) & Q(input_time__range=[now - timedelta(seconds=1), now + timedelta(seconds=1)]))
+    df = read_frame(env_data)
 
     # 데이터셋 생성
-    df = pd.read_excel(most_recent_file)
-    env_set = df.drop(columns=['시설ID', '수집일', '주차']).values
+    env_set = df.drop(columns=['env_index', 'user_num', 'farm_id', 'date', 'week', 'input_time']).values
     growth_set = np.array([week1, week2])
     to_pred_data = np.hstack((env_set[-2:], growth_set))
 
@@ -259,8 +272,8 @@ from dateutil.parser import parse
 from urllib.parse import unquote
 import xml.etree.ElementTree as el
 import pandas as pd
-import datetime
 import xml.etree.ElementTree as ET
+import datetime
 
 def covid_graph():
     serviceURL = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'
@@ -314,7 +327,7 @@ def covid_graph():
 
         df['일시'] = df["일시"].dt.strftime("%Y-%m-%d")
 
-        now = datetime.datetime.now()
+        now = datetime.now()
         nowDate = now.strftime('%Y-%m-%d')
 
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")

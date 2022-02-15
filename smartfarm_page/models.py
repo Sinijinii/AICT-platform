@@ -15,14 +15,16 @@ class Str_user(models.Model):
         return self.user_id
 
 class Environment(models.Model):
+    env_index = models.AutoField(primary_key=True)
     user_num = models.ForeignKey('Str_user', models.CASCADE, db_column='user_num')
     farm_id = models.CharField(max_length=45)
     date = models.DateTimeField()
     week = models.IntegerField()
     out_isolation = models.FloatField()
-    int_temp = models.FloatField()
-    int_hum = models.FloatField()
-    int_co2 = models.FloatField(db_column='int_CO2')  # Field name made lowercase.
+    in_temp = models.FloatField()
+    in_hum = models.FloatField()
+    in_co2 = models.FloatField(db_column='in_CO2')
+    input_time = models.DateTimeField() # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -31,19 +33,19 @@ class Environment(models.Model):
 
 class Growth(models.Model):
     user_number = models.ForeignKey('Str_user', models.CASCADE, db_column='user_number')
-    input_date = models.DateTimeField(blank=True, null=True)
-    chojang = models.FloatField(blank=True, null=True)
-    max_yeopjang = models.FloatField(blank=True, null=True)
-    yeaoppok = models.FloatField(blank=True, null=True)
-    yeopbyeongjang = models.FloatField(blank=True, null=True)
-    yeopsu = models.FloatField(blank=True, null=True)
-    stem_thick = models.FloatField(blank=True, null=True)
-    fruit = models.FloatField(blank=True, null=True)
+    input_time = models.DateTimeField()
+    chojang = models.FloatField()
+    max_yeopjang = models.FloatField()
+    yeaoppok = models.FloatField()
+    yeopbyeongjang = models.FloatField()
+    yeopsu = models.FloatField()
+    stem_thick = models.FloatField()
+    fruit = models.FloatField()
 
     class Meta:
-        managed = False
-        app_label = 'default'
-        db_table = 'growth'
+            managed = False
+            app_label = 'default'
+            db_table = 'growth'
 
 class BestFarmMean(models.Model):
     week = models.IntegerField(primary_key=True)
