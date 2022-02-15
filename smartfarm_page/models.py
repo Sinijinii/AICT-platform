@@ -1,8 +1,10 @@
+from django.core.validators import RegexValidator
 from django.db import models
 
 # str_smartfarm
 class Str_user(models.Model):
-    user_id = models.CharField(primary_key=True, max_length=10)
+    phoneNumberRegex = RegexValidator(regex=r'?([0-9]{3,4})-?([0-9]{4})$')
+    user_id = models.CharField(validators=[phoneNumberRegex], primary_key=True, max_length=8)
 
     class Meta:
         managed = False

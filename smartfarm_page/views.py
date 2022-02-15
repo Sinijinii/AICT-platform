@@ -8,10 +8,8 @@ from .models import All
 def index(request):
     return render(request, 'index.html')
 
-
 def str_smartfarm1(request):
     return render(request, 'str_smartfarm1.html')
-
 
 def kids_pattern1(request):
     return render(request, 'kids_pattern1.html')
@@ -69,16 +67,17 @@ from .models import Environment
 from django.conf import settings
 import io
 from sqlalchemy import create_engine
+from openpyxl import load_workbook
 
 def upload_file(request):
     if request.method == 'POST':        # POST 방식이면, 데이터가 담긴 제출된 form으로 간주
         file = request.FILES['uploadFromPC'].file
+        data_df = file
         try:
-            data = pd.read_excel(io.BytesIO(file.read()))
+            data_df = pd.read_excel(io.BytesIO(file.read()))
         except:
             render(request, 'str_smartfarm1.html')
 
-        data_df = pd.read_excel(io.BytesIO(file.read()))
         data_df['user_num'] = phone_id
         data_df = data_df[['user_num', '시설ID', '수집일', '주차', '외부 일사량', '내부온도', '내부습도', '내부CO2']]
         data_df.rename(columns = {'시설ID':'farm_id', '수집일':'date', '주차':'week', '외부 일사량':'out_isolation', '내부온도':'int_temp', '내부습도':'int_hum', '내부CO2':'int_CO2'}, inplace=True)
@@ -171,7 +170,7 @@ from sklearn.preprocessing import StandardScaler
 
 # trained model 가져와 predict 해서 착과수 예측
 def data_analysis(week1, week2):
-    # 사용자가 업로드한 가장 최근 파일 가져오기
+    # DB에서 사용자가 업로드한 데이터 가져오기
     most_recent_file = recent_file()
 
     # 데이터셋 생성
