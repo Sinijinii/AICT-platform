@@ -98,20 +98,6 @@ def upload_file(request):
     else:
         return render(request, 'str_smartfarm1.html')
 
-# 가장 생성시각이 큰(가장 최근인) 파일을 리턴
-def recent_file():
-    media_path = "./media/"
-    each_file_path_and_gen_time = []
-    for each_file_name in os.listdir(media_path):
-        each_file_path = media_path + each_file_name
-        each_file_gen_time = os.path.getctime(each_file_path)  # getctime: 입력받은 경로에 대한 생성 시간을 리턴
-        each_file_path_and_gen_time.append(
-            (each_file_path, each_file_gen_time)
-        )
-    most_recent_file = max(each_file_path_and_gen_time, key=lambda x: x[1])[0]
-    return most_recent_file
-
-
 # 사용자가 직접 입력한 생육변수 데이터 가져와서 db에 저장 후 예측값 return
 from .models import Growth
 from .models import BestFarmMean
