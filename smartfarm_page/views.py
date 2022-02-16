@@ -320,7 +320,7 @@ def covid_graph():
 
         df['일시'] = df["일시"].dt.strftime("%Y-%m-%d")
 
-        now = datetime.now()
+        now = datetime.datetime.now()
         nowDate = now.strftime('%Y-%m-%d')
 
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")
