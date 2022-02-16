@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="chart.js_kids, merge master">
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="kids chart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
@@ -131,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644800335220</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="kids chart">
+      <created>1644827184062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644827184062</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,7 +154,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge master" />
     <MESSAGE value="chart.js_kids, merge master" />
-    <option name="LAST_COMMIT_MESSAGE" value="chart.js_kids, merge master" />
+    <MESSAGE value="kids chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="kids chart" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1032" y="164" key="SettingsEditor" timestamp="1644479881954">

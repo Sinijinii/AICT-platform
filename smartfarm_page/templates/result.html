@@ -83,16 +83,16 @@
                 <div class="form-group">
                     <div style="float: left; margin-right:20px; "><br><br>
                     <label  style="font-size:15px; text-align:justify">1. 일별 : 날짜 선택 </label>
-                    <input name="date_pick" type="date" class="form-control"  min="2021-06-01" max="2021-06-18" value="2021-06-01" style="height:45px;width:120;font-size:15px; text-align:justify;">
+                    <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2021-06-18" value="2021-06-01" style="height:45px;width:120;font-size:15px; text-align:justify;">
                     </div>
 
                     <div style="float: left; margin-light:20px; "><br><br>
                         <label for="week" style=" font-size:15px; text-align:justify">2. 요일별</label>
-                    <input type="radio" id="week" name="period" value="week" />
-                        <br></div>
+                    <input type="checkbox" id="week" name="period" value="week" />
+                        </div>
                         <div style="float: left; margin-light:20px; "><br><br>
                         <label for="month" style=" font-size:15px; text-align:justify">3. 월별</label>
-                            <input type="radio" id="month" name="period" value="month" /></div>
+                            <input type="checkbox" id="month" name="period" value="month" /></div>
                     </div>
 
             <div style="float: RIGHT; margin-right:20px; "><br><br>
@@ -167,18 +167,17 @@
   <div class="container">
       <br><br><br><br><br>
     <div class="row">
-      <!--blog posts container-->
-      <div class="col-md-offset-3 col-md-6 page-block">
+      <!--blog posts container
+      <div class="col-md-offset-3 col-md-6 page-block">-->
 
         {% if not_exist %}
             <h2>잘못된 정보입니다. 다시 확인해주세요.</h2>
             <h4><a href="{% url 'kids_pattern1'%}" ><img src="{% static 'smartfarm_page/assets/img/return.png' %}" width="40" height="40" alt=""></a></h4>
           <br><br><br>
         {% else %}
-          <div class="pt-4 bg-light"; style="float: right; padding:50px;">
+          <div class="pt-4 bg-light"; style="float: right; padding:0px;">
             <div class="container px-xl-6 bg-light">
                 <div class="col-sm-6">
-
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary" >심박수</h6>
@@ -186,6 +185,18 @@
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="myChart" width="1200" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-sm-6" >
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">걸음수</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chart" width="1200" height="500"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +295,7 @@ var myChart = new Chart(chartArea, {
             // ⑤dataset의 이름(String)
             label: '심박수',
             // ⑥dataset값(Array)
-            data: {{ HR_ }},
+            data: {{ HR }},
             // ⑦dataset의 배경색(rgba값을 String으로 표현)
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             // ⑧dataset의 선 색(rgba값을 String으로 표현)
@@ -305,6 +316,68 @@ var myChart = new Chart(chartArea, {
         }
     }
 });
+
+
+new Chart(document.getElementById("chart"), {
+              type: 'line',
+              data: {
+                labels: [1,2,3,4] ,
+                datasets: [{
+                    data: {{ HR }},
+                    label: '심박수',
+                    borderColor:'rgb(255, 99, 132)',
+                    fill: false,
+                    tension:0
+                  }, {
+                    data: {{ step }},
+                    label: '걸음수',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false,
+                    tension:0
+                  }
+                ]
+              },
+
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "Weeks",
+                        },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "걸음"
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index];
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel;
+                          }
+
+                  }
+                }
+                }
+            });
+
 </script>
   </body>
 

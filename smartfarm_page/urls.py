@@ -17,6 +17,6 @@ urlpatterns = [
     path('input_number/', views.input_number, name="input_number"),
     path('input_number/fileupload/', views.upload_file, name="fileupload"),
     path('result/', views.result, name='result'),
-    path('result/pick_date/', views.pick_date, name="pick_date")
+    path('result/pick_date', views.pick_date, name="pick_date")
 
 ]

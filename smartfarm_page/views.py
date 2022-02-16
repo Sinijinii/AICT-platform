@@ -63,7 +63,8 @@ def result(request):
     cal = list(kid_d["cal"])
     km = list(kid_d["km"])
     zsc = list(kid_d["zsc"])
-
+    print(HR)
+    print(day)
     return render(request, 'result.html', {"students": students, "name":Name,"not_exist":not_exist,"birth":birth,"a":a, "boy":boy,"E":E,
                                            "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"HR":HR,"cal":cal,"km":km,"zsc":zsc})
 
