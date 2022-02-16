@@ -115,6 +115,7 @@ def recent_file():
 # 사용자가 직접 입력한 생육변수 데이터 가져와서 db에 저장 후 예측값 return
 from .models import Growth
 from .models import BestFarmMean
+from .models import PredictResult
 import numpy as np
 from datetime import timedelta
 
@@ -208,8 +209,14 @@ def data_analysis(week1, week2):
 
     ### scaled -> actual
     y_pred_future = sc_predict.inverse_transform(predictions_future)
-    result = y_pred_future[0][0]
-    return round(result, 2)
+    result = round(y_pred_future[0][0], 2)
+
+    ### result DB에 저장
+    user_obj = Str_user.objects.get(user_id=phone_id)
+    pred_result = PredictResult(user_code=user_obj, lstm_result=result, predict_date = now + timedelta(days=7))
+    pred_result.save()
+
+    return result
 
 # API 명세서 한글 파일 다운로드 기능
 from django.http import HttpResponse

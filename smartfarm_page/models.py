@@ -72,6 +72,16 @@ class BestFarmMean(models.Model):
         app_label = 'default'
         db_table = 'best_farm_mean'
 
+class PredictResult(models.Model):
+    pred_index = models.AutoField(primary_key=True)
+    user_code = models.ForeignKey('Str_user', models.CASCADE, db_column='user_code')
+    lstm_result = models.FloatField()
+    predict_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        app_label = 'default'
+        db_table = 'predict_result'
 
 # kids pattern
 class All(models.Model):
