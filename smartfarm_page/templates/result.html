@@ -1,10 +1,15 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <title>result</title>
-    <meta name="description" content="">
+
+<!doctype html>
+<html>
+<head>
+<!-- Basic Page Needs
+    ================================================== -->
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영유아보육안전</title>
+<meta name="description" content="">
 <meta name="author" content="">
 
 <!-- Favicons
@@ -20,8 +25,12 @@
 <link href="{% static 'smartfarm_page/css/kids/owl.carousel.css' %}?after" rel="stylesheet" media="screen">
 <link href="{% static 'smartfarm_page/css/kids/owl.theme.css' %}?after" rel="stylesheet" media="screen">
 <link href="{% static 'smartfarm_page/css/kids/animate.css' %}?after" rel="stylesheet" media="screen">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <!--Using JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Stylesheet
+
+
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="{% static 'smartfarm_page/css/stylehj.css' %}?after">
 <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700|Montserrat:100,200,300,300i,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -52,31 +61,225 @@
       <!--nav icon end-->
 
       <ul id="nav-top" class="nav navbar-nav navbar-right">
-		   <li><a href="{% url 'main'%}" class="page-scroll">Home</a></li>
-			<li><a href="{% url 'str_smartfarm1'%}" class="page-scroll">딸기 스마트팜</a></li>
-			<li><a href="#" class="page-scroll">영유아 스마트 케어</a></li>
-			<li><a href="{% url 'covid19'%}" class="page-scroll">코로나 현황 분석</a></li>
+         <li><a href="{% url 'main'%}" class="page-scroll">Home</a></li>
+         <li><a href="{% url 'str_smartfarm1'%}" class="page-scroll">딸기 스마트팜</a></li>
+         <li><a href="#" class="page-scroll">영유아 스마트 케어</a></li>
+         <li><a href="{% url 'covid19'%}" class="page-scroll">코로나19 현황 분석</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
 </nav>
-<div id="page-banner" >
+
+<!-- banner Page
+    ==========================================-->
+<div id="page-banner">
   <div class="content  wow fdeInUp">
     <div class="container ">
-    </div></div></div>
-    </head>
-        <body class="page" style="background-color:#F3F6F6">
+        <div style="float: left; margin-right:20px; ">
+
+            <h2 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/user.png' %}" width="180" height="180" alt=""></h2>
+
+        </div>
+        <br>
+        <div style="float: left;">
+            <h4 style="text-align:justify"> <br>이름 : {{name}} <br> 성별 : {{a.values.get.성별}} <br> 생년월일 : {{birth}} <br>어린이집 :{{a.values.get.어린이집}}</h4>
+        </div>
+
+
+<!--
+        <br>
+        {% if E %}
+            {% if boy %}
+                <div style="float: right;">
+                    <br><br>
+                    <h6 style="text-align:justify">{{a.values.get.성향}}</h6>
+                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/boy_60.png' %}"width="200" height="30"></h4>
+                </div>
+                <div style="float: right; margin-right:20px; ">
+                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-man.png"/> </h2>
+                </div>
+            {% else %}
+                <div style="float: right;">
+                    <br><br>
+                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/grl_60.png' %}"width="200" height="30"></h4>
+                </div>
+                <div style="float: right; margin-right:20px; ">
+                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-woman.png"/> </h2>
+                </div>
+            {% endif %}
+        {% else %}
+            {% if boy %}
+                <div style="float: right;">
+                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/boy_20.png' %}"width="200" height="30"></h4>
+                </div>
+                <div style="float: right; margin-right:20px; ">
+                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-man.png"/> </h2>
+                </div>
+            {% else %}
+                <div style="float: right;">
+                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/grl.png' %}"width="200" height="30"></h4>
+                </div>
+                <div style="float: right; margin-right:20px; ">
+                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-woman.png"/> </h2>
+                </div>
+        {% endif %}
+        {% endif %}
+-->
+<!--
+      <h1>영유아 스마트 케어</h1>
+-->
+        </div>
+        </div>
+    </div>
+
+
+<!--page body-->
+
+  <div class="container">
+      <br><br><br><br><br>
+    <div class="row">
+      <!--blog posts container-->
+      <div class="col-md-offset-3 col-md-6 page-block">
+
+
         {% for list in students %}
-            {{ list.이름 }}
+
         {% endfor %}
         {% if not_exist %}
             <h2>잘못된 정보입니다. 다시 확인해주세요.</h2>
             <h4><a href="{% url 'kids_pattern1'%}" ><img src="{% static 'smartfarm_page/assets/img/return.png' %}" width="40" height="40" alt=""></a></h4>
+          <br><br><br>
         {% else %}
-        <h2>{{a}}</h2>
+        <h2>{{ heartrate }}</h2>
+            <div class="col-sm-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">심박수</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="myChart" width="500" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         {% endif %}
 
-    </body>
+
+    </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+         <div class="row mb-5"></div>
+        <footer class="footer bg-light" style="background-color:#DCDCDC">
+            <br><br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://aict.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.snu.ac.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.gg.go.kr/">
+                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><br><br>
+        </footer>
+  </body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/SmoothScroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/jquery.isotope.js' %}"></script>
+<script src="{% static 'smartfarm_page/js/kids/owl.carousel.js' %}"></script>
+<script src="{% static 'smartfarm_page/js/kids/jquery.waypoints.min.js' %}"></script>
+<!-- Javascripts
+    ================================================== -->
+<script type="text/javascript" src="{% static 'smartfarm_page/js/kids/main.js' %}"></script>
+<script src="{% static 'smartfarm_page/js/kids/wow.min.js' %}"></script>
+
+         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+        <!-- Page level plugins -->
+        <script src="{% static 'smartfarm_page/js/Chart.min.js' %}"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
+        // 차트를 그릴 영역으로 canvas태그를 사용한다.
+
+<script>
+// 차트를 그럴 영역을 dom요소로 가져온다.
+var chartArea = document.getElementById('myChart').getContext('2d');
+// 차트를 생성한다.
+var myChart = new Chart(chartArea, {
+    // ①차트의 종류(String)
+    type: 'bar',
+    // ②차트의 데이터(Object)
+    data: {
+        // ③x축에 들어갈 이름들(Array)
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
+        datasets: [{
+            // ⑤dataset의 이름(String)
+            label: '심박수',
+            // ⑥dataset값(Array)
+            data: [12, 19, 3, 5, 2, 3],
+            // ⑦dataset의 배경색(rgba값을 String으로 표현)
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            // ⑧dataset의 선 색(rgba값을 String으로 표현)
+            borderColor: 'rgba(255, 99, 132, 1)',
+            // ⑨dataset의 선 두께(Number)
+            borderWidth: 1
+        }]
+    },
+    // ⑩차트의 설정(Object)
+    options: {
+        // ⑪축에 관한 설정(Object)
+        scales: {
+            // ⑫y축에 대한 설정(Object)
+            y: {
+                // ⑬시작을 0부터 하게끔 설정(최소값이 0보다 크더라도)(boolean)
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
 </html>

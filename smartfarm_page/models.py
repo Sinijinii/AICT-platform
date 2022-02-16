@@ -1,39 +1,30 @@
+from django.core.validators import RegexValidator
 from django.db import models
 
 # str_smartfarm
-class FileUploadModel(models.Model):
-    file = models.FileField(upload_to="")
-
-class InputValueModel(models.Model):
-    chojang = models.FloatField()
-
-from django.core.validators import RegexValidator
-
-class PhoneNumberRegex(models.Model):
-    phoneNumberRegex = RegexValidator(regex=r'?([0-9]{3,4})-?([0-9]{4})$')
-    phone = models.CharField(validators=[phoneNumberRegex], max_length=8, unique=False)
-    # unique=False 를 통해 동일한 전화번호로 중복해서 가입 가능
-
 class Str_user(models.Model):
-    user_id = models.IntegerField(primary_key=True)
+    phoneNumberRegex = RegexValidator(regex=r'?([0-9]{3,4})-?([0-9]{4})$')
+    user_id = models.CharField(validators=[phoneNumberRegex], primary_key=True, max_length=8)
 
     class Meta:
         managed = False
         app_label = 'default'
-        db_table = 'user'
+        db_table = 'str_user'
 
     def __str__(self):
         return self.user_id
 
 class Environment(models.Model):
-    user_num = models.OneToOneField('Str_user', models.DO_NOTHING, db_column='user_num', primary_key=True)
+    env_index = models.AutoField(primary_key=True)
+    user_num = models.ForeignKey('Str_user', models.CASCADE, db_column='user_num')
     farm_id = models.CharField(max_length=45)
     date = models.DateTimeField()
     week = models.IntegerField()
     out_isolation = models.FloatField()
-    int_temp = models.FloatField()
-    int_hum = models.FloatField()
-    int_co2 = models.FloatField(db_column='int_CO2')  # Field name made lowercase.
+    in_temp = models.FloatField()
+    in_hum = models.FloatField()
+    in_co2 = models.FloatField(db_column='in_CO2')
+    input_time = models.DateTimeField() # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -41,20 +32,20 @@ class Environment(models.Model):
         db_table = 'environment'
 
 class Growth(models.Model):
-    user_number = models.ForeignKey('Str_user', models.DO_NOTHING, db_column='user_number')
-    input_date = models.DateTimeField(blank=True, null=True)
-    chojang = models.FloatField(blank=True, null=True)
-    max_yeopjang = models.FloatField(blank=True, null=True)
-    yeaoppok = models.FloatField(blank=True, null=True)
-    yeopbyeongjang = models.FloatField(blank=True, null=True)
-    yeopsu = models.FloatField(blank=True, null=True)
-    stem_thick = models.FloatField(blank=True, null=True)
-    fruit = models.FloatField(blank=True, null=True)
+    user_number = models.ForeignKey('Str_user', models.CASCADE, db_column='user_number')
+    input_time = models.DateTimeField()
+    chojang = models.FloatField()
+    max_yeopjang = models.FloatField()
+    yeaoppok = models.FloatField()
+    yeopbyeongjang = models.FloatField()
+    yeopsu = models.FloatField()
+    stem_thick = models.FloatField()
+    fruit = models.FloatField()
 
     class Meta:
-        managed = False
-        app_label = 'default'
-        db_table = 'growth'
+            managed = False
+            app_label = 'default'
+            db_table = 'growth'
 
 class BestFarmMean(models.Model):
     week = models.IntegerField(primary_key=True)
