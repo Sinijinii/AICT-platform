@@ -85,7 +85,6 @@ class PredictResult(models.Model):
 
 # kids pattern
 class All(models.Model):
-    all_id = models.AutoField(primary_key=True)
     id = models.CharField(db_column='ID', max_length=5)  # Field name made lowercase.
     heartrate = models.IntegerField(db_column='HeartRate')  # Field name made lowercase.
     sc_field = models.IntegerField(db_column='sc_')  # Field renamed because it ended with '_'.
@@ -96,11 +95,14 @@ class All(models.Model):
     time = models.TimeField(db_column='Time', blank=True, null=True)  # Field name made lowercase.
     week = models.CharField(max_length=5, blank=True, null=True)
     name = models.CharField(db_column='Name', max_length=5)
+    cal = models.IntegerField(db_column='Cal')
+    km = models.IntegerField(db_column='Km')
+
     class Meta:
         managed = False
         app_label = 'kids_db'
-        db_table = 'all_d'
-        unique_together = (('all_id', 'id', 'name'),)
+        db_table = 'kids_data'
+        unique_together = (('id', 'name'),)
 
 class AllKids(models.Model):
     번호 = models.IntegerField()
@@ -109,11 +111,11 @@ class AllKids(models.Model):
     반 = models.CharField(max_length=12, blank=True, null=True)
     성별 = models.CharField(max_length=5, blank=True, null=True)
     성향 = models.CharField(max_length=5, blank=True, null=True)
-    밴드_id = models.CharField(db_column='밴드_ID', max_length=25)  # Field name made lowercase.
+    #b_id = models.CharField(db_column="밴드_ID", max_length=25)  # Field name made lowercase.
     어린이집 = models.CharField(max_length=12, blank=True, null=True)
 
     class Meta:
         managed = False
         app_label = 'kids_db'
         db_table = 'all_kids'
-        unique_together = (('이름', '밴드_id'),)
+        unique_together = (('이름'),)

@@ -16,6 +16,8 @@ urlpatterns = [
     # kids_pattern
     path('kids_pattern1/', views.kids_pattern1, name='kids_pattern1'),
     path('result/', views.result, name='result'),
+    path('result/pick_date', views.pick_date, name="pick_date"),
+    path('result/pick_part', views.pick_part, name="pick_part"),
     # covid19
     path('covid19/', views.covid19, name='covid19'),
 ]
