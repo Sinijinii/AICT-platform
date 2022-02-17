@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="kids chart">
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="DB, chart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644827184062</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="DB, chart">
+      <created>1644974319616</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1644974319617</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,16 +161,17 @@
     <MESSAGE value="merge master" />
     <MESSAGE value="chart.js_kids, merge master" />
     <MESSAGE value="kids chart" />
-    <option name="LAST_COMMIT_MESSAGE" value="kids chart" />
+    <MESSAGE value="DB, chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="DB, chart" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1032" y="164" key="SettingsEditor" timestamp="1644479881954">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1032" y="164" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1644479881954" />
-    <state x="886" y="253" key="Vcs.Push.Dialog.v2" timestamp="1644800938489">
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2" timestamp="1644974321201">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="886" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1644800938489" />
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1644974321201" />
   </component>
 </project>

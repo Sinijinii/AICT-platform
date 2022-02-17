@@ -32,29 +32,26 @@ from .models import All
 import pandas as pd
 def result(request):
     students = AllKids.objects.values()
-    Name = request.POST['name']
+    global Name2
+    Name2 = request.POST['name']
+    global center
     center = request.POST['C_name']
+    global class_
     class_ = request.POST['class']
+    global birth
     birth = request.POST['password']
-    a=AllKids.objects.filter(이름=Name).values('이름','어린이집','반','생년월일','성별','성향')
-    b= AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth)
-    print(b)
-    if AllKids.objects.filter(이름=Name,어린이집=center, 반=class_, 생년월일=birth).exists():
+    global a
+    a=AllKids.objects.filter(이름=Name2).values('이름','어린이집','반','생년월일','성별','성향')
+    if AllKids.objects.filter(이름=Name2,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
         not_exist = True
-
-    if AllKids.objects.filter(성별='남'):
-        boy = True
-    else:
-        boy = False
-
     if AllKids.objects.filter(성향='외향적'):
         E = True
     else:
         E = False
     # 측정정보
-    kid_d = pd.DataFrame(list(All.objects.filter(name=Name).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
+    kid_d = pd.DataFrame(list(All.objects.filter(name=Name2).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
     HR=list(kid_d["heartrate"])
     step = list(kid_d["sc_field"])
     day = list(kid_d["day"])
@@ -63,29 +60,62 @@ def result(request):
     cal = list(kid_d["cal"])
     km = list(kid_d["km"])
     zsc = list(kid_d["zsc"])
-    print(HR)
-    print(day)
-    return render(request, 'result.html', {"students": students, "name":Name,"not_exist":not_exist,"birth":birth,"a":a, "boy":boy,"E":E,
-                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"HR":HR,"cal":cal,"km":km,"zsc":zsc})
+    return render(request, 'result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,
+                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"hr":HR,"cal":cal,"km":km,"zsc":zsc})
 
+
+import numpy
 from .models import AllKids
 from .models import All
 def pick_date(request):
+    global Name2; global center; global class_; global birth ; global a;
     date_ = request.POST['date_pick']
-    Name_ = '유혜린'
-    data_date = pd.DataFrame(list(All.objects.filter(day=date_,name=Name_).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name')))
-    if All.objects.filter(name=Name_,day=date_).exists():
+
+    all_data =  pd.DataFrame(list(All.objects.filter(day=date_).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','km','cal','date')))
+    data_date = pd.DataFrame(list(All.objects.filter(day=date_,name=Name2 ).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','km','cal','date')))
+    print(data_date['heartrate'])
+    if All.objects.filter(name=Name2,day=date_).exists():
         not_exist = False
     else:
         not_exist = True
-    HR_ = list(data_date["heartrate"])
-    step_ = list(data_date["sc_field"])
-    day_ = list(data_date["day"])
-    time_ = list(data_date["time"])
-    week_ = list(data_date["week"])
-    print(HR_,step_)
-
-    return render(request, 'result.html',{"step": step_, "day": day_, "time": time_, "week": week_, "HR": HR_,"not_exist":not_exist})
+    # 개인 1시간 평균
+    h_data=data_date.set_index('date')
+    h_dat2=h_data.resample('1H').mean()
+    h_dat2=h_dat2.reset_index()
+    h_dat2['time']=h_dat2['date'].dt.hour
+    # 전체 1시간 평균
+    all_ = all_data.set_index('date')
+    all2 = all_.resample('1H').mean()
+    all2 = all2.reset_index()
+    all2['time'] = all2['date'].dt.hour
+    aaaa=pd.DataFrame()
+    aaaa['time']=[10,11,12,13,14,15,16]
+    aaaa=pd.merge(aaaa, h_dat2, on='time', how='left')
+    aaaa = pd.merge(aaaa, all2, on='time', how='left')
+    aaaa=aaaa.fillna(value=0)
+    # 개인 정보
+    #day_kid =list(aaaa['time_x'].astype('str'))
+    hr_kid = list(aaaa['heartrate_x'])
+    sc_kid = list(aaaa['sc_field_x'])
+    zsc_kid = list(aaaa['zsc_x'])
+    km_kid = list(aaaa['km_x'])
+    cal_kid = list(aaaa['cal_x'])
+    # 전체 정보
+    #day_all = list(aaaa['time_y'].astype('str'))
+    hr_all = list(aaaa['heartrate_y'])
+    sc_all = list(aaaa['sc_field_y'])
+    zsc_all = list(aaaa['zsc_y'])
+    km_all = list(aaaa['km_y'])
+    cal_all = list(aaaa['cal_y'])
+    ## 전체평균
+    HR_all = numpy.mean(list(all_data["heartrate"]))
+    #print(week)
+    print(date_)
+    #print(aaaa)
+    print(sc_kid)
+    return render(request, 'result.html',{"name":Name2, "birth":birth,"a":a,"not_exist":not_exist,
+                                           "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid,"km_kid":km_kid,"cal_kid":cal_kid,
+                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all,"km_all":km_all,"cal_all":cal_all})
 
 
 
