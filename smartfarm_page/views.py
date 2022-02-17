@@ -98,23 +98,10 @@ def upload_file(request):
     else:
         return render(request, 'str_smartfarm1.html')
 
-# 가장 생성시각이 큰(가장 최근인) 파일을 리턴
-def recent_file():
-    media_path = "./media/"
-    each_file_path_and_gen_time = []
-    for each_file_name in os.listdir(media_path):
-        each_file_path = media_path + each_file_name
-        each_file_gen_time = os.path.getctime(each_file_path)  # getctime: 입력받은 경로에 대한 생성 시간을 리턴
-        each_file_path_and_gen_time.append(
-            (each_file_path, each_file_gen_time)
-        )
-    most_recent_file = max(each_file_path_and_gen_time, key=lambda x: x[1])[0]
-    return most_recent_file
-
-
 # 사용자가 직접 입력한 생육변수 데이터 가져와서 db에 저장 후 예측값 return
 from .models import Growth
 from .models import BestFarmMean
+from .models import PredictResult
 import numpy as np
 from datetime import timedelta
 
@@ -208,8 +195,14 @@ def data_analysis(week1, week2):
 
     ### scaled -> actual
     y_pred_future = sc_predict.inverse_transform(predictions_future)
-    result = y_pred_future[0][0]
-    return round(result, 2)
+    result = round(y_pred_future[0][0], 2)
+
+    ### result DB에 저장
+    user_obj = Str_user.objects.get(user_id=phone_id)
+    pred_result = PredictResult(user_code=user_obj, lstm_result=result, predict_date = now + timedelta(days=7))
+    pred_result.save()
+
+    return result
 
 # API 명세서 한글 파일 다운로드 기능
 from django.http import HttpResponse
@@ -327,7 +320,7 @@ def covid_graph():
 
         df['일시'] = df["일시"].dt.strftime("%Y-%m-%d")
 
-        now = datetime.now()
+        now = datetime.datetime.now()
         nowDate = now.strftime('%Y-%m-%d')
 
         total_covid_df = df.query("(시도명 == '합계') and (일시 == @nowDate)")

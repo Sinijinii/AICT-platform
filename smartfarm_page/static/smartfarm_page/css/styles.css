@@ -11305,7 +11305,7 @@ div.background{
   position: relative;
   background: url("../assets/img/corona_background2.png") no-repeat top;
   padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-bottom: 1.2rem;
 }
 
 header.masthead {
