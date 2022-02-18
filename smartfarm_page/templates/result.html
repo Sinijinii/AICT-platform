@@ -83,18 +83,18 @@
                 <div class="form-group">
                     <div style="float: left; margin-light:20px; "><br><br>
                         <label style=" font-size:15px; text-align:justify">1. 일별</label>
-                        <input type="checkbox" name="day[]" value="day" />
+                        <input type="radio" name="day[]" value="day" />
                     </div>
                     <div style="float: left; margin-light:20px; "><br><br>
                         <label style=" font-size:15px; text-align:justify">2. 요일별</label>
-                        <input type="checkbox" name="day[]" value="week" />
+                        <input type="radio" name="day[]" value="week" />
                     </div>
                     <div style="float: left; margin-light:20px; "><br><br>
                         <label style=" font-size:15px; text-align:justify">3. 월별</label>
-                        <input type="checkbox" name="day[]" value="month" /></div>
+                        <input type="radio" name="day[]" value="month" /></div>
                     </div>
             <div style="float: RIGHT; margin-right:20px; "><br><br>
-                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 8px;">확인</button>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
                             <br><br>
                 </div>
                 </div>
@@ -104,7 +104,7 @@
             </div>
         <br>
         <div style="float: left;">
-            <h4 style="text-align:justify"> <br>이름 : {{name}} <br> 성별 : {{a.values.get.성별}} <br> 생년월일 : {{birth}} <br> 성향 : {{a.values.get.성향}} <br> 어린이집 : {{a.values.get.어린이집}} <br>반 : {{a.values.get.반}}<br></h4>
+            <h4 style="text-align:justify"> <br>이름 : {{name}} <br> 성별 : {{a.values.get.성별}} <br> 생년월일 : {{birth}} <br> 성향 : {{a.values.get.성향}} <br> 어린이집 : {{a.values.get.어린이집}} <br>반 : {{a.values.get.반}}  <br></h4>
         </div>
       </form>
     </div>
@@ -145,7 +145,49 @@
                             <br><br>
 
             </div><br><br><br><br><br><br><br>
-                {% endif %}
+                {% elif month %}
+            <form action="{% url 'pick_month'%}" method="POST">
+                {% csrf_token %}
+                <div style="float: left; margin-right:20px; "><br><br>
+                <label  style="font-size:15px; text-align:justify">3. 월별 : 월 선택 </label>
+                <select name="month" class="form-control" id="exampleInputcheck2" placeholder="month" style="height:45px;font-size:15px;">
+                        <optgroup label="예닮어린이집">
+                            <option value="1">1</option>
+                            <option value="2" disabled>2</option>
+                            <option value="3" disabled>3</option>
+                            <option value="4" disabled>4</option>
+                            <option value="5" disabled>5</option>
+                            <option value="6" disabled>6</option>
+                            <option value="7" disabled>7</option>
+                            <option value="8" disabled>8</option>
+                            <option value="9" disabled>9</option>
+                            <option value="10" disabled>10</option>
+                            <option value="11" disabled>11</option>
+                            <option value="12" disabled>12</option>
+                        <optgroup label="평택어린이집">
+                            <option value="6" >6월</option>
+                </select><br>
+                </div>
+                <div style="float: left; margin-right:20px; "><br><br><br><br>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                            <br><br><br><br><br><br><br><br><br>
+                </div>
+ </div>
+      {% endif %}
+      {% if not_day %}
+      <h3>해당 날에는 데이터가 없습니다. 다시 확인해주세요.</h3>
+            <form action="{% url 'pick_date'%}" method="POST">
+                {% csrf_token %}
+                <div style="float: left; margin-right:20px; "><br><br>
+                <label  style="font-size:15px; text-align:justify">1. 일별 : 날짜 선택 </label>
+                <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-02-18"  style="height:45px;width:120;font-size:15px; text-align:justify;">
+            </div>
+            <div style="float: left; margin-right:20px; "><br><br><br><br>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                            <br><br>
+            </div><br><br><br><br><br><br><br>
+            </form>
+      {% endif %}
         <h2>{{date}}</h2><br><br></center>
           <div class="pt-4 bg-light"; style="float: right; padding:0px;">
             <div class="container px-xl-6 bg-light">
@@ -282,11 +324,10 @@
 
 
 <script>
-// 차트를 그럴 영역을 dom요소로 가져온다.
 new Chart(document.getElementById("heartrate"), {
             type: 'bar',
               data: {
-                labels:['10시', '11시', '12시', '13시', '14시', '15시', '16시'],
+                labels:{{ ch_la | safe }},
                 datasets: [{
                     data: {{ hr_kid }},
                     label: '개인',
@@ -353,7 +394,7 @@ new Chart(document.getElementById("heartrate"), {
 new Chart(document.getElementById("stepcount"), {
             type: 'bar',
               data: {
-                labels:['10시', '11시', '12시', '13시', '14시', '15시', '16시'],
+                labels:{{ ch_la | safe }},
                 datasets: [{
                     data: {{ sc_kid }},
                     label: '개인',
@@ -420,7 +461,7 @@ new Chart(document.getElementById("stepcount"), {
             new Chart(document.getElementById("km"), {
             type: 'bar',
               data: {
-                labels:['10시', '11시', '12시', '13시', '14시', '15시', '16시'],
+                labels:{{ ch_la | safe }},
                 datasets: [{
                     data: {{ km_kid }},
                     label: '심박수',
@@ -485,7 +526,7 @@ new Chart(document.getElementById("stepcount"), {
             new Chart(document.getElementById("cal"), {
             type: 'bar',
               data: {
-                labels:['10시', '11시', '12시', '13시', '14시', '15시', '16시'],
+                labels:{{ ch_la | safe }},
                 datasets: [{
                     data: {{ cal_kid }},
                     label: '심박수',

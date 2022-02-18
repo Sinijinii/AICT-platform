@@ -19,5 +19,6 @@ urlpatterns = [
     path('result/', views.result, name='result'),
     path('result/pick_date', views.pick_date, name="pick_date"),
     path('result/pick_part', views.pick_part, name="pick_part"),
+    path('result/pick_month', views.pick_month, name="pick_month"),
 
 ]
