@@ -105,7 +105,7 @@ class All(models.Model):
 
 class AllKids(models.Model):
     번호 = models.IntegerField()
-    이름 = models.CharField(primary_key=True, max_length=5)
+    name = models.CharField(db_column='Name',primary_key=True, max_length=5)
     생년월일 = models.DateField(blank=True, null=True)
     반 = models.CharField(max_length=12, blank=True, null=True)
     성별 = models.CharField(max_length=5, blank=True, null=True)
@@ -117,4 +117,4 @@ class AllKids(models.Model):
         managed = False
         app_label = 'kids_db'
         db_table = 'all_kids'
-        unique_together = (('이름'),)
+        unique_together = (('name'),)

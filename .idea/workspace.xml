@@ -16,15 +16,50 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/brch_HJ" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Visualize the date.">
+<<<<<<< HEAD
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Compare data by class.">
+      <change afterPath="$PROJECT_DIR$/media/220119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/boy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/children.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/girl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid_page.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid_page1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid_page3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/soso.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
+=======
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Error handling and visualization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/date.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/date.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/children.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_pattern1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
+>>>>>>> origin/brch_HJ
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +75,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="brch_SHJ" />
@@ -57,16 +98,17 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/smartfarm_page/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AICTTechPlan04\Desktop\Aict_kid\kids_pattern\smartfarm_page\templates" />
+      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hmwon\Desktop\YJM\aict_JM\smartfarm_page\static\smartfarm_page\assets\img" />
       <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
     </key>
   </component>
   <component name="RunManager">
@@ -158,8 +200,43 @@
       <option name="project" value="LOCAL" />
       <updated>1645079902985</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Error handling and visualization">
+      <created>1645151151549</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1645151151550</updated>
+    </task>
+<<<<<<< HEAD
+    <task id="LOCAL-00009" summary="Decorating pages.">
+      <created>1645173264066</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1645173264066</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Decorating pages.">
+      <created>1645173294953</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1645173294953</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Decorating pages.">
+      <created>1645404031293</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1645404031294</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+=======
+    <option name="localTasksCounter" value="9" />
+>>>>>>> origin/brch_HJ
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -179,16 +256,50 @@
     <MESSAGE value="kids chart" />
     <MESSAGE value="DB, chart" />
     <MESSAGE value="Visualize the date." />
-    <option name="LAST_COMMIT_MESSAGE" value="Visualize the date." />
+    <MESSAGE value="Error handling and visualization" />
+<<<<<<< HEAD
+    <MESSAGE value="Decorating pages." />
+    <MESSAGE value="Compare data by class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Compare data by class." />
+=======
+    <option name="LAST_COMMIT_MESSAGE" value="Error handling and visualization" />
+>>>>>>> origin/brch_HJ
   </component>
   <component name="WindowStateProjectService">
+    <state x="262" y="86" key="DiffContextDialog" timestamp="1645578133063">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="262" y="86" key="DiffContextDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1645578133063" />
     <state x="1032" y="164" key="SettingsEditor" timestamp="1644479881954">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1032" y="164" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1644479881954" />
-    <state x="886" y="253" key="Vcs.Push.Dialog.v2" timestamp="1645079908924">
+<<<<<<< HEAD
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2" timestamp="1645578228184">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="886" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1645079908924" />
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1645578228184" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>313</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>326</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+=======
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2" timestamp="1645151166831">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="886" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1645151166831" />
+>>>>>>> origin/brch_HJ
   </component>
 </project>
