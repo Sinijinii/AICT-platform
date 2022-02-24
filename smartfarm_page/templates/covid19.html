@@ -218,7 +218,7 @@
             data: {
                 labels: {{ graph_dict | get_dict:"change_covid_date" | safe }},
                 datasets: [{
-                    label: '코로나 누적 확진자 수',
+                    label: '코로나 확진자 수',
                     data: {{ graph_dict | get_dict:"change_covid_patient" | safe }},
                     borderColor: "#1cc88a",
                     backgroundColor: "#1cc88a",
