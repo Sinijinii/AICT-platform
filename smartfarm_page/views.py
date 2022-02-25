@@ -286,7 +286,7 @@ def data_analysis(week1, week2):
 
     ### result DB에 저장
     user_obj = Str_user.objects.get(user_id=phone_id)
-    pred_result = PredictResult(user_code=user_obj, lstm_result=result, predict_date = now + timedelta(days=7))
+    pred_result = PredictResult(user_code=user_obj, lstm_result=result, predict_date = now)
     pred_result.save()
 
     return result
@@ -388,7 +388,6 @@ def covid_graph():
             element_dict['시도명'] = element.find('gubun').text  # 지역
             element_dict['전일대비 증감'] = element.find('incDec').text  # 전일대비증감수
             element_dict['확진자 수'] = element.find('defCnt').text  # 확진자수
-            element_dict['격리해제 수'] = element.find('isolClearCnt').text  # 격리해제수
             element_dict['지역발생 수'] = element.find('localOccCnt').text  # 지역발생수
             element_dict['해외유입'] = element.find('overFlowCnt').text  # 해외유입수
             element_dict['10만명당 발생률'] = element.find('qurRate').text  # 10만명당 발생률
@@ -400,7 +399,6 @@ def covid_graph():
         df['사망자 수'] = pd.to_numeric(df['사망자 수'])
         df['전일대비 증감'] = pd.to_numeric(df['전일대비 증감'])
         df['확진자 수'] = pd.to_numeric(df['확진자 수'])
-        df['격리해제 수'] = pd.to_numeric(df['격리해제 수'])
         df['지역발생 수'] = pd.to_numeric(df['지역발생 수'])
         df['해외유입'] = pd.to_numeric(df['해외유입'])
         # df['10만명당 발생률'] = pd.to_numeric(df['10만명당 발생률'])
@@ -422,9 +420,10 @@ def covid_graph():
         today_total_num = region_num + abroad_num
 
         change_covid_df = df.query("시도명 == '합계'")
-        change_covid_date = list( change_covid_df['일시'])
-        change_covid_patient = list(change_covid_df['확진자 수'])
-        today_acc_covid_patient = change_covid_patient[0]
+        change_covid_date = list( change_covid_df['일시'][:30])
+        change_covid_patient = list(change_covid_df['전일대비 증감'][:30])
+        change_acc_covid_patient = list(change_covid_df['확진자 수'])
+        today_acc_covid_patient = change_acc_covid_patient[0]
 
         covid_graph_dict = {'covid_total' : format(total_num,',d'), 'region_num' : region_num, 'abroad_num': format(abroad_num, ',d'), 'today_total_num': format(today_total_num,',d'), 'change_covid_date' :change_covid_date[::-1],
                                                          'change_covid_patient' : change_covid_patient[::-1], "today_acc_covid_patient" : format(today_acc_covid_patient,',d')}
