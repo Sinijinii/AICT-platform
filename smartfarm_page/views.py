@@ -42,7 +42,8 @@ def result(request):
     ab=pd.DataFrame(list(AllKids.objects.values('name','어린이집','반','생년월일','성별','성향')))
     bc=pd.DataFrame(list(All.objects.values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date','name')))
     kid_all_data = pd.merge(bc, ab, on='name', how='left')
-    kid_all_data.drop_duplicates(['heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date','name'], keep='last', inplace=True, ignore_index=True)
+    kid_all_data.drop_duplicates(['heartrate', 'sc_field', 'date','km','name'], keep='last', inplace=True, ignore_index=True)
+
     if AllKids.objects.filter(name=Name2,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
