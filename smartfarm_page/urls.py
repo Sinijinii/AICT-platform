@@ -20,5 +20,7 @@ urlpatterns = [
     path('result/pick_date', views.pick_date, name="pick_date"),
     path('result/pick_part', views.pick_part, name="pick_part"),
     path('result/pick_month', views.pick_month, name="pick_month"),
-
+    path('kid_data_fileupload/', views.kid_data_fileupload, name="kid_data_fileupload"),
+    path('kid_data_fileupload/kid_data_upload', views.kid_data_upload, name="kid_data_upload"),
+    path('kid_data_fileupload/input_kid_data', views.input_kid_data, name="input_kid_data"),
 ]

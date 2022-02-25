@@ -45,6 +45,7 @@ def result(request):
     ab=pd.DataFrame(list(AllKids.objects.values('name','어린이집','반','생년월일','성별','성향')))
     bc=pd.DataFrame(list(All.objects.values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date','name')))
     kid_all_data = pd.merge(bc, ab, on='name', how='left')
+    kid_all_data.drop_duplicates(['HeartRate', 'StepCount', 'Date','Km','Name'], keep='last', inplace=True, ignore_index=True)
     if AllKids.objects.filter(name=Name2,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
@@ -63,7 +64,6 @@ def result(request):
     cal = list(kid_d["cal"])
     km = list(kid_d["km"])
     zsc = list(kid_d["zsc"])
-    print(zsc)
     return render(request, 'result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,
                                            "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"hr":HR,"cal":cal,"km":km,"zsc":zsc})
 
@@ -182,7 +182,6 @@ def pick_part(request):
             Active = False
             inactive = False
             normal = True
-        print("Zsc:",zsc)
         max_zsc = numpy.nanargmax(sc_kid)
         max_zsc = ch_la[max_zsc]
         min_zsc = numpy.nanargmin(sc_kid)
@@ -220,31 +219,26 @@ def pick_date(request):
         not_day = False
         kid_all_data['day']=kid_all_data['day'].astype('datetime64[s]')
         all_data = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['day'] == date_),['heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date']]
-        print("kid_all_data",kid_all_data)
         all_data['km'] = all_data['km'].fillna(value=0)
         all_data['cal'] = all_data['cal'].fillna(value=0)
         data_date = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['day'] == date_) & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date']]
         data_date['km'] = data_date['km'].fillna(value=0)
         data_date['cal'] = data_date['cal'].fillna(value=0)
-        print("all_data",all_data ,"data_date",data_date)
         # 개인 1시간 평균
         h_data = data_date.set_index('date')
         h_dat2 = h_data.resample('1H').mean()
         h_dat2 = h_dat2.reset_index()
         h_dat2['time'] = h_dat2['date'].dt.hour
-        print("h_dat2",h_dat2)
         # 전체 1시간 평균
         all_ = all_data.set_index('date')
         all2 = all_.resample('1H').mean()
         all2 = all2.reset_index()
         all2['time'] = all2['date'].dt.hour
-        print("all2", all2)
         aaaa = pd.DataFrame()
         aaaa['time'] = [10, 11, 12, 13, 14, 15, 16]
         aaaa = pd.merge(aaaa, h_dat2, on='time', how='left')
         aaaa = pd.merge(aaaa, all2, on='time', how='left')
         aaaa = aaaa.fillna(value=0)
-        print("aaaa",aaaa)
         # 개인 정보
         hr_kid = list(aaaa['heartrate_x'])
         sc_kid = list(aaaa['sc_field_x'])
@@ -264,7 +258,6 @@ def pick_date(request):
         all_zsc = numpy.nanmean(zsc_all)
         kid_zsc = numpy.nanmean(zsc_kid)
         zsc = float(all_zsc) - float(kid_zsc)
-        print("Zsc:", zsc)
         if zsc >= 0.1:
             Active = False
             inactive = True
@@ -277,7 +270,6 @@ def pick_date(request):
             Active = False
             inactive = False
             normal = True
-        print("aaaa", aaaa)
         sc_kid_ = list(aaaa['sc_field_x'].replace(0, np.nan))
         max_zsc = numpy.nanargmax(sc_kid_)
         max_zsc = ch_la[max_zsc]
@@ -298,8 +290,6 @@ def pick_date(request):
 # 월데이터 뽑기
 def pick_month(request):
     global Name2; global center; global class_; global birth ; global a; global kid_all_data;
-    hr_kid = []; sc_kid = []; zsc_kid = []; km_kid = []; cal_kid = [];hr_all = [];sc_all = [];
-    heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
     month_ = request.POST['month']
     month_p = pd.DataFrame()
     month_p['month'] = list(month_)
@@ -352,7 +342,6 @@ def pick_month(request):
     all_zsc = numpy.nanmean(zsc_all)
     kid_zsc = numpy.nanmean(zsc_kid)
     zsc = float(all_zsc) - float(kid_zsc)
-    print("Zsc:", zsc)
     if zsc >= 0.1:
         Active = False
         inactive = True
@@ -384,6 +373,48 @@ def pick_month(request):
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
                                            "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day})
+
+# 사용자 데이터 입력페이지
+def kid_data_fileupload(request):
+    global pass_data
+    pass_data = request.POST['data_pass']
+    pw='1504'
+    if pass_data == pw:
+        not_pass=False
+    else:
+        not_pass=True
+    return render(request, 'kid_data_fileupload.html', {"not_pass":not_pass,"pass_data":pass_data})
+
+from .models import All
+from django.conf import settings
+import io
+from sqlalchemy import create_engine
+# 데이터 입력받기
+def kid_data_upload(request):
+    global data_df
+    file = request.FILES['upload_kid_data']
+    data_df = file
+    data_df = pd.read_csv(io.BytesIO(file.read()),encoding='cp949')
+    print(data_df)
+    return render(request, 'kid_data_fileupload.html',{"file":file,"data_df":data_df})
+
+
+# 데이터 db에 저장
+from .models import All
+def input_kid_data(request):
+    global data_df
+
+    data_df = data_df[['Date', 'HeartRate', 'Km', 'sc_', 'Cal',"ID","Day","Time",'week',"error","Name","Zsc"]]
+    print(data_df)
+    database_url = 'mysql://{user}:{password}@localhost/{database_name}'.format(
+        user=settings.DATABASES['kids_db']['USER'],
+        password=settings.DATABASES['kids_db']['PASSWORD'],
+        database_name=settings.DATABASES['kids_db']['NAME'],
+    )
+    engine = create_engine(database_url, echo=False)
+    data_df.to_sql(name='kids_data', con=engine, index=False, if_exists='append')
+    Succeeded=True
+    return render(request, 'kid_data_fileupload.html',{"Succeeded":Succeeded,"data_df":data_df})
 
 
 

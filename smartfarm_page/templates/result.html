@@ -177,9 +177,9 @@
                     </div>
                     <div style="float: left; margin-right:20px; "><br><br><br><br>
                         <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
-                        <br><br><br><br><br><br><br><br><br>
-                    </div><br><br><br><br>
-                    </form>
+                    </div><br>
+                    <div class="row mb-3"></div>
+                </form>
                     {% endif %}
                     {% if not_day %}
                     <h3 >⚠️ 해당 날에는 데이터가 없습니다. 다시 확인해주세요. ⚠️</h3>
@@ -248,7 +248,7 @@
                                 <div class="card shadow mb-4" style="border:0px;">
                                     <div class="card-body">
                                         <div class="chart-area">
-                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="400" height="300" alt=""><br>normal</h2>
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="450" height="300" alt=""><br>normal</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -322,7 +322,9 @@
                     </div>
                 </div>
 {% endif %}
-                <a href="./yourfile.pdf" download="newfilename">Download the pdf &nbsp; <img src="{% static 'smartfarm_page/assets/img/down.png' %}" width="40" height="40" alt=""></a>
+                <br><br><br>
+                <a href="/images/myw3schoolsimage.pdf" download="newfilename">Download the pdf &nbsp; <img src="{% static 'smartfarm_page/assets/img/down.png' %}" width="40" height="40" alt=""></a>
+                <br><br><br>
             </center>
         </div>
     </div>

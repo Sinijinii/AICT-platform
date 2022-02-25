@@ -134,8 +134,14 @@
                     <label for="exampleInputcheck" style="font-size:15px;">생년월일 </label>
                     <input name="password" type="date" class="form-control"  min="2016-01-01" max="2022-01-01" value="2020-01-01" style="height:45px;width:120;font-size:15px;">
                 </div><br><br><br>
-                <button type="submit" class="btn btn-primary" style="height:45px;width:120;font-size:16px;">확 인</button><br><br><br><br><br><br><br><br><br><br>
+                <button type="submit" class="btn btn-primary" style="height:45px;width:120;font-size:16px;">확 인</button><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </form>
+          <form action="{% url 'kid_data_fileupload'%}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                    <label for="exampleInputName" style="font-size:15px;">업로드 사용자 비밀번호</label>
+                    <input  name="data_pass" type="text" class="form-control" id="exampleInput" placeholder="password" style="height:45px;font-size:15px;" required>
+                </div>
 
       <!--blog posts container-->
 
