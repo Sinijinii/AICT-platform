@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/python" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/boy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/children.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/e5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/girl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid_page.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid_page1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/kid_page3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/soso.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,5 +105,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

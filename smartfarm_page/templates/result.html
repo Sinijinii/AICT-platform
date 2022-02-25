@@ -202,7 +202,7 @@
                                 <div class="card shadow mb-4" style="border:0px;">
                                     <div class="card-body">
                                         <div class="chart-area">
-                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e4.png' %}" width="400" height="300" alt=""><br>다소 활동적</h2>
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e4.png' %}" width="400" height="300" alt=""><br>활동량 : 다소 활동적</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@
                                 <div class="card shadow mb-4" style="border:0px;">
                                     <div class="card-body">
                                         <div class="chart-area">
-                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e2.png' %}" width="400" height="300" alt=""><br>차분함</h2>
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e2.png' %}" width="400" height="300" alt=""><br>활동량 : 다소 차분함</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -248,7 +248,7 @@
                                 <div class="card shadow mb-4" style="border:0px;">
                                     <div class="card-body">
                                         <div class="chart-area">
-                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="450" height="300" alt=""><br>normal</h2>
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="450" height="300" alt=""><br>활동량 : 평균</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -403,7 +403,7 @@ new Chart(document.getElementById("heartrate"), {
                   },
                   {
                     data: {{ hr_all }},
-                    label: '평균',
+                    label: '반 평균',
                     type : 'bar',
                     backgroundColor: 'rgba(39, 141, 0, 0.36)',
                     borderColor: 'rgba(39, 141, 0, 0.79)',
@@ -470,7 +470,7 @@ new Chart(document.getElementById("stepcount"), {
                   },
                   {
                     data: {{ sc_all }},
-                    label: '평균',
+                    label: '반 평균',
                     type : 'bar',
                     backgroundColor: 'rgba(39, 141, 0, 0.36)',
                     borderColor: 'rgba(39, 141, 0, 0.79)',
@@ -537,7 +537,7 @@ new Chart(document.getElementById("stepcount"), {
                   },
                   {
                     data: {{km_all}},
-                    label: '평균',
+                    label: '반 평균',
                     type : 'bar',
                     backgroundColor: 'rgba(39, 141, 0, 0.36)',
                     borderColor: 'rgba(39, 141, 0, 0.79)',
@@ -604,7 +604,7 @@ new Chart(document.getElementById("stepcount"), {
                   },
                   {
                     data: {{ cal_all }},
-                    label: '평균',
+                    label: '반 평균',
                     type : 'bar',
                     backgroundColor: 'rgba(39, 141, 0, 0.36)',
                     borderColor: 'rgba(39, 141, 0, 0.79)',
