@@ -25,25 +25,28 @@
 <link href="{% static 'smartfarm_page/css/kids/owl.carousel.css' %}?after" rel="stylesheet" media="screen">
 <link href="{% static 'smartfarm_page/css/kids/owl.theme.css' %}?after" rel="stylesheet" media="screen">
 <link href="{% static 'smartfarm_page/css/kids/animate.css' %}?after" rel="stylesheet" media="screen">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-        <!--Using JS-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<!--Using JS-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Stylesheet
 
 
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="{% static 'smartfarm_page/css/stylehj.css' %}?after">
 <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700|Montserrat:100,200,300,300i,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!-- 글꼴 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="page" style="background-color:#F3F6F6">
-
+<body class="page" style="background-image: url({% static 'smartfarm_page/assets/img/kid_page.jpg' %})">
 <!-- Navigation
     ==========================================-->
 <nav id="top-menu" class="navbar navbar-default navbar-fixed-top">
@@ -51,174 +54,320 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span>공공융합플랫폼</span></a> </div>
-
+      <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span style=" color:#525249;">공공융합플랫폼</span></a> </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <!--nav icon-->
-      <a id="nav-icon"> <span></span> <span></span> <span></span> </a>
+      <a id="nav-icon" style=" color:#525249;"> <span></span> <span></span> <span></span> </a>
       <!--nav icon end-->
-
-      <ul id="nav-top" class="nav navbar-nav navbar-right">
-         <li><a href="{% url 'main'%}" class="page-scroll">Home</a></li>
-         <li><a href="{% url 'str_smartfarm1'%}" class="page-scroll">딸기 스마트팜</a></li>
-         <li><a href="#" class="page-scroll">영유아 스마트 케어</a></li>
-         <li><a href="{% url 'covid19'%}" class="page-scroll">코로나19 현황 분석</a></li>
+      <ul id="nav-top" class="nav navbar-nav navbar-right" style=" color:#525249;">
+         <li><a href="{% url 'main'%}" class="page-scroll"style=" color:#525249;">Home</a></li>
+         <li><a href="{% url 'str_smartfarm1'%}" class="page-scroll"style=" color:#525249;">딸기 스마트팜</a></li>
+         <li><a href="{% url 'kids_pattern1'%}" class="page-scroll"style=" color:#525249;">영유아 스마트 케어</a></li>
+         <li><a href="{% url 'covid19'%}" class="page-scroll"style=" color:#525249;">코로나19 현황 분석</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
 </nav>
-
+<style>
+   .jb-text {
+   border-top-left-radius:15px; border-bottom-left-radius:15px;
+   border-top-right-radius:15px; border-bottom-right-radius:15px;
+   background-color: white;
+   text-align: left;
+   border: 2px solid #000000;
+         }
+</style>
 <!-- banner Page
     ==========================================-->
-<div id="page-banner">
+<div id="page-banner" style="background-image: url({% static 'smartfarm_page/assets/img/kid_page1.jpg' %});">
   <div class="content  wow fdeInUp">
     <div class="container ">
+        <div style="float: center;">
+            {% if not_exist %}
+            <h2 style="font-family: 'Jua', sans-serif;">잘못된 정보입니다. 다시 확인해주세요.</h2>
+            <h4><a href="{% url 'kids_pattern1'%}" ><img src="{% static 'smartfarm_page/assets/img/return.png' %}" width="40" height="40" alt=""></a></h4>
+            <br><br><br>
+            {% else %}
+        </div>
         <div style="float: left; margin-right:20px; ">
-
-            <h2 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/user.png' %}" width="180" height="180" alt=""></h2>
-
-        </div>
-        <br>
-        <div style="float: left;">
-            <h4 style="text-align:justify"> <br>이름 : {{name}} <br> 성별 : {{a.values.get.성별}} <br> 생년월일 : {{birth}} <br>어린이집 :{{a.values.get.어린이집}}</h4>
-        </div>
-
-
-<!--
-        <br>
-        {% if E %}
-            {% if boy %}
-                <div style="float: right;">
-                    <br><br>
-                    <h6 style="text-align:justify">{{a.values.get.성향}}</h6>
-                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/boy_60.png' %}"width="200" height="30"></h4>
-                </div>
-                <div style="float: right; margin-right:20px; ">
-                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-man.png"/> </h2>
-                </div>
+            {% if a.values.get.성별 == '남' %}
+            <h2 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/boy.png' %}" width="190" height="190" alt=""></h2>
             {% else %}
-                <div style="float: right;">
-                    <br><br>
-                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/grl_60.png' %}"width="200" height="30"></h4>
-                </div>
-                <div style="float: right; margin-right:20px; ">
-                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-woman.png"/> </h2>
-                </div>
+            <h2 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/girl.png' %}" width="190" height="190" alt=""></h2>
             {% endif %}
-        {% else %}
-            {% if boy %}
-                <div style="float: right;">
-                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/boy_20.png' %}"width="200" height="30"></h4>
-                </div>
-                <div style="float: right; margin-right:20px; ">
-                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-man.png"/> </h2>
-                </div>
-            {% else %}
-                <div style="float: right;">
-                    <h4 style="text-align:justify"><img src="{% static 'smartfarm_page/assets/img/grl.png' %}"width="200" height="30"></h4>
-                </div>
-                <div style="float: right; margin-right:20px; ">
-                    <h2 style="text-align:justify"><img src="https://img.icons8.com/dusk/120/000000/standing-woman.png"/> </h2>
-                </div>
-        {% endif %}
-        {% endif %}
--->
-<!--
-      <h1>영유아 스마트 케어</h1>
--->
+        </div><br><br><br><br><br><br><br><br><br><br>
+        <div class="jb-text" style="padding: 20px 100px; font-family: 'Jua', sans-serif;">
+            <h2 style="float: right; font-family: 'Jua', sans-serif;"> 어린이집  : {{ a.values.get.어린이집 }} <br>반&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ a.values.get.반 }}<br> 성향&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ a.values.get.성향 }}  </h2>
+            <h2 style="font-family: 'Jua', sans-serif;"> 이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{name}} <br> 성별 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ a.values.get.성별 }} <br> 생년월일 : {{birth}} </h2>
         </div>
+
+        <div class="container ">
+            <div style="float: right;">
+                <form action="{% url 'pick_part'%}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div style="float: left; margin-light:20px; "><br><br>
+                            <label style=" font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">1. 일별</label>
+                            <input type="radio" name="day[]" value="day" />
+                        </div>
+                        <div style="float: left; margin-light:20px; "><br><br>
+                            <label style=" font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">2. 요일별</label>
+                            <input type="radio" name="day[]" value="week" />
+                        </div>
+                        <div style="float: left; margin-light:20px; "><br><br>
+                            <label style=" font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">3. 월별</label>
+                            <input type="radio" name="day[]" value="month" />
+                        </div>
+                        <div style="float: left; margin-light:20px; "><br><br>
+                            <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                            <br><br>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-
-
+  </div>
+</div>
 <!--page body-->
-
-  <div class="container">
-      <br><br><br><br><br>
+<div class="container">
     <div class="row">
-      <!--blog posts container-->
-      <div class="col-md-offset-3 col-md-6 page-block">
-
-
-        {% for list in students %}
-
-        {% endfor %}
-        {% if not_exist %}
-            <h2>잘못된 정보입니다. 다시 확인해주세요.</h2>
-            <h4><a href="{% url 'kids_pattern1'%}" ><img src="{% static 'smartfarm_page/assets/img/return.png' %}" width="40" height="40" alt=""></a></h4>
-          <br><br><br>
-        {% else %}
-        <h2>{{ heartrate }}</h2>
-            <div class="col-sm-6">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">심박수</h6>
+        <h3 style="color:#ebbf7a; font-size: 35px; font-weight: 600;font-family: 'Jua', sans-serif;">{{ pick }}</h3>
+        <div class="jb-text"style=" padding: 30px 20px;">
+            <center>
+                {% if days %}
+                <form action="{% url 'pick_date'%}" method="POST">
+                    {% csrf_token %}
+                    <div style="float: left; margin-right:20px; "><br><br>
+                        <label  style="font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">1. 일별 : 날짜 선택 </label>
+                        <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-02-18"  style="height:45px;width:120;font-size:15px; text-align:justify;" required>
+                    </div>
+                    <div style="float: left; margin-right:20px; "><br><br><br><br>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                        <br><br>
+                    </div><br><br><br><br><br><br><br>
+                </form>
+                {% elif month %}
+                <form action="{% url 'pick_month'%}" method="POST">
+                    {% csrf_token %}
+                    <div style="float: left; margin-right:10px; "><br><br>
+                        <label  style="font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">3. 월별 : 월 선택 </label>
+                        <select name="month" class="form-control" placeholder="month" style="height:45px;font-size:15px;">
+                            <optgroup label="예닮어린이집">
+                                <option value="1">1</option>
+                                <option value="2" disabled>2</option>
+                                <option value="3" disabled>3</option>
+                                <option value="4" disabled>4</option>
+                                <option value="5" disabled>5</option>
+                                <option value="6" disabled>6</option>
+                                <option value="7" disabled>7</option>
+                                <option value="8" disabled>8</option>
+                                <option value="9" disabled>9</option>
+                                <option value="10" disabled>10</option>
+                                <option value="11" disabled>11</option>
+                                <option value="12" disabled>12</option>
+                            </optgroup>
+                            <optgroup label="평택어린이집">
+                                <option value="6" >6월</option>
+                            </optgroup>
+                        </select><br>
+                    </div>
+                    <div style="float: left; margin-right:20px; "><br><br><br><br>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                    </div><br>
+                    <div class="row mb-3"></div>
+                </form>
+                    {% endif %}
+                    {% if not_day %}
+                    <h3 >⚠️ 해당 날에는 데이터가 없습니다. 다시 확인해주세요. ⚠️</h3>
+                    <form action="{% url 'pick_date'%}" method="POST">
+                        {% csrf_token %}
+                        <div style="float: left; margin-right:padding:10px 0px; "><br><br>
+                        <label  style="font-size:15px; text-align:justify">1. 일별 : 날짜 선택 </label>
+                        <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-02-18"  style="height:45px;width:120;font-size:15px; text-align:justify;" required>
+                        </div>
+                <div style="float: left; margin-right:20px; "><br><br><br><br>
+                    <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                    <br><br>
+                </div><br><br><br><br><br><br><br>
+            </form>
+            {% endif %}
+                {% if Active %}
+                <div class="flex-container"; style=" padding:0px 0px;">
+                        <div class="container px-xl-6 bg-center">
+                            <div class="col-sm-6">
+                                <div class="card shadow mb-4" style="border:0px;">
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e4.png' %}" width="400" height="300" alt=""><br>활동량 : 다소 활동적</h2>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myChart" width="500" height="500"></canvas>
+                            <div class="col-sm-6" >
+                                <div class="card shadow mb-4"style="border:0px;">
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <h2 style="font-family: 'Jua', sans-serif;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-        {% endif %}
-
-
-    </div>
-  </div>
- </div>
-</div>
-
-
-
-
-         <div class="row mb-5"></div>
-        <footer class="footer bg-light" style="background-color:#DCDCDC">
-            <br><br><br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
-
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+                {% elif inactive %}
+                <div class="flex-container"; style=" padding:0px 0px;">
+                        <div class="container px-xl-6 bg-center">
+                            <div class="col-sm-6">
+                                <div class="card shadow mb-4" style="border:0px;">
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e2.png' %}" width="400" height="300" alt=""><br>활동량 : 다소 차분함</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" >
+                                <div class="card shadow mb-4"style="border:0px;">
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <h2 style="font-family: 'Jua', sans-serif;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="https://aict.snu.ac.kr/">
-                                    <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
-                                </a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="https://www.snu.ac.kr/">
-                                    <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
-                                </a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="https://www.gg.go.kr/">
-                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
-                                </a>
-                            </li>
-                        </ul>
+                {% elif normal %}
+                    <div class="flex-container"; style=" padding:0px 0px;">
+                        <div class="container px-xl-6 bg-center">
+                            <div class="col-sm-6">
+                                <div class="card shadow mb-4" style="border:0px;">
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="450" height="300" alt=""><br>활동량 : 평균</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" >
+                                <div class="card shadow mb-4"style="border:0px;">
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <h2 style="font-family: 'Jua', sans-serif;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="flex-container"; style=" padding:0px 0px;">
+                    <div class="container px-xl-6 bg-center">
+                        <div class="col-sm-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary" >심박수</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="heartrate" width="1200" height="700"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">걸음수</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="stepcount" width="1200" height="700"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br>
+                <div class="flex-container"; style=" padding:0px 0px;">
+                    <div class="container px-xl-6 bg-light">
+                        <div class="col-sm-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary" >km</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="km" width="1200" height="700"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">칼로리</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="cal" width="1200" height="700"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div><br><br>
-        </footer>
-  </body>
-
+{% endif %}
+                <br><br><br>
+                <a href="/images/myw3schoolsimage.pdf" download="newfilename">Download the pdf &nbsp; <img src="{% static 'smartfarm_page/assets/img/down.png' %}" width="40" height="40" alt=""></a>
+                <br><br><br>
+            </center>
+        </div>
+    </div>
+</div>
+<footer class="footer bg-light" style="background-image: url({% static 'smartfarm_page/assets/img/kid_page3.jpg' %})">
+    <div class="row mb-5"></div>
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-end my-auto" >
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-4">
+                        <a href="https://aict.snu.ac.kr/">
+                            <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                        </a>
+                    </li>
+                    <li class="list-inline-item me-4">
+                        <a href="https://www.snu.ac.kr/">
+                            <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                        </a>
+                    </li>
+                    <li class="list-inline-item me-4">
+                        <a href="https://www.gg.go.kr/">
+                            <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><br><br>
+</footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -231,55 +380,282 @@
     ================================================== -->
 <script type="text/javascript" src="{% static 'smartfarm_page/js/kids/main.js' %}"></script>
 <script src="{% static 'smartfarm_page/js/kids/wow.min.js' %}"></script>
-
-         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
-        <!-- Page level plugins -->
-        <script src="{% static 'smartfarm_page/js/Chart.min.js' %}"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
-        // 차트를 그릴 영역으로 canvas태그를 사용한다.
-
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<!-- Page level plugins -->
+<script src="{% static 'smartfarm_page/js/Chart.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
 <script>
-// 차트를 그럴 영역을 dom요소로 가져온다.
-var chartArea = document.getElementById('myChart').getContext('2d');
-// 차트를 생성한다.
-var myChart = new Chart(chartArea, {
-    // ①차트의 종류(String)
-    type: 'bar',
-    // ②차트의 데이터(Object)
-    data: {
-        // ③x축에 들어갈 이름들(Array)
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
-        datasets: [{
-            // ⑤dataset의 이름(String)
-            label: '심박수',
-            // ⑥dataset값(Array)
-            data: [12, 19, 3, 5, 2, 3],
-            // ⑦dataset의 배경색(rgba값을 String으로 표현)
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-            borderColor: 'rgba(255, 99, 132, 1)',
-            // ⑨dataset의 선 두께(Number)
-            borderWidth: 1
-        }]
-    },
-    // ⑩차트의 설정(Object)
-    options: {
-        // ⑪축에 관한 설정(Object)
-        scales: {
-            // ⑫y축에 대한 설정(Object)
-            y: {
-                // ⑬시작을 0부터 하게끔 설정(최소값이 0보다 크더라도)(boolean)
-                beginAtZero: true
-            }
-        }
-    }
-});
+new Chart(document.getElementById("heartrate"), {
+            type: 'bar',
+              data: {
+                labels:{{ ch_la | safe }},
+                datasets: [{
+                    data: {{ hr_kid }},
+                    label: '개인',
+                    type : 'bar',
+                    backgroundColor: 'rgba(255, 89, 0, 0.36)',
+                    borderColor: 'rgba(255, 89, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0
+                  },
+                  {
+                    data: {{ hr_all }},
+                    label: '반 평균',
+                    type : 'bar',
+                    backgroundColor: 'rgba(39, 141, 0, 0.36)',
+                    borderColor: 'rgba(39, 141, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0,
+                  }
+                ]
+              },
+
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "",
+                        },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: ""
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index];
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel;
+                          }
+
+                  }
+                }
+                }
+            });
+
+new Chart(document.getElementById("stepcount"), {
+            type: 'bar',
+              data: {
+                labels:{{ ch_la | safe }},
+                datasets: [{
+                    data: {{ sc_kid }},
+                    label: '개인',
+                    type : 'bar',
+                    backgroundColor: 'rgba(255, 89, 0, 0.36)',
+                    borderColor: 'rgba(255, 89, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0
+                  },
+                  {
+                    data: {{ sc_all }},
+                    label: '반 평균',
+                    type : 'bar',
+                    backgroundColor: 'rgba(39, 141, 0, 0.36)',
+                    borderColor: 'rgba(39, 141, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0,
+                  }
+                ]
+              },
+
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "",
+                        },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: ""
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index];
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel;
+                          }
+
+                  }
+                }
+                }
+            });
+
+            new Chart(document.getElementById("km"), {
+            type: 'bar',
+              data: {
+                labels:{{ ch_la | safe }},
+                datasets: [{
+                    data: {{ km_kid }},
+                    label: '개인',
+                    type : 'bar',
+                    backgroundColor: 'rgba(255, 89, 0, 0.36)',
+                    borderColor: 'rgba(255, 89, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0
+                  },
+                  {
+                    data: {{km_all}},
+                    label: '반 평균',
+                    type : 'bar',
+                    backgroundColor: 'rgba(39, 141, 0, 0.36)',
+                    borderColor: 'rgba(39, 141, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0,
+                  }
+                ]
+              },
+
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "",
+                        },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: ""
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index];
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel;
+                          }
+
+                  }
+                }
+                }
+            });
+
+            new Chart(document.getElementById("cal"), {
+            type: 'bar',
+              data: {
+                labels:{{ ch_la | safe }},
+                datasets: [{
+                    data: {{ cal_kid }},
+                    label: '개인',
+                    type : 'bar',
+                    backgroundColor: 'rgba(255, 89, 0, 0.36)',
+                    borderColor: 'rgba(255, 89, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0
+                  },
+                  {
+                    data: {{ cal_all }},
+                    label: '반 평균',
+                    type : 'bar',
+                    backgroundColor: 'rgba(39, 141, 0, 0.36)',
+                    borderColor: 'rgba(39, 141, 0, 0.79)',
+                    borderWidth: 1,
+                    fill: false,
+                    tension:0,
+                  }
+                ]
+              },
+
+              options: {
+                title: {
+                  display: true,
+                },
+                scales: {
+                    xAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: "",
+                        },
+                         stacked: "true",
+                      },
+                     ],
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: ""
+                         },
+                      },
+                     ],
+                  },
+                tooltips: {
+                mode:'x',
+                callbacks: {
+                    title : function(tooltipItems, data){
+                        var tooltipItem = tooltipItems[0];
+                            return data.labels[tooltipItem.index];
+                            },
+
+                    label: function(tooltipItems, data) {
+                              return tooltipItems.yLabel;
+                          }
+
+                  }
+                }
+                }
+            });
+
 </script>
+  </body>
 
 </html>
