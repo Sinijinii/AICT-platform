@@ -53,7 +53,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span>공공융합플랫폼</span></a> </div>
+      <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span style=" color:#525249;">공공융합플랫폼</span></a> </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -136,12 +136,13 @@
                 </div><br><br><br>
                 <button type="submit" class="btn btn-primary" style="height:45px;width:120;font-size:16px;">확 인</button><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </form>
+
           <form action="{% url 'kid_data_fileupload'%}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                    <label for="exampleInputName" style="font-size:15px;">업로드 사용자 비밀번호</label>
-                    <input  name="data_pass" type="text" class="form-control" id="exampleInput" placeholder="password" style="height:45px;font-size:15px;" required>
-                </div>
+              {% csrf_token %}
+              <div class="form-group">
+                  <label for="exampleInputName" style="font-size:15px;">업로드 사용자 비밀번호</label>
+                  <input  name="data_pass" type="text" class="form-control" id="exampleInput" placeholder="password" style="height:45px;font-size:15px;" required>
+              </div>
 
       <!--blog posts container-->
 
