@@ -102,33 +102,36 @@ def pick_part(request):
         mon_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Mon"),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_all.append(numpy.mean(mon_all["heartrate"]))
         sc_all.append(numpy.mean(mon_all["sc_field"]))
-        km_all.append(numpy.mean(mon_all["km"]))
-        cal_all.append(numpy.mean(mon_all["cal"]))
+        km_all.append(numpy.mean(mon_all["km"].replace(np.nan,0)))
+        cal_all.append(numpy.mean(mon_all["cal"].replace(np.nan,0)))
         zsc_all.append(numpy.mean(mon_all["zsc"].replace(0,np.nan)))
         tue_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Tue"),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_all.append(numpy.mean(tue_all["heartrate"]))
         sc_all.append(numpy.mean(tue_all["sc_field"]))
-        km_all.append(numpy.mean(tue_all["km"]))
-        cal_all.append(numpy.mean(tue_all["cal"]))
+        km_all.append(numpy.mean(tue_all["km"].replace(np.nan,0)))
+        cal_all.append(numpy.mean(tue_all["cal"].replace(np.nan,0)))
         zsc_all.append(numpy.mean(tue_all["zsc"].replace(0,np.nan)))
         wedn_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Wed"),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_all.append(numpy.mean(wedn_all["heartrate"]))
         sc_all.append(numpy.mean(wedn_all["sc_field"]))
-        km_all.append(numpy.mean(wedn_all["km"]))
-        cal_all.append(numpy.mean(wedn_all["cal"]))
+        km_all.append(numpy.mean(wedn_all["km"].replace(np.nan,0)))
+        cal_all.append(numpy.mean(wedn_all["cal"].replace(np.nan,0)))
         zsc_all.append(numpy.mean(wedn_all["zsc"].replace(0,np.nan)))
         thu_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Thu"),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_all.append(numpy.mean(thu_all["heartrate"]))
         sc_all.append(numpy.mean(thu_all["sc_field"]))
-        km_all.append(numpy.mean(thu_all["km"]))
-        cal_all.append(numpy.mean(thu_all["cal"]))
+        km_all.append(numpy.mean(thu_all["km"].replace(np.nan,0)))
+        cal_all.append(numpy.mean(thu_all["cal"].replace(np.nan,0)))
         zsc_all.append(numpy.mean(thu_all["zsc"].replace(0,np.nan)))
         fri_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Fri"),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_all.append(numpy.mean(fri_all["heartrate"]))
         sc_all.append(numpy.mean(fri_all["sc_field"]))
-        km_all.append(numpy.mean(fri_all["km"]))
-        cal_all.append(numpy.mean(fri_all["cal"]))
+        km_all.append(numpy.mean(fri_all["km"].replace(np.nan,0)))
+        cal_all.append(numpy.mean(fri_all["cal"].replace(np.nan,0)))
         zsc_all.append(numpy.mean(fri_all["zsc"].replace(0,np.nan)))
+        print(cal_all)
+        #cal_all.fillna(0)
+        #km_all.fillna(0)
         cal_all = list(map(int, cal_all))
         hr_all = list(map(int, hr_all))
         km_all = list(map(int, km_all))
@@ -142,32 +145,32 @@ def pick_part(request):
         mon_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Mon") & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_kid.append(numpy.mean(mon_all["heartrate"]))
         sc_kid.append(numpy.mean(mon_all["sc_field"]))
-        km_kid.append(numpy.mean(mon_all["km"]))
-        cal_kid.append(numpy.mean(mon_all["cal"]))
+        km_kid.append(numpy.mean(mon_all["km"].replace(np.nan,0)))
+        cal_kid.append(numpy.mean(mon_all["cal"].replace(np.nan,0)))
         zsc_kid.append(numpy.mean(mon_all["zsc"].replace(0,np.nan)))
         tue_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Tue") & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_kid.append(numpy.mean(tue_all["heartrate"]))
         sc_kid.append(numpy.mean(tue_all["sc_field"]))
-        km_kid.append(numpy.mean(tue_all["km"]))
-        cal_kid.append(numpy.mean(tue_all["cal"]))
+        km_kid.append(numpy.mean(tue_all["km"].replace(np.nan,0)))
+        cal_kid.append(numpy.mean(tue_all["cal"].replace(np.nan,0)))
         zsc_kid.append(numpy.mean(tue_all["zsc"].replace(0,np.nan)))
         wedn_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Wed") & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_kid.append(numpy.mean(wedn_all["heartrate"]))
         sc_kid.append(numpy.mean(wedn_all["sc_field"]))
-        km_kid.append(numpy.mean(wedn_all["km"]))
-        cal_kid.append(numpy.mean(wedn_all["cal"]))
+        km_kid.append(numpy.mean(wedn_all["km"].replace(np.nan,0)))
+        cal_kid.append(numpy.mean(wedn_all["cal"].replace(np.nan,0)))
         zsc_kid.append(numpy.mean(wedn_all["zsc"].replace(0,np.nan)))
         thu_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Thu") & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_kid.append(numpy.mean(thu_all["heartrate"]))
         sc_kid.append(numpy.mean(thu_all["sc_field"]))
-        km_kid.append(numpy.mean(thu_all["km"]))
-        cal_kid.append(numpy.mean(thu_all["cal"]))
+        km_kid.append(numpy.mean(thu_all["km"].replace(np.nan,0)))
+        cal_kid.append(numpy.mean(thu_all["cal"].replace(np.nan,0)))
         zsc_kid.append(numpy.mean(thu_all["zsc"].replace(0,np.nan)))
         fri_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Fri") & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_kid.append(numpy.mean(fri_all["heartrate"]))
         sc_kid.append(numpy.mean(fri_all["sc_field"]))
-        km_kid.append(numpy.mean(fri_all["km"]))
-        cal_kid.append(numpy.mean(fri_all["cal"]))
+        km_kid.append(numpy.mean(fri_all["km"].replace(np.nan,0)))
+        cal_kid.append(numpy.mean(fri_all["cal"].replace(np.nan,0)))
         zsc_kid.append(numpy.mean(fri_all["zsc"].replace(0,np.nan)))
         cal_kid = list(map(int, cal_kid))
         hr_kid = list(map(int, hr_kid))
@@ -242,6 +245,8 @@ def pick_date(request):
     date_ = request.POST['date_pick']
     print("date",date_)
     pick = "하루 데이터 보기"
+    sc_hr = 0;
+    cal_km = 0;
     week=False
     day=True
     month=False
@@ -337,7 +342,7 @@ def pick_date(request):
         sc_all_mean = numpy.nanmean(sc_all_mean)
         km_all_mean = numpy.nanmean(km_all_mean)
         cal_all_mean = numpy.nanmean(cal_all_mean)
-        sc_hr = 0; cal_km=0;
+
         print(hr_all_mean,km_kid_mean)
         # 심박수, 걸음수 비교
         if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
