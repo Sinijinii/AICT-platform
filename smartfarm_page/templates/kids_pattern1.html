@@ -34,8 +34,8 @@
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,24 +51,22 @@
 <nav id="top-menu" class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span style=" color:#525249;">공공융합플랫폼</span></a> </div>
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span style=" color:#525249;">공공융합플랫폼</span></a> </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <!--nav icon-->
-      <a id="nav-icon"> <span></span> <span></span> <span></span> </a>
+          <a id="nav-icon"> <span></span> <span></span> <span></span> </a>
       <!--nav icon end-->
-
-      <ul id="nav-top" class="nav navbar-nav navbar-right">
-		   <li><a href="{% url 'main'%}" class="page-scroll"style=" color:#525249;">Home</a></li>
-			<li><a href="{% url 'str_smartfarm1'%}" class="page-scroll"style=" color:#525249;">딸기 스마트팜</a></li>
-			<li><a href="{% url 'kids_pattern1' %}" class="page-scroll"style=" color:#525249;">영유아 스마트 케어</a></li>
-			<li><a href="{% url 'covid19'%}" class="page-scroll"style=" color:#525249;">코로나19 현황 분석</a></li>
-      </ul>
-    </div>
+          <ul id="nav-top" class="nav navbar-nav navbar-right">
+              <li><a href="{% url 'main'%}" class="page-scroll"style=" color:#525249;">Home</a></li>
+              <li><a href="{% url 'str_smartfarm1'%}" class="page-scroll"style=" color:#525249;">딸기 스마트팜</a></li>
+              <li><a href="{% url 'kids_pattern1' %}" class="page-scroll"style=" color:#525249;">영유아 스마트 케어</a></li>
+              <li><a href="{% url 'covid19'%}" class="page-scroll"style=" color:#525249;">코로나19 현황 분석</a></li>
+          </ul>
+      </div>
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
@@ -80,18 +78,12 @@
   <div class="content  wow fdeInUp">
     <div class="container ">
         <br><br><br><br><br><br><br><br><br><br><br><br>
-
-<!--
-      <h1>영유아 스마트 케어</h1>
--->
+<!--<h1>영유아 스마트 케어</h1>-->
     </div>
   </div>
 </div>
-
 <!--page body-->
-
-  <div class="container">
-      <br><br><br><br><br>
+<div class="container"><br><br><br><br><br>
     <div class="row">
       <!--blog posts container-->
       <div class="col-md-offset-3 col-md-6 page-block">
@@ -135,14 +127,14 @@
                     <input name="password" type="date" class="form-control"  min="2016-01-01" max="2022-01-01" value="2020-01-01" style="height:45px;width:120;font-size:15px;">
                 </div><br><br><br>
                 <button type="submit" class="btn btn-primary" style="height:45px;width:120;font-size:16px;">확 인</button><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </form>
-
+            </form>
           <form action="{% url 'kid_data_fileupload'%}" method="POST">
               {% csrf_token %}
               <div class="form-group">
                   <label for="exampleInputName" style="font-size:15px;">업로드 사용자 비밀번호</label>
-                  <input  name="data_pass" type="text" class="form-control" id="exampleInput" placeholder="password" style="height:45px;font-size:15px;" required>
-              </div>
+                  <input  name="data_pass" type="password" class="form-control" id="exampleInput" placeholder="password" style="height:45px;font-size:15px;" required>
+              </div><br><br>
+          </form>
 
       <!--blog posts container-->
 
@@ -151,48 +143,45 @@
  </div>
 </div>
 <!--<div class="clearfix"></div>-->
-
-        <div class="row mb-5"></div>
-        <footer class="footer bg-light" style="background-color:#DCDCDC">
-            <br><br><br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
-
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="https://aict.snu.ac.kr/">
-                                    <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
-                                </a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="https://www.snu.ac.kr/">
-                                    <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
-                                </a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="https://www.gg.go.kr/">
-                                    <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div><br><br>
-        </footer>
+<div class="row mb-5"></div>
+<footer class="footer bg-light" style="background-color:#DCDCDC">
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=18">연구원 소개</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=31">공공융합플랫폼 소개</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=17">찾아오시는길</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="https://aict.snu.ac.kr/?p=125">개인정보처리방침</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy;ADVANCED INSTITUTE OF CONVERGENCE TECHNOLOGY ALL RIGHTS RESERVED. </p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-4">
+                        <a href="https://aict.snu.ac.kr/">
+                            <img src="{% static 'smartfarm_page/assets/img/aict_logo.png' %}" width="43" height="43" alt="">
+                        </a>
+                    </li>
+                    <li class="list-inline-item me-4">
+                        <a href="https://www.snu.ac.kr/">
+                            <img src="{% static 'smartfarm_page/assets/img/snu_logo.png' %}" width="43" height="43" alt="">
+                        </a>
+                    </li>
+                    <li class="list-inline-item me-4">
+                        <a href="https://www.gg.go.kr/">
+                            <img src="{% static 'smartfarm_page/assets/img/ggd_logo.png' %}" width="55" height="25" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><br><br>
+</footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
