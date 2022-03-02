@@ -76,6 +76,7 @@ def pick_part(request):
     pick = request.POST.getlist('day[]')
     hr_kid = []; sc_kid = []; zsc_kid = []; km_kid = []; cal_kid = [];hr_all = [];sc_all = [];
     heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
+    hr_kid_1mean = [];sc_kid_1mean = [];hr_all_1mean = []; sc_all_1mean = []; km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
     ch_la=['0','1','2','3','4']
     Active = False
     inactive = False
@@ -199,8 +200,27 @@ def pick_part(request):
         min_zsc = numpy.nanargmin(sc_kid)
         min_zsc = ch_la[min_zsc]
         # 평균 심박수, 걸음수, km,cal
-        heartrate=int(numpy.nanmean(hr_kid))
-        stepcount = int(numpy.nanmean(sc_kid))*6
+
+
+        heartrate = int(numpy.nanmean(hr_kid))
+        stepcount = int(numpy.nanmean(sc_kid)) * 6
+        hr_kid_1mean.append(int(numpy.nanmean(hr_kid)))
+        sc_kid_1mean.append(int(numpy.nanmean(sc_kid)))
+        km_kid_1mean.append(int(numpy.nanmean(km_kid)))
+        cal_kid_1mean.append(int(numpy.nanmean(cal_kid)))
+        hr_all_1mean.append(int(numpy.nanmean(hr_all)))
+        sc_all_1mean.append(int(numpy.nanmean(sc_all)))
+        km_all_1mean.append(int(numpy.nanmean(km_all)))
+        cal_all_1mean.append(int(numpy.nanmean(cal_all)))
+        hr_kid_1mean = hr_kid_1mean * len(km_kid);
+        sc_kid_1mean = sc_kid_1mean * len(km_kid);
+        hr_all_1mean = hr_all_1mean * len(km_kid);
+        sc_all_1mean = sc_all_1mean * len(km_kid);
+        km_kid_1mean = km_kid_1mean * len(km_kid);
+        cal_kid_1mean = cal_kid_1mean * len(km_kid);
+        km_all_1mean = km_all_1mean * len(km_kid);
+        cal_all_1mean = cal_all_1mean * len(km_kid);
+
         hr_kid_mean = numpy.nanmean(hr_kid)
         sc_kid_mean = numpy.nanmean(sc_kid)
         km_kid_mean = numpy.nanmean(km_kid)
@@ -235,7 +255,9 @@ def pick_part(request):
                                           "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid, "cal_kid": cal_kid,
                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
-                                          "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km})
+                                          "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,
+                                          "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean, "cal_kid_1mean": cal_kid_1mean,
+                                          "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
 
 # 하루 데이터 뽑기
@@ -326,14 +348,13 @@ def pick_date(request):
         # 평균 심박수, 걸음수, km,cal
         hr_kid_mean = list(aaaa['heartrate_x'].replace(0, np.nan))
         sc_kid_mean = list(aaaa['sc_field_x'].replace(0, np.nan))
-        km_kid_mean = list(aaaa['km_x'].replace(0, np.nan))
-        cal_kid_mean = list(aaaa['cal_x'].replace(0, np.nan))
+        km_kid_mean = list(aaaa['km_x'])
+        cal_kid_mean = list(aaaa['cal_x'])
         hr_all_mean = list(aaaa['heartrate_y'].replace(0, np.nan))
         sc_all_mean = list(aaaa['sc_field_y'].replace(0, np.nan))
-        km_all_mean = list(aaaa['km_y'].replace(0, np.nan))
-        cal_all_mean = list(aaaa['cal_y'].replace(0, np.nan))
-        heartrate = int(numpy.nanmean(hr_kid_mean))
-        stepcount = int(numpy.nanmean(sc_kid_mean))*6
+        km_all_mean = list(aaaa['km_y'])
+        cal_all_mean = list(aaaa['cal_y'])
+
         hr_kid_mean = numpy.nanmean(hr_kid_mean)
         sc_kid_mean = numpy.nanmean(sc_kid_mean)
         km_kid_mean = numpy.nanmean(km_kid_mean)
@@ -343,7 +364,33 @@ def pick_date(request):
         km_all_mean = numpy.nanmean(km_all_mean)
         cal_all_mean = numpy.nanmean(cal_all_mean)
 
-        print(hr_all_mean,km_kid_mean)
+        hr_kid_1mean = [];
+        sc_kid_1mean = [];
+        hr_all_1mean = [];
+        sc_all_1mean = [];
+        km_kid_1mean = [];
+        cal_kid_1mean = [];
+        km_all_1mean = [];
+        cal_all_1mean = []
+        heartrate = int(numpy.nanmean(hr_kid_mean))
+        stepcount = int(numpy.nanmean(sc_kid_mean)) * 6
+        hr_kid_1mean.append(int(numpy.nanmean(hr_kid_mean)))
+        sc_kid_1mean.append(int(numpy.nanmean(sc_kid_mean)))
+        km_kid_1mean.append(int(numpy.nanmean(km_kid_mean)))
+        cal_kid_1mean.append(int(numpy.nanmean(cal_kid_mean)))
+        hr_all_1mean.append(int(numpy.nanmean(hr_all_mean)))
+        sc_all_1mean.append(int(numpy.nanmean(sc_all_mean)))
+        km_all_1mean.append(int(numpy.nanmean(km_all_mean)))
+        cal_all_1mean.append(int(numpy.nanmean(cal_all_mean)))
+        hr_kid_1mean = hr_kid_1mean * len(km_kid);
+        sc_kid_1mean = sc_kid_1mean * len(km_kid);
+        hr_all_1mean = hr_all_1mean * len(km_kid);
+        sc_all_1mean = sc_all_1mean * len(km_kid);
+        km_kid_1mean = km_kid_1mean * len(km_kid);
+        cal_kid_1mean = cal_kid_1mean * len(km_kid);
+        km_all_1mean = km_all_1mean * len(km_kid);
+        cal_all_1mean = cal_all_1mean * len(km_kid);
+
         # 심박수, 걸음수 비교
         if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
             sc_hr=1
@@ -369,7 +416,9 @@ def pick_date(request):
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
-                                           "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km})
+                                           "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,
+                                           "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean, "cal_kid_1mean": cal_kid_1mean,
+                                           "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 # 월데이터 뽑기
 def pick_month(request):
     global Name2; global center; global class_; global birth ; global a; global kid_all_data;
@@ -453,16 +502,27 @@ def pick_month(request):
     # 평균 심박수, 걸음수, km, cal
     hr_kid_mean = list(month_p['heartrate_x'].replace(0, np.nan))
     sc_kid_mean = list(month_p['sc_field_x'].replace(0, np.nan))
-    km_kid_mean = list(month_p['km_x'].replace(0, np.nan))
-    cal_kid_mean = list(month_p['cal_x'].replace(0, np.nan))
+    km_kid_mean = list(month_p['km_x'])
+    cal_kid_mean = list(month_p['cal_x'])
     hr_all_mean = list(month_p['heartrate_y'].replace(0, np.nan))
     sc_all_mean = list(month_p['sc_field_y'].replace(0, np.nan))
-    km_all_mean = list(month_p['km_y'].replace(0, np.nan))
-    cal_all_mean = list(month_p['cal_y'].replace(0, np.nan))
-    #hr_kids = hr_kid.replace(0, np.nan)
-    heartrate = int(numpy.nanmean(hr_kid_mean))
-    #sc_kids = sc_kid.replace(0, np.nan_mean)
-    stepcount = int(numpy.nanmean(sc_kid_mean))*6
+    km_all_mean = list(month_p['km_y'])
+    cal_all_mean = list(month_p['cal_y'])
+    # 그래프에 전체평균 값( 일별이 아닌 한달 평균 line그래프)
+    hr_kid_1mean = []; sc_kid_1mean = []; hr_all_1mean=[]; sc_all_1mean=[];km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean=[]; cal_all_1mean=[]
+    heartrate=int(numpy.nanmean(hr_kid_mean))
+    stepcount=int(numpy.nanmean(sc_kid_mean)) * 6
+    hr_kid_1mean.append(int(numpy.nanmean(hr_kid_mean)))
+    sc_kid_1mean.append(int(numpy.nanmean(sc_kid_mean)))
+    km_kid_1mean.append(int(numpy.nanmean(km_kid_mean)))
+    cal_kid_1mean.append(int(numpy.nanmean(cal_kid_mean)))
+    hr_all_1mean.append(int(numpy.nanmean(hr_all_mean)))
+    sc_all_1mean.append(int(numpy.nanmean(sc_all_mean)))
+    km_all_1mean.append(int(numpy.nanmean(km_all_mean)))
+    cal_all_1mean.append(int(numpy.nanmean(cal_all_mean)))
+    hr_kid_1mean = hr_kid_1mean * len(km_kid); sc_kid_1mean = sc_kid_1mean * len(km_kid); hr_all_1mean= hr_all_1mean * len(km_kid); sc_all_1mean = sc_all_1mean * len(km_kid);
+    km_kid_1mean = km_kid_1mean * len(km_kid); cal_kid_1mean = cal_kid_1mean * len(km_kid); km_all_1mean = km_all_1mean * len(km_kid); cal_all_1mean = cal_all_1mean * len(km_kid);
+    # 평균값 그래프( bar )
     hr_kid_mean = numpy.nanmean(hr_kid_mean)
     sc_kid_mean = numpy.nanmean(sc_kid_mean)
     km_kid_mean = numpy.nanmean(km_kid_mean)
@@ -471,6 +531,7 @@ def pick_month(request):
     sc_all_mean = numpy.nanmean(sc_all_mean)
     km_all_mean = numpy.nanmean(km_all_mean)
     cal_all_mean = numpy.nanmean(cal_all_mean)
+    # 사분면에 표현할 값 계산
     sc_hr = 0;
     cal_km = 0;
     # 심박수, 걸음수 비교
@@ -497,7 +558,9 @@ def pick_month(request):
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
-                                           "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km})
+                                           "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,
+                                           "hr_kid_1mean":hr_kid_1mean,"sc_kid_1mean":sc_kid_1mean,"km_kid_1mean":km_kid_1mean,"cal_kid_1mean":cal_kid_1mean,
+                                           "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
 # 사용자 데이터 입력페이지
 def kid_data_fileupload(request):

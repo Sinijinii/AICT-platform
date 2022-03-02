@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="correct errors in missing values">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +38,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="21QyXS2I5diXfdzPhZndnajbbU5" />
@@ -158,10 +165,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1333" y="138" width="1108" height="797" key="DiffContextDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646026602364" />
-    <state x="1229" y="269" key="Vcs.Push.Dialog.v2" timestamp="1646185660310">
+    <state x="1229" y="269" key="Vcs.Push.Dialog.v2" timestamp="1646194910286">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1229" y="269" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1646185660310" />
+    <state x="1229" y="269" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1646194910286" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -173,23 +180,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>237</line>
+          <line>257</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>132</line>
+          <line>133</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>133</line>
+          <line>134</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>134</line>
+          <line>135</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>516</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

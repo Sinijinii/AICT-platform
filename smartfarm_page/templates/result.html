@@ -375,7 +375,7 @@
         </div>
     </div>
 </div>
-<footer class="footer bg-light" style="background-image: url({% static 'smartfarm_page/assets/img/kid_page3.jpg' %})">
+<footer class="footer bg-light" style="background-image: url({% static 'smartfarm_page/assets/img/kid_3.jpg' %})">
     <div class="row mb-5"></div>
     <br><br><br>
     <div class="container">
@@ -456,6 +456,29 @@ new Chart(document.getElementById("heartrate"), {
                     borderWidth: 1,
                     fill: false,
                     tension:0,
+                  },
+                  {
+                    data: {{ hr_kid_1mean }},
+                    label: '전체 평균(개인)',
+                    type : 'line',
+                    backgroundColor: '#FFE5FA',
+                    borderColor: '#FFE5FA',
+                    borderWidth: 4,
+                    pointRadius: 0,
+                    fill: false,
+                    tension:0,
+                  },
+                  {
+                    data: {{ hr_all_1mean }},
+                    label: '전체 평균(반)',
+                    type : 'line',
+                    pointStyle : 'line',
+                    pointRadius: 0,
+                    borderWidth: 4,
+                    backgroundColor: '#DAE4F2',
+                    borderColor: '#DAE4F2',
+                    fill: false,
+                    tension:0,
                   }
                 ]
               },
@@ -523,6 +546,28 @@ new Chart(document.getElementById("stepcount"), {
                     borderWidth: 1,
                     fill: false,
                     tension:0,
+                  },
+                  {
+                    data: {{ sc_kid_1mean }},
+                    label: '전체 평균(개인)',
+                    type : 'line',
+                    pointRadius: 0,
+                    backgroundColor: '#FFE5FA',
+                    borderColor: '#FFE5FA',
+                    borderWidth: 4,
+                    fill: false,
+                    tension:0,
+                  },
+                  {
+                    data: {{ sc_all_1mean }},
+                    label: '전체 평균(반)',
+                    type : 'line',
+                    pointRadius: 0,
+                    borderWidth: 4,
+                    fill: false,
+                    tension:0,
+                    backgroundColor: '#DAE4F2',
+                    borderColor: '#DAE4F2',
                   }
                 ]
               },
@@ -590,6 +635,28 @@ new Chart(document.getElementById("stepcount"), {
                     borderWidth: 1,
                     fill: false,
                     tension:0,
+                  },
+                  {
+                    data: {{ km_kid_1mean }},
+                    label: '전체 평균(개인)',
+                    type : 'line',
+                    pointRadius: 0,
+                    fill: false,
+                    tension:0,
+                    backgroundColor: '#FFE5FA',
+                    borderColor: '#FFE5FA',
+                    borderWidth: 4,
+                  },
+                  {
+                    data: {{ km_all_1mean }},
+                    label: '전체 평균(반)',
+                    type : 'line',
+                    pointRadius: 0,
+                    borderWidth: 4,
+                    fill: false,
+                    tension:0,
+                    backgroundColor: '#DAE4F2',
+                    borderColor: '#DAE4F2',
                   }
                 ]
               },
@@ -657,6 +724,28 @@ new Chart(document.getElementById("stepcount"), {
                     borderWidth: 1,
                     fill: false,
                     tension:0,
+                  },
+                  {
+                    data: {{ cal_kid_1mean }},
+                    label: '전체 평균(개인)',
+                    type : 'line',
+                    pointRadius: 0,
+                    fill: false,
+                    tension:0,
+                    backgroundColor: '#FFE5FA',
+                    borderColor: '#FFE5FA',
+                    borderWidth: 4,
+                  },
+                  {
+                    data: {{ cal_all_1mean }},
+                    label: '전체 평균(반)',
+                    type : 'line',
+                    borderWidth:4,
+                    pointRadius: 0,
+                    fill: false,
+                    tension:0,
+                    backgroundColor: '#DAE4F2',
+                    borderColor: '#DAE4F2',
                   }
                 ]
               },
