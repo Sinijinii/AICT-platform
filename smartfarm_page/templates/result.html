@@ -257,7 +257,7 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Jua', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif; font-weight:500;"><br><br><br>{{ name }} 어린이의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
                                     </div>
                                 </div>
                             </div>
@@ -330,15 +330,19 @@
                                         {% if sc_hr == 1 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/sc_hr_1.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">심박수👆 걸음수 👆</h2>
                                         {% elif sc_hr == 2 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/sc_hr_2.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">심박수👆 걸음수👇</h2>
                                         {% elif sc_hr == 3 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/sc_hr_3.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">심박수👇 걸음수👇</h2>
                                         {% elif sc_hr == 4 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/sc_hr_4.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">심박수👇 걸음수👆</h2>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -351,15 +355,19 @@
                                         {% if cal_km == 1 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_1.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리👆 km👆</h2>
                                         {% elif cal_km == 2 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_2.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리👆 km👇</h2>
                                         {% elif cal_km == 3 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_3.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리👇 km👇</h2>
                                         {% elif cal_km == 4 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_4.png' %}" width="460" height="350" alt="">
                                         </h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리👇 km👆</h2>
                                         {% endif %}
                                     </div>
                                 </div>
