@@ -22,7 +22,7 @@ def covid19(request):
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
 
-
+# 리스트내 결측값 인덱스 찾기
 def findIndexInList(list_name, value):
     n = -1
     result = []
@@ -32,7 +32,7 @@ def findIndexInList(list_name, value):
         n += list_name[n+1:].index(value) + 1
         result.append(n)
     return result
-
+# 리스트내 결측치를 0으로 변환
 def nan_0(list_name,null_list):
     for i in range(0,len(null_list)):
         list_name[null_list[i]]=0
@@ -94,12 +94,7 @@ def pick_part(request):
     heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
     hr_kid_1mean = [];sc_kid_1mean = [];hr_all_1mean = []; sc_all_1mean = []; km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
     ch_la=['0','1','2','3','4']
-    Active = False
-    inactive = False
-    normal = False
-    week = True
-    day = False
-    month = False
+    Active = False; inactive = False; normal = False; week = True; day = False; month = False;
     sc_hr = 0;
     cal_km = 0;
     if pick == ['day']:
@@ -111,11 +106,7 @@ def pick_part(request):
         week = True
         month = False
         # 전체 주별 평균값 구하기
-        hr_all=[]
-        sc_all = []
-        zsc_all = []
-        km_all = []
-        cal_all = []
+        hr_all=[]; sc_all = []; zsc_all = []; km_all = []; cal_all = [];
         mon_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Mon"),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_all.append(numpy.mean(mon_all["heartrate"]))
         sc_all.append(numpy.mean(mon_all["sc_field"]))
@@ -146,19 +137,8 @@ def pick_part(request):
         km_all.append(numpy.mean(fri_all["km"].replace(np.nan,0)))
         cal_all.append(numpy.mean(fri_all["cal"].replace(np.nan,0)))
         zsc_all.append(numpy.mean(fri_all["zsc"].replace(0,np.nan)))
-        print(cal_all)
-        #cal_all.fillna(0)
-        #km_all.fillna(0)
-        cal_all = list(map(int, cal_all))
-        hr_all = list(map(int, hr_all))
-        km_all = list(map(int, km_all))
-        sc_all = list(map(int, sc_all))
         # 개인 주별 평균값 구하기
-        hr_kid = []
-        sc_kid = []
-        zsc_kid = []
-        km_kid = []
-        cal_kid = []
+        hr_kid = []; sc_kid = []; zsc_kid = [];km_kid = []; cal_kid = [];
         mon_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Mon") & (kid_all_data['name']==Name2),['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km','cal','반']]
         hr_kid.append(numpy.mean(mon_all["heartrate"]))
         sc_kid.append(numpy.mean(mon_all["sc_field"]))
@@ -189,10 +169,10 @@ def pick_part(request):
         km_kid.append(numpy.mean(fri_all["km"].replace(np.nan,0)))
         cal_kid.append(numpy.mean(fri_all["cal"].replace(np.nan,0)))
         zsc_kid.append(numpy.mean(fri_all["zsc"].replace(0,np.nan)))
-
+        # 시각화 x축에 들어갈 라벨설정
         ch_la = ['월요일', '화요일', '수요일', '목요일', '금요일']
         pick='요일별 모아보기'
-        # 활동량 확인
+        # 활동량 확인 (게이지그래프)
         all_zsc=numpy.nanmean(zsc_all)
         kid_zsc = numpy.nanmean(zsc_kid)
         zsc=float(all_zsc)-float(kid_zsc)
@@ -264,11 +244,19 @@ def pick_part(request):
         sc_kid = nan_0(sc_kid, findIndexInList(sc_kid, np.nan))
         cal_kid = nan_0(cal_kid, findIndexInList(cal_kid, np.nan))
         km_kid = nan_0(km_kid, findIndexInList(km_kid, np.nan))
+        hr_all = nan_0(hr_all, findIndexInList(hr_all, np.nan))
+        sc_all = nan_0(sc_all, findIndexInList(sc_all, np.nan))
+        cal_all = nan_0(cal_all, findIndexInList(cal_all, np.nan))
+        km_all = nan_0(km_all, findIndexInList(km_all, np.nan))
+        #int값으로 형변환
         cal_kid = list(map(int, cal_kid))
         hr_kid = list(map(int, hr_kid))
         km_kid = list(map(int, km_kid))
         sc_kid = list(map(int, sc_kid))
-
+        cal_all = list(map(int, cal_all))
+        hr_all = list(map(int, hr_all))
+        km_all = list(map(int, km_all))
+        sc_all = list(map(int, sc_all))
     elif pick ==['month']:
         days = False
         week = False
@@ -289,16 +277,12 @@ def pick_date(request):
     print("date",date_)
     pick = "하루 데이터 보기"
     sc_hr = 0; cal_km = 0;
-    week=False
-    day=True
-    month=False
+    week=False; day=True; month=False;
     hr_kid = []; sc_kid = []; zsc_kid = []; km_kid = []; cal_kid = [];hr_all = [];sc_all = [];
     heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
     hr_kid_1mean = []; sc_kid_1mean = []; hr_all_1mean = [];  sc_all_1mean = [];
     km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
-    Active = False
-    inactive = False
-    normal = False
+    Active = False; inactive = False; normal = False;
     if All.objects.filter(name=Name2, day=date_).exists():
         not_day = False
         kid_all_data['day']=kid_all_data['day'].astype('datetime64[s]')
@@ -368,6 +352,7 @@ def pick_date(request):
         min_zsc = numpy.nanargmin(sc_kid_)
         min_zsc = ch_la[min_zsc]
         # 평균 심박수, 걸음수, km,cal
+        print(aaaa)
         hr_kid_mean = list(aaaa['heartrate_x'].replace(0, np.nan))
         sc_kid_mean = list(aaaa['sc_field_x'].replace(0, np.nan))
         km_kid_mean = list(aaaa['km_x'])
@@ -439,9 +424,7 @@ def pick_month(request):
     month_p = pd.DataFrame()
     month_p['month'] = list(month_)
     pick = '월별로 보기'
-    week = False
-    day = False
-    month = True
+    week = False; day = False; month = True;
     #원하는 월 가져오기
     # 전체
     all_data = kid_all_data.loc[(kid_all_data['반'] == class_),['heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date']]
@@ -464,7 +447,7 @@ def pick_month(request):
     month_kid_2 = month_kid_2.loc[month_kid_2['month'] == month_, ['heartrate', 'sc_field', 'km', 'cal', 'month', 'date', 'zsc']]
     month_kid_2 = month_kid_2.fillna(value=0)
     # merge 합
-    month_p = pd.merge(all_month_2, month_kid_2, on=['date'])
+    month_p = pd.merge(month_kid_2, all_month_2, on=['date'])
     month_p['day'] = month_p['date'].dt.day
     month_p = month_p.fillna(value=0)
     # 각 데이터 추출
