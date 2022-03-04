@@ -22,6 +22,10 @@ def covid19(request):
 def str_smartfarm2(request):
     return render(request, 'str_smartfarm2.html')
 
+## kids_pattern
+from .models import AllKids
+from .models import All
+import pandas as pd
 # 리스트내 결측값 인덱스 찾기
 def findIndexInList(list_name, value):
     n = -1
@@ -32,17 +36,15 @@ def findIndexInList(list_name, value):
         n += list_name[n+1:].index(value) + 1
         result.append(n)
     return result
+
 # 리스트내 결측치를 0으로 변환
 def nan_0(list_name,null_list):
     for i in range(0,len(null_list)):
         list_name[null_list[i]]=0
     return list_name
 
-## kids_pattern
-from .models import AllKids
-from .models import All
-import pandas as pd
-def result(request):
+# 사용자의 입력정보 확인 및 정보비교
+def kids_result(request):
     students = AllKids.objects.values()
     global Name2
     Name2 = request.POST['name']
@@ -59,7 +61,6 @@ def result(request):
     bc=pd.DataFrame(list(All.objects.values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week', 'km','cal', 'date','name')))
     kid_all_data = pd.merge(bc, ab, on='name', how='left')
     kid_all_data.drop_duplicates(['heartrate', 'sc_field', 'date','km','name'], keep='last', inplace=True, ignore_index=True)
-
     if AllKids.objects.filter(name=Name2,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
@@ -78,11 +79,12 @@ def result(request):
     cal = list(kid_d["cal"])
     km = list(kid_d["km"])
     zsc = list(kid_d["zsc"])
-    return render(request, 'result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,
+    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,
                                            "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"hr":HR,"cal":cal,"km":km,"zsc":zsc})
 
 
-# 일, 월, 주 선택 > 주데이터 뽑기
+# 시각화 데이터 [일, 월, 주 선택]
+# 1. 주데이터 뽑기
 import numpy
 from .models import AllKids
 from .models import All
@@ -261,7 +263,7 @@ def pick_part(request):
         days = False
         week = False
         month = True
-    return render(request, 'result.html',{"name": Name2, "birth": birth, "a": a,"days":days,"pick":pick,"ch_la":ch_la,"month":month,
+    return render(request, 'kids_result.html',{"name": Name2, "birth": birth, "a": a,"days":days,"pick":pick,"ch_la":ch_la,"month":month,
                                           "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid, "cal_kid": cal_kid,
                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
@@ -269,7 +271,7 @@ def pick_part(request):
                                           "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean, "cal_kid_1mean": cal_kid_1mean,
                                           "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
-# 하루데이터 뽑기
+# 2. 하루데이터 뽑기
 def pick_date(request):
     global Name2; global center; global class_; global birth ; global a; global kid_all_data;
     ch_la = ['10시', '11시', '12시', '13시', '14시', '15시', '16시']
@@ -355,12 +357,12 @@ def pick_date(request):
         print(aaaa)
         hr_kid_mean = list(aaaa['heartrate_x'].replace(0, np.nan))
         sc_kid_mean = list(aaaa['sc_field_x'].replace(0, np.nan))
-        km_kid_mean = list(aaaa['km_x'])
-        cal_kid_mean = list(aaaa['cal_x'])
+        km_kid_mean = list(aaaa['km_x'].replace(0,np.nan))
+        cal_kid_mean = list(aaaa['cal_x'].replace(0,np.nan))
         hr_all_mean = list(aaaa['heartrate_y'].replace(0, np.nan))
         sc_all_mean = list(aaaa['sc_field_y'].replace(0, np.nan))
-        km_all_mean = list(aaaa['km_y'])
-        cal_all_mean = list(aaaa['cal_y'])
+        km_all_mean = list(aaaa['km_y'].replace(0,np.nan))
+        cal_all_mean = list(aaaa['cal_y'].replace(0,np.nan))
         # 데이터 평균치 구하기
         heartrate = int(numpy.nanmean(hr_kid_mean))
         stepcount = int(numpy.nanmean(sc_kid_mean)) * 6
@@ -409,7 +411,7 @@ def pick_date(request):
             cal_km = 3
     else:
         not_day = True
-    return render(request, 'result.html', {"name": Name2, "birth": birth, "a": a, "not_day": not_day,"ch_la":ch_la,
+    return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "not_day": not_day,"ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
@@ -417,7 +419,7 @@ def pick_date(request):
                                            "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean, "cal_kid_1mean": cal_kid_1mean,
                                            "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
-# 월데이터 뽑기
+# 3. 월데이터 뽑기
 def pick_month(request):
     global Name2; global center; global class_; global birth ; global a; global kid_all_data;
     month_ = request.POST['month']
@@ -498,12 +500,13 @@ def pick_month(request):
     # 평균 심박수, 걸음수, km, cal
     hr_kid_mean = list(month_p['heartrate_x'].replace(0, np.nan))
     sc_kid_mean = list(month_p['sc_field_x'].replace(0, np.nan))
-    km_kid_mean = list(month_p['km_x'])
-    cal_kid_mean = list(month_p['cal_x'])
+    km_kid_mean = list(month_p['km_x'].replace(0, np.nan))
+    cal_kid_mean = list(month_p['cal_x'].replace(0, np.nan))
     hr_all_mean = list(month_p['heartrate_y'].replace(0, np.nan))
     sc_all_mean = list(month_p['sc_field_y'].replace(0, np.nan))
-    km_all_mean = list(month_p['km_y'])
-    cal_all_mean = list(month_p['cal_y'])
+    km_all_mean = list(month_p['km_y'].replace(0, np.nan))
+    cal_all_mean = list(month_p['cal_y'].replace(0, np.nan))
+    print("mean",km_kid_mean)
     # 그래프에 전체평균 값( 일별이 아닌 한달 평균 line그래프)
     hr_kid_1mean = []; sc_kid_1mean = []; hr_all_1mean=[]; sc_all_1mean=[];km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean=[]; cal_all_1mean=[]
     heartrate=int(numpy.nanmean(hr_kid_mean))
@@ -548,7 +551,7 @@ def pick_month(request):
         cal_km = 2
     elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
         cal_km = 3
-    return render(request, 'result.html', {"name": Name2, "birth": birth, "a": a, "ch_la":ch_la,
+    return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
@@ -556,38 +559,33 @@ def pick_month(request):
                                            "hr_kid_1mean":hr_kid_1mean,"sc_kid_1mean":sc_kid_1mean,"km_kid_1mean":km_kid_1mean,"cal_kid_1mean":cal_kid_1mean,
                                            "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
-# 사용자 데이터 입력페이지
-def kid_data_fileupload(request):
+# 사용자 데이터 업로드 비밀번호 입력
+def kids_data_fileupload(request):
     global pass_data
     pass_data = request.POST['data_pass']
-    pw='1504' # 비밀번호가 맞을경우에만
+    pw='1504' # 비밀번호 설정
     if pass_data == pw:
         not_pass=False
     else:
         not_pass=True
-    return render(request, 'kid_data_fileupload.html', {"not_pass":not_pass,"pass_data":pass_data})
-
+    return render(request, 'kids_data_fileupload.html', {"not_pass":not_pass,"pass_data":pass_data})
 from .models import All
 from django.conf import settings
 import io
 from sqlalchemy import create_engine
 # 데이터 입력받기
-def kid_data_upload(request):
+def kids_data_upload(request):
     global data_df
-    file = request.FILES['upload_kid_data']
+    file = request.FILES['upload_kids_data']
     data_df = file
     data_df = pd.read_csv(io.BytesIO(file.read()),encoding='cp949')
-    print(data_df)
-    return render(request, 'kid_data_fileupload.html',{"file":file,"data_df":data_df})
-
+    return render(request, 'kids_data_fileupload.html',{"file":file,"data_df":data_df})
 
 # 데이터 db에 저장
 from .models import All
-def input_kid_data(request):
+def input_kids_data(request):
     global data_df
-
     data_df = data_df[['Date', 'HeartRate', 'Km', 'sc_', 'Cal',"ID","Day","Time",'week',"error","Name","Zsc"]]
-    print(data_df)
     database_url = 'mysql://{user}:{password}@localhost/{database_name}'.format(
         user=settings.DATABASES['kids_db']['USER'],
         password=settings.DATABASES['kids_db']['PASSWORD'],
@@ -596,7 +594,7 @@ def input_kid_data(request):
     engine = create_engine(database_url, echo=False)
     data_df.to_sql(name='kids_data', con=engine, index=False, if_exists='append')
     Succeeded=True
-    return render(request, 'kid_data_fileupload.html',{"Succeeded":Succeeded,"data_df":data_df})
+    return render(request, 'kids_data_fileupload.html',{"Succeeded":Succeeded,"data_df":data_df})
 
 
 

@@ -89,7 +89,7 @@
       <div class="col-md-offset-3 col-md-6 page-block">
           <h1 class="text-center" style="color: #484949; font-family: 'Jua', sans-serif;">영유아 스마트 케어</h1><br>
           <h2 class="text-center" style="font-family: 'Jua', sans-serif;">아이의 정보를 입력하세요.</h2><br><br>
-            <form action="{% url 'result'%}" method="POST">
+            <form action="{% url 'kids_result'%}" method="POST">
                 {% csrf_token %}
                 <br>
                 <div class="form-group">
@@ -126,9 +126,9 @@
                     <label for="exampleInputcheck" style="font-size:15px;">생년월일 </label>
                     <input name="password" type="date" class="form-control"  min="2016-01-01" max="2022-01-01" value="2020-01-01" style="height:45px;width:120;font-size:15px;">
                 </div><br><br><br>
-                <button type="submit" class="btn btn-primary" style="height:45px;width:120;font-size:16px;">확 인</button><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <button type="submit" class="btn btn-primary" style="height:45px;width:120;font-size:16px;">확 인</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </form>
-          <form action="{% url 'kid_data_fileupload'%}" method="POST">
+          <form action="{% url 'kids_data_fileupload'%}" method="POST">
               {% csrf_token %}
               <div class="form-group">
                   <label for="exampleInputName" style="font-size:15px;">업로드 사용자 비밀번호</label>

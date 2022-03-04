@@ -90,12 +90,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="jb-text" style="padding: 20px 100px; font-family: 'Jua', sans-serif;"> <!-- 블록 가운데 정렬-->
-                        <form method="post" action="{% url 'kid_data_upload' %}" enctype="multipart/form-data">
+                        <form method="post" action="{% url 'kids_data_upload' %}" enctype="multipart/form-data">
                             {% csrf_token %}    <!-- 보안을 위해 반드시 필요. 없으면 장고에서 request 거절-->
                             <div class="file-drop-area">
                                 <span class="choose-file-button"style=" color:#ebbf7a; font-size: 35px; font-weight: 600;"> .csv 파일 선택</span>
                                 <span class="file-message"style=" color:#ebbf7a; font-size: 35px; font-weight: 600;">&nbsp;또는 여기로 파일을 드래그해 가져와 주세요.</span>
-                                <input class="file-input" name="upload_kid_data" id="upload_kid_data" type="file" multiple required>
+                                <input class="file-input" name="upload_kids_data" id="upload_kids_data" type="file" multiple required>
                             </div>
                             <div class="row mb-3"></div>
                             <div class="text-center"><input type="submit" class="btn btn-success col-3" value="선택 완료"></div>
@@ -106,12 +106,12 @@
             {% endif %}
             {% if file %}
             <br><br><br><img src="{% static 'smartfarm_page/assets/img/down_.png' %}" width="120" height="120" alt="">
-            <form action="{% url 'input_kid_data'%}" method="POST"><br><br><br>
+            <form action="{% url 'input_kids_data'%}" method="POST"><br><br><br>
                 {% csrf_token %}
                 <div name="yes" class="jb-text" style="padding: 20px 100px; font-family: 'Jua', sans-serif;">
                     <center></center>
                     <h4 class="text-center">'Date', 'HeartRate', 'Km', 'sc_', 'Cal', 'ID', 'Day', 'Time', 'week', 'error', 'Name', 'Zsc'</h4>
-                    <h4 class="text-center"> 형태의 파일만을 지원합니다.</h4><br>
+                    <h4 class="text-center"> 구조의 파일만을 지원합니다.</h4><br>
                     <h3 class="text-center">{{ file }} 을 DB에 저장하시겠습니까?</h3>
                     <div class="text-center" style=" margin-right:20px; ">
                         <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
