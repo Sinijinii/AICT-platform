@@ -181,6 +181,7 @@
                     <div class="row mb-3"></div>
                 </form>
                 {% endif %}
+
                 {% if not_day %}
                 <h3 >⚠️ 해당 날에는 데이터가 없습니다. 다시 확인해주세요. ⚠️</h3>
                 <form action="{% url 'pick_date'%}" method="POST">
@@ -266,7 +267,7 @@
                 </div>
                 {% endif %}
                 <div class="flex-container"; style=" padding:0px 0px;">
-                    <div class="container px-xl-6 bg-center">
+                    <div class="container px-xl-6 bg-light">
                         <div class="col-sm-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
