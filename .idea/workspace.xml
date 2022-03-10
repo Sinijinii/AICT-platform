@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Class DB update.">
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="The standards for children's activities have been changed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/soso.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
@@ -165,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646640343497</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="The standards for children's activities have been changed.">
+      <created>1646877395709</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1646877395709</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -198,7 +204,8 @@
     <MESSAGE value="Correction of errors for weekly data." />
     <MESSAGE value="Page design completed." />
     <MESSAGE value="Class DB update." />
-    <option name="LAST_COMMIT_MESSAGE" value="Class DB update." />
+    <MESSAGE value="The standards for children's activities have been changed." />
+    <option name="LAST_COMMIT_MESSAGE" value="The standards for children's activities have been changed." />
   </component>
   <component name="WindowStateProjectService">
     <state x="571" y="299" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1646281404141">
@@ -209,10 +216,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1333" y="138" width="1108" height="797" key="DiffContextDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646026602364" />
-    <state x="1229" y="269" key="Vcs.Push.Dialog.v2" timestamp="1646640347645">
+    <state x="1229" y="269" key="Vcs.Push.Dialog.v2" timestamp="1646877401741">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1229" y="269" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1646640347645" />
+    <state x="1229" y="269" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1646877401741" />
     <state x="774" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1646351741606">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -228,22 +235,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>467</line>
+          <line>471</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>506</line>
+          <line>510</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>429</line>
+          <line>433</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>502</line>
+          <line>506</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

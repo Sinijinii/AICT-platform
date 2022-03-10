@@ -87,7 +87,7 @@
     <div class="container ">
         <div style="float: center;">
             {% if not_exist %}
-            <h2 style="font-family: 'Jua', sans-serif;">잘못된 정보입니다. 다시 확인해주세요.</h2>
+            <h2 style="font-family: 'Jua', sans-serif; ">잘못된 정보입니다. 다시 확인해주세요.</h2>
             <h4><a href="{% url 'kids_pattern1'%}" ><img src="{% static 'smartfarm_page/assets/img/return.png' %}" width="40" height="40" alt=""></a></h4>
             <br><br><br>
             {% else %}
@@ -133,11 +133,16 @@
   </div>
 </div>
 <!--page body-->
+{% if N_pick_type == 'N' %}
+<h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><br><br><img src="{% static 'smartfarm_page/assets/img/search.png' %}" width="50" height="45" alt=""> 아이의 데이터를 확인하려면 데이터 유형을 선택하세요. <img src="{% static 'smartfarm_page/assets/img/search.png' %}" width="45" height="45" alt=""><br><br></h2>
+<h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/report2.png' %}" width="500" height="450" alt=""></h2>
+{% elif N_pick_type == 'Y' %}
 <div class="container">
     <div class="row">
         <h3 style="color:#ebbf7a; font-size: 35px; font-weight: 600;font-family: 'Jua', sans-serif;">{{ pick }}</h3>
         <div class="jb-text"style=" padding: 30px 20px;">
             <center>
+
                 {% if days %}
                 <form action="{% url 'pick_date'%}" method="POST">
                     {% csrf_token %}
@@ -399,6 +404,7 @@
                         </div>
                     </div>
                 </div>
+           {% endif %}
 {% endif %}
                 <br><br><br>
                 <a href="/images/myw3schoolsimage.pdf" download="newfilename">Download the pdf &nbsp; <img src="{% static 'smartfarm_page/assets/img/down.png' %}" width="40" height="40" alt=""></a>
@@ -407,7 +413,7 @@
         </div>
     </div>
 </div>
-<footer class="footer bg-light" ">
+<footer class="footer bg-light" >
     <div class="row mb-5"></div>
     <br><br><br>
     <div class="container">

@@ -79,8 +79,10 @@ def kids_result(request):
     cal = list(kid_d["cal"])
     km = list(kid_d["km"])
     zsc = list(kid_d["zsc"])
+    N_pick_type="N"
     return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,
-                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"hr":HR,"cal":cal,"km":km,"zsc":zsc})
+                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"hr":HR,"cal":cal,"km":km,"zsc":zsc,"N_pick_type":N_pick_type})
+
 
 
 # 시각화 데이터 [일, 월, 주 선택]
@@ -89,6 +91,7 @@ import numpy
 from .models import AllKids
 from .models import All
 def pick_part(request):
+    N_pick_type = "Y"
     global Name2; global center; global class_; global birth ; global a;
     global pick; global kid_all_data;
     week = True;
@@ -266,7 +269,7 @@ def pick_part(request):
         month = True
     return render(request, 'kids_result.html',{"name": Name2, "birth": birth, "a": a,"days":days,"pick":pick,"ch_la":ch_la,"month":month,
                                           "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid, "cal_kid": cal_kid,
-                                          "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
+                                          "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,"N_pick_type":N_pick_type,
                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,
                                           "month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,"hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean,
                                           "cal_kid_1mean": cal_kid_1mean,"hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
@@ -274,6 +277,7 @@ def pick_part(request):
 # 2. 하루데이터 뽑기
 def pick_date(request):
     global Name2; global center; global class_; global birth ; global a; global kid_all_data;
+    N_pick_type="Y"
     ch_la = ['10시', '11시', '12시', '13시', '14시', '15시', '16시']
     date_ = request.POST['date_pick']
     print("date",date_)
@@ -407,12 +411,11 @@ def pick_date(request):
             Active = 4
         else:
             Active = 3
-        print(cal_km,sc_hr)
     else:
         not_day = True
     return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "not_day": not_day,"ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
-                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
+                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,"N_pick_type":N_pick_type,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,
                                            "month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,"hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean, "km_kid_1mean": km_kid_1mean,
                                            "cal_kid_1mean": cal_kid_1mean,"hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
@@ -420,6 +423,7 @@ def pick_date(request):
 # 3. 월데이터 뽑기
 def pick_month(request):
     global Name2; global center; global class_; global birth ; global a; global kid_all_data;
+    N_pick_type = "Y"
     month_ = request.POST['month']
     month_p = pd.DataFrame()
     month_p['month'] = list(month_)
@@ -478,7 +482,7 @@ def pick_month(request):
     all_zsc = numpy.nanmean(zsc_all)
     kid_zsc = numpy.nanmean(zsc_kid)
     zsc = float(all_zsc) - float(kid_zsc)
-
+    # 제일 많이 걸은 날 구하기
     sc_kid_ =list(month_p['sc_field_x'].replace(0,np.nan))
     max_zsc = numpy.nanargmax(sc_kid_)
     max_zsc = (str(ch_la[max_zsc])+"일")
@@ -549,7 +553,7 @@ def pick_month(request):
         Active = 3
     return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
-                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
+                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,"N_pick_type":N_pick_type,
                                            "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,
                                            "month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,"hr_kid_1mean":hr_kid_1mean,"sc_kid_1mean":sc_kid_1mean,"km_kid_1mean":km_kid_1mean,
                                            "cal_kid_1mean":cal_kid_1mean,"hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
