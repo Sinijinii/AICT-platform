@@ -1,0 +1,256 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a6f975a2-c647-4d3b-9842-6e742afb3348\" name=\"Default Changelist\" comment=\"Page Completion Step 2.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"21QyXS2I5diXfdzPhZndnajbbU5\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"DefaultHtmlFileTemplate\" value=\"HTML File\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"ToolWindowEvent Log.ShowToolbar\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hmwon\\Desktop\\YJM\\aict_JM\\smartfarm_page\\static\\smartfarm_page\\assets\\img\" />\r\n      <recent name=\"C:\\Users\\HLK\\Desktop\\김혜린\\django_practice\\smartfarm_page\\templates\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\HLK\\Desktop\\김혜린\\django_practice\\static\\smartfarm_page\\assets\\img\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"trial\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\">\r\n      <module name=\"django_practice\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/../code_prac\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/../code_prac/trial.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.trial\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a6f975a2-c647-4d3b-9842-6e742afb3348\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1637887644670</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1637887644670</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Data upload implementation.\">\r\n      <created>1646008068886</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646008068886</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Add a comparison graph.\">\r\n      <created>1646185650277</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646185650277</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"correct errors in missing values\">\r\n      <created>1646189049538</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646189049538</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Add the average line.\">\r\n      <created>1646201940739</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646201940753</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Correction of errors for weekly data.\">\r\n      <created>1646274992645</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646274992645</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Correction of errors for weekly data.\">\r\n      <created>1646351871167</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646351871167</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Page design completed.\">\r\n      <created>1646370898956</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646370898956</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Class DB update.\">\r\n      <created>1646640343497</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646640343497</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"The standards for children's activities have been changed.\">\r\n      <created>1646877395709</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646877395709</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Page Completion Step 2.\">\r\n      <created>1646888244164</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646888244164</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ORDER\">\r\n      <list>\r\n        <option value=\"0\" />\r\n        <option value=\"2\" />\r\n        <option value=\"3\" />\r\n        <option value=\"1\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Data upload implementation.\" />\r\n    <MESSAGE value=\"Add a comparison graph.\" />\r\n    <MESSAGE value=\"correct errors in missing values\" />\r\n    <MESSAGE value=\"Add the average line.\" />\r\n    <MESSAGE value=\"Correction of errors for weekly data.\" />\r\n    <MESSAGE value=\"Page design completed.\" />\r\n    <MESSAGE value=\"Class DB update.\" />\r\n    <MESSAGE value=\"The standards for children's activities have been changed.\" />\r\n    <MESSAGE value=\"Page Completion Step 2.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Page Completion Step 2.\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"571\" y=\"299\" key=\"#com.intellij.fileTypes.FileTypeChooser\" timestamp=\"1646281404141\">\r\n      <screen x=\"0\" y=\"0\" width=\"2560\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"571\" y=\"299\" key=\"#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1040@0.0.2560.1040\" timestamp=\"1646281404141\" />\r\n    <state x=\"1333\" y=\"138\" width=\"1108\" height=\"797\" key=\"DiffContextDialog\" timestamp=\"1646026602364\">\r\n      <screen x=\"0\" y=\"0\" width=\"2560\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"1333\" y=\"138\" width=\"1108\" height=\"797\" key=\"DiffContextDialog/0.0.2560.1040@0.0.2560.1040\" timestamp=\"1646026602364\" />\r\n    <state x=\"1229\" y=\"269\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1646888831991\">\r\n      <screen x=\"0\" y=\"0\" width=\"2560\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"1229\" y=\"269\" key=\"Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040\" timestamp=\"1646888831991\" />\r\n    <state x=\"774\" y=\"436\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1646351741606\">\r\n      <screen x=\"0\" y=\"0\" width=\"2560\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"774\" y=\"436\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1040@0.0.2560.1040\" timestamp=\"1646351741606\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>\r\n          <line>77</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>\r\n          <line>471</line>\r\n          <option name=\"timeStamp\" value=\"9\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>\r\n          <line>510</line>\r\n          <option name=\"timeStamp\" value=\"11\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>\r\n          <line>433</line>\r\n          <option name=\"timeStamp\" value=\"12\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>\r\n          <line>506</line>\r\n          <option name=\"timeStamp\" value=\"13\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 3aea9cc3ba6e5bd74997c14421a0b4977bb7b25b)
++++ .idea/workspace.xml	(date 1646889505127)
+@@ -1,27 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="BranchesTreeState">
+-    <expand>
+-      <path>
+-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-      </path>
+-      <path>
+-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-      </path>
+-      <path>
+-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+-      </path>
+-    </expand>
+-    <select />
+-  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Page Completion Step 2.">
++    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/result.html" afterDir="false" />
+     </list>
++    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -36,21 +20,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectId" id="21QyXS2I5diXfdzPhZndnajbbU5" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+   <component name="PropertiesComponent">
+-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
+@@ -66,6 +40,18 @@
+       <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
+     </key>
+   </component>
++  <component name="RunDashboard">
++    <option name="ruleStates">
++      <list>
++        <RuleState>
++          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
++        </RuleState>
++        <RuleState>
++          <option name="name" value="StatusDashboardGroupingRule" />
++        </RuleState>
++      </list>
++    </option>
++  </component>
+   <component name="RunManager">
+     <configuration name="trial" type="PythonConfigurationType" factoryName="Python" temporary="true">
+       <module name="django_practice" />
+@@ -91,10 +77,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Python.trial" />
++        <item itemvalue="Python.trial" />
+       </list>
+     </recent_temporary>
+   </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="SvnConfiguration">
+     <configuration />
+   </component>
+@@ -106,158 +92,28 @@
+       <option name="presentableId" value="Default" />
+       <updated>1637887644670</updated>
+     </task>
+-    <task id="LOCAL-00001" summary="Data upload implementation.">
+-      <created>1646008068886</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646008068886</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="Add a comparison graph.">
+-      <created>1646185650277</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646185650277</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="correct errors in missing values">
+-      <created>1646189049538</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646189049538</updated>
+-    </task>
+-    <task id="LOCAL-00004" summary="Add the average line.">
+-      <created>1646201940739</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646201940753</updated>
+-    </task>
+-    <task id="LOCAL-00005" summary="Correction of errors for weekly data.">
+-      <created>1646274992645</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646274992645</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="Correction of errors for weekly data.">
+-      <created>1646351871167</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646351871167</updated>
+-    </task>
+-    <task id="LOCAL-00007" summary="Page design completed.">
+-      <created>1646370898956</created>
+-      <option name="number" value="00007" />
+-      <option name="presentableId" value="LOCAL-00007" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646370898956</updated>
+-    </task>
+-    <task id="LOCAL-00008" summary="Class DB update.">
+-      <created>1646640343497</created>
+-      <option name="number" value="00008" />
+-      <option name="presentableId" value="LOCAL-00008" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646640343497</updated>
+-    </task>
+-    <task id="LOCAL-00009" summary="The standards for children's activities have been changed.">
+-      <created>1646877395709</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646877395709</updated>
+-    </task>
+-    <task id="LOCAL-00010" summary="Page Completion Step 2.">
+-      <created>1646888244164</created>
+-      <option name="number" value="00010" />
+-      <option name="presentableId" value="LOCAL-00010" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1646888244164</updated>
+-    </task>
+-    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+-  <component name="Vcs.Log.History.Properties">
+-    <option name="COLUMN_ORDER">
+-      <list>
+-        <option value="0" />
+-        <option value="2" />
+-        <option value="3" />
+-        <option value="1" />
+-      </list>
+-    </option>
+-  </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="COLUMN_ORDER" />
++            </State>
+           </value>
+         </entry>
+       </map>
+     </option>
+-    <option name="oldMeFiltersMigrated" value="true" />
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Data upload implementation." />
+-    <MESSAGE value="Add a comparison graph." />
+-    <MESSAGE value="correct errors in missing values" />
+-    <MESSAGE value="Add the average line." />
+-    <MESSAGE value="Correction of errors for weekly data." />
+-    <MESSAGE value="Page design completed." />
+-    <MESSAGE value="Class DB update." />
+-    <MESSAGE value="The standards for children's activities have been changed." />
+-    <MESSAGE value="Page Completion Step 2." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Page Completion Step 2." />
+-  </component>
+-  <component name="WindowStateProjectService">
+-    <state x="571" y="299" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1646281404141">
+-      <screen x="0" y="0" width="2560" height="1040" />
+-    </state>
+-    <state x="571" y="299" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1646281404141" />
+-    <state x="1333" y="138" width="1108" height="797" key="DiffContextDialog" timestamp="1646026602364">
+-      <screen x="0" y="0" width="2560" height="1040" />
+-    </state>
+-    <state x="1333" y="138" width="1108" height="797" key="DiffContextDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646026602364" />
+-    <state x="1229" y="269" key="Vcs.Push.Dialog.v2" timestamp="1646888831991">
+-      <screen x="0" y="0" width="2560" height="1040" />
+-    </state>
+-    <state x="1229" y="269" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1646888831991" />
+-    <state x="774" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1646351741606">
+-      <screen x="0" y="0" width="2560" height="1040" />
+-    </state>
+-    <state x="774" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1040@0.0.2560.1040" timestamp="1646351741606" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+-          <line>77</line>
++          <line>60</line>
+           <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+-          <line>471</line>
+-          <option name="timeStamp" value="9" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+-          <line>510</line>
+-          <option name="timeStamp" value="11" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+-          <line>433</line>
+-          <option name="timeStamp" value="12" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+-          <line>506</line>
+-          <option name="timeStamp" value="13" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
