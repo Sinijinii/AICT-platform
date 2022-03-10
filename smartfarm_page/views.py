@@ -91,12 +91,15 @@ from .models import All
 def pick_part(request):
     global Name2; global center; global class_; global birth ; global a;
     global pick; global kid_all_data;
+    week = True;
+    day = False;
+    month = False;
     pick = request.POST.getlist('day[]')
     hr_kid = []; sc_kid = []; zsc_kid = []; km_kid = []; cal_kid = [];hr_all = [];sc_all = [];
     heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
     hr_kid_1mean = [];sc_kid_1mean = [];hr_all_1mean = []; sc_all_1mean = []; km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
     ch_la=['0','1','2','3','4']
-    Active = False; inactive = False; normal = False; week = True; day = False; month = False;
+    Active = 0;
     sc_hr = 0;
     cal_km = 0;
     if pick == ['day']:
@@ -178,18 +181,7 @@ def pick_part(request):
         all_zsc=numpy.nanmean(zsc_all)
         kid_zsc = numpy.nanmean(zsc_kid)
         zsc=float(all_zsc)-float(kid_zsc)
-        if zsc >= 0.06:
-            Active=False
-            inactive=True
-            normal = False
-        elif zsc <= -0.06:
-            Active = True
-            inactive = False
-            normal = False
-        else:
-            Active = False
-            inactive = False
-            normal = True
+
         max_zsc = numpy.nanargmax(sc_kid)
         max_zsc = ch_la[max_zsc]
         min_zsc = numpy.nanargmin(sc_kid)
@@ -241,6 +233,15 @@ def pick_part(request):
             cal_km = 2
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 3
+        # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
+        if (cal_km == 3 and sc_hr == 3):
+            Active = 1
+        elif (cal_km == 1 and sc_hr == 1):
+            Active = 5
+        elif (cal_km == 4 and sc_hr == 1) or (cal_km == 1 and sc_hr == 4):
+            Active = 4
+        else:
+            Active = 3
         # 리스트 내 널 값을 0으로 변경하기
         hr_kid = nan_0(hr_kid, findIndexInList(hr_kid, np.nan))
         sc_kid = nan_0(sc_kid, findIndexInList(sc_kid, np.nan))
@@ -266,10 +267,9 @@ def pick_part(request):
     return render(request, 'kids_result.html',{"name": Name2, "birth": birth, "a": a,"days":days,"pick":pick,"ch_la":ch_la,"month":month,
                                           "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid, "cal_kid": cal_kid,
                                           "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
-                                          "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
-                                          "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,
-                                          "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean, "cal_kid_1mean": cal_kid_1mean,
-                                          "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
+                                          "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,
+                                          "month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,"hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean,
+                                          "cal_kid_1mean": cal_kid_1mean,"hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
 # 2. 하루데이터 뽑기
 def pick_date(request):
@@ -284,7 +284,7 @@ def pick_date(request):
     heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
     hr_kid_1mean = []; sc_kid_1mean = []; hr_all_1mean = [];  sc_all_1mean = [];
     km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
-    Active = False; inactive = False; normal = False;
+    Active = 0;
     if All.objects.filter(name=Name2, day=date_).exists():
         not_day = False
         kid_all_data['day']=kid_all_data['day'].astype('datetime64[s]')
@@ -336,18 +336,7 @@ def pick_date(request):
         all_zsc = numpy.nanmean(zsc_all)
         kid_zsc = numpy.nanmean(zsc_kid)
         zsc = float(all_zsc) - float(kid_zsc)
-        if zsc >= 0.1:
-            Active = False
-            inactive = True
-            normal = False
-        elif zsc <= -0.1:
-            Active = True
-            inactive = False
-            normal = False
-        else:
-            Active = False
-            inactive = False
-            normal = True
+        # 최대 최소 zscore구하기
         sc_kid_ = list(aaaa['sc_field_x'].replace(0, np.nan))
         max_zsc = numpy.nanargmax(sc_kid_)
         max_zsc = ch_la[max_zsc]
@@ -409,15 +398,24 @@ def pick_date(request):
             cal_km=2
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 3
+        # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
+        if (cal_km==3 and sc_hr==3):
+            Active = 1
+        elif (cal_km==1 and sc_hr==1):
+            Active = 5
+        elif (cal_km==4 and sc_hr==1) or (cal_km==1 and sc_hr==4):
+            Active = 4
+        else:
+            Active = 3
+        print(cal_km,sc_hr)
     else:
         not_day = True
     return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "not_day": not_day,"ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
-                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
-                                           "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,
-                                           "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean, "cal_kid_1mean": cal_kid_1mean,
-                                           "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
+                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,
+                                           "month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,"hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean, "km_kid_1mean": km_kid_1mean,
+                                           "cal_kid_1mean": cal_kid_1mean,"hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
 # 3. 월데이터 뽑기
 def pick_month(request):
@@ -480,18 +478,7 @@ def pick_month(request):
     all_zsc = numpy.nanmean(zsc_all)
     kid_zsc = numpy.nanmean(zsc_kid)
     zsc = float(all_zsc) - float(kid_zsc)
-    if zsc >= 0.1:
-        Active = False
-        inactive = True
-        normal = False
-    elif zsc <= -0.1:
-        Active = True
-        inactive = False
-        normal = False
-    else:
-        Active = False
-        inactive = False
-        normal = True
+
     sc_kid_ =list(month_p['sc_field_x'].replace(0,np.nan))
     max_zsc = numpy.nanargmax(sc_kid_)
     max_zsc = (str(ch_la[max_zsc])+"일")
@@ -551,13 +538,21 @@ def pick_month(request):
         cal_km = 2
     elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
         cal_km = 3
+    # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
+    if (cal_km == 3 and sc_hr == 3):
+        Active = 1
+    elif (cal_km == 1 and sc_hr == 1):
+        Active = 5
+    elif (cal_km == 4 and sc_hr == 1) or (cal_km == 1 and sc_hr == 4):
+        Active = 4
+    else:
+        Active = 3
     return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,
-                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"inactive":inactive,
-                                           "normal":normal,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,"month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,
-                                           "hr_kid_1mean":hr_kid_1mean,"sc_kid_1mean":sc_kid_1mean,"km_kid_1mean":km_kid_1mean,"cal_kid_1mean":cal_kid_1mean,
-                                           "hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
+                                           "pick":pick,"heartrate":heartrate,"stepcount":stepcount,"Active":Active,"max_zsc":max_zsc,"min_zsc":min_zsc,"week":week,
+                                           "month":month,"day":day,"sc_hr":sc_hr,"cal_km":cal_km,"hr_kid_1mean":hr_kid_1mean,"sc_kid_1mean":sc_kid_1mean,"km_kid_1mean":km_kid_1mean,
+                                           "cal_kid_1mean":cal_kid_1mean,"hr_all_1mean": hr_all_1mean, "sc_all_1mean": sc_all_1mean,"km_all_1mean": km_all_1mean, "cal_all_1mean": cal_all_1mean})
 
 # 사용자 데이터 업로드 비밀번호 입력
 def kids_data_fileupload(request):
