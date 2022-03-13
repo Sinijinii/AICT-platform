@@ -71,17 +71,8 @@ def kids_result(request):
         E = False
     # 측정정보
     kid_d = pd.DataFrame(list(All.objects.filter(name=Name2).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
-    HR=list(kid_d["heartrate"])
-    step = list(kid_d["sc_field"])
-    day = list(kid_d["day"])
-    time = list(kid_d["time"])
-    week = list(kid_d["week"])
-    cal = list(kid_d["cal"])
-    km = list(kid_d["km"])
-    zsc = list(kid_d["zsc"])
     N_pick_type="N"
-    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,
-                                           "kid_d":kid_d,"step":step,"day":day,"time":time,"week":week,"hr":HR,"cal":cal,"km":km,"zsc":zsc,"N_pick_type":N_pick_type})
+    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,"kid_d":kid_d,"N_pick_type":N_pick_type})
 
 
 
@@ -94,17 +85,13 @@ def pick_part(request):
     N_pick_type = "Y"
     global Name2; global center; global class_; global birth ; global a;
     global pick; global kid_all_data;
-    week = True;
-    day = False;
-    month = False;
+    week = True;day = False; month = False;
     pick = request.POST.getlist('day[]')
     hr_kid = []; sc_kid = []; zsc_kid = []; km_kid = []; cal_kid = [];hr_all = [];sc_all = [];
     heartrate=[]; stepcount = []; max_zsc=[]; min_zsc=[];zsc_all = [];km_all = [];cal_all = [];
     hr_kid_1mean = [];sc_kid_1mean = [];hr_all_1mean = []; sc_all_1mean = []; km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
     ch_la=['0','1','2','3','4']
-    Active = 0;
-    sc_hr = 0;
-    cal_km = 0;
+    Active = 0; sc_hr = 0; cal_km = 0;
     if pick == ['day']:
         days = True
         week = False
