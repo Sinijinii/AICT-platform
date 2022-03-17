@@ -69,10 +69,15 @@ def kids_result(request):
         E = True
     else:
         E = False
+    print("bc",All.objects.filter(name=Name2))
+    if All.objects.filter(name=Name2).exists():
+        nulldata=False
+    else: nulldata=True
+    print(nulldata)
     # 측정정보
     kid_d = pd.DataFrame(list(All.objects.filter(name=Name2).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
     N_pick_type="N"
-    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,"kid_d":kid_d,"N_pick_type":N_pick_type})
+    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,"kid_d":kid_d,"N_pick_type":N_pick_type,"nulldata":nulldata})
 
 
 
@@ -214,6 +219,8 @@ def pick_part(request):
             sc_hr = 2
         elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
             sc_hr = 3
+        elif (hr_kid_mean == hr_all_mean) & (sc_kid_mean == sc_all_mean):
+            sc_hr = 0
         # cal, km비교
         if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
             cal_km = 1
@@ -223,6 +230,8 @@ def pick_part(request):
             cal_km = 2
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 3
+        elif (cal_kid_mean == cal_all_mean) & (km_kid_mean == km_all_mean):
+            cal_km = 0
         # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
         if (cal_km == 3 and sc_hr == 3):
             Active = 1
@@ -334,7 +343,6 @@ def pick_date(request):
         min_zsc = numpy.nanargmin(sc_kid_)
         min_zsc = ch_la[min_zsc]
         # 평균 심박수, 걸음수, km,cal
-        print(aaaa)
         hr_kid_mean = list(aaaa['heartrate_x'].replace(0, np.nan))
         sc_kid_mean = list(aaaa['sc_field_x'].replace(0, np.nan))
         km_kid_mean = list(aaaa['km_x'].replace(0,np.nan))
@@ -357,12 +365,24 @@ def pick_date(request):
         # 데이터 평균선 추가
         hr_kid_1mean.append(int(numpy.nanmean(hr_kid_mean)))
         sc_kid_1mean.append(int(numpy.nanmean(sc_kid_mean)))
-        km_kid_1mean.append(int(numpy.nanmean(km_kid_mean)))
-        cal_kid_1mean.append(int(numpy.nanmean(cal_kid_mean)))
         hr_all_1mean.append(int(numpy.nanmean(hr_all_mean)))
         sc_all_1mean.append(int(numpy.nanmean(sc_all_mean)))
-        km_all_1mean.append(int(numpy.nanmean(km_all_mean)))
-        cal_all_1mean.append(int(numpy.nanmean(cal_all_mean)))
+        if np.isnan(km_kid_mean):
+            km_kid_1mean=0
+        else :
+            km_kid_1mean.append(int(numpy.nanmean(km_kid_mean)))
+        if np.isnan(cal_kid_mean):
+            cal_kid_1mean=[0]
+        else :
+            cal_kid_1mean.append(int(numpy.nanmean(cal_kid_mean)))
+        if np.isnan(km_all_mean):
+            km_all_1mean=[0]
+        else :
+            km_all_1mean.append(int(numpy.nanmean(km_all_mean)))
+        if np.isnan(cal_all_mean):
+            cal_all_1mean=[0]
+        else :
+            cal_all_1mean.append(int(numpy.nanmean(cal_all_mean)))
         hr_kid_1mean = hr_kid_1mean * len(km_kid);
         sc_kid_1mean = sc_kid_1mean * len(km_kid);
         hr_all_1mean = hr_all_1mean * len(km_kid);
@@ -371,6 +391,7 @@ def pick_date(request):
         cal_kid_1mean = cal_kid_1mean * len(km_kid);
         km_all_1mean = km_all_1mean * len(km_kid);
         cal_all_1mean = cal_all_1mean * len(km_kid);
+        print(hr_all_1mean)
         # 심박수, 걸음수 비교
         if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
             sc_hr=1
@@ -380,6 +401,8 @@ def pick_date(request):
             sc_hr=2
         elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
             sc_hr = 3
+        elif (hr_kid_mean == hr_all_mean) & (sc_kid_mean == sc_all_mean):
+            sc_hr = 0
         # cal, km비교
         if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
             cal_km=1
@@ -389,6 +412,8 @@ def pick_date(request):
             cal_km=2
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 3
+        elif (cal_kid_mean == cal_all_mean) & (km_kid_mean == km_all_mean):
+            cal_km = 0
         # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
         if (cal_km==3 and sc_hr==3):
             Active = 1
@@ -452,6 +477,7 @@ def pick_month(request):
     hr_kid = list(map(int, hr_kid))
     km_kid = list(map(int, km_kid))
     sc_kid = list(map(int, sc_kid))
+    print(hr_kid)
     # 전체 정보
     hr_all = list(month_p['heartrate_y'])
     sc_all = list(month_p['sc_field_y'])
@@ -484,19 +510,32 @@ def pick_month(request):
     sc_all_mean = list(month_p['sc_field_y'].replace(0, np.nan))
     km_all_mean = list(month_p['km_y'].replace(0, np.nan))
     cal_all_mean = list(month_p['cal_y'].replace(0, np.nan))
-    print("mean",km_kid_mean)
     # 그래프에 전체평균 값( 일별이 아닌 한달 평균 line그래프)
     hr_kid_1mean = []; sc_kid_1mean = []; hr_all_1mean=[]; sc_all_1mean=[];km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean=[]; cal_all_1mean=[]
     heartrate=int(numpy.nanmean(hr_kid_mean))
     stepcount=int(numpy.nanmean(sc_kid_mean)) * 6
     hr_kid_1mean.append(int(numpy.nanmean(hr_kid_mean)))
     sc_kid_1mean.append(int(numpy.nanmean(sc_kid_mean)))
-    km_kid_1mean.append(int(numpy.nanmean(km_kid_mean)))
-    cal_kid_1mean.append(int(numpy.nanmean(cal_kid_mean)))
     hr_all_1mean.append(int(numpy.nanmean(hr_all_mean)))
     sc_all_1mean.append(int(numpy.nanmean(sc_all_mean)))
-    km_all_1mean.append(int(numpy.nanmean(km_all_mean)))
-    cal_all_1mean.append(int(numpy.nanmean(cal_all_mean)))
+    print(km_kid_mean)
+    print("as",np.nansum(km_kid_mean)==0)
+    if np.nansum(km_kid_mean)==0:
+        km_kid_1mean = 0
+    else:
+        km_kid_1mean.append(int(numpy.nanmean(km_kid_mean)))
+    if np.nansum(cal_kid_mean)==0:
+        cal_kid_1mean = [0]
+    else:
+        cal_kid_1mean.append(int(numpy.nanmean(cal_kid_mean)))
+    if np.nansum(km_all_mean)==0:
+        km_all_1mean = [0]
+    else:
+        km_all_1mean.append(int(numpy.nanmean(km_all_mean)))
+    if np.nansum(cal_all_mean)==0:
+        cal_all_1mean = [0]
+    else :
+        cal_all_1mean.append(int(numpy.nanmean(cal_all_mean)))
     hr_kid_1mean = hr_kid_1mean * len(km_kid); sc_kid_1mean = sc_kid_1mean * len(km_kid); hr_all_1mean= hr_all_1mean * len(km_kid); sc_all_1mean = sc_all_1mean * len(km_kid);
     km_kid_1mean = km_kid_1mean * len(km_kid); cal_kid_1mean = cal_kid_1mean * len(km_kid); km_all_1mean = km_all_1mean * len(km_kid); cal_all_1mean = cal_all_1mean * len(km_kid);
     # 평균값 그래프( bar )
@@ -520,6 +559,8 @@ def pick_month(request):
         sc_hr = 2
     elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
         sc_hr = 3
+    elif (hr_kid_mean == hr_all_mean) & (sc_kid_mean == sc_all_mean):
+        sc_hr = 0
     # cal, km비교
     if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
         cal_km = 1
@@ -529,6 +570,8 @@ def pick_month(request):
         cal_km = 2
     elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
         cal_km = 3
+    elif (cal_kid_mean == cal_all_mean) & (km_kid_mean == km_all_mean):
+        cal_km = 0
     # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
     if (cal_km == 3 and sc_hr == 3):
         Active = 1
@@ -538,6 +581,8 @@ def pick_month(request):
         Active = 4
     else:
         Active = 3
+    print(hr_kid,hr_all)
+    print(hr_all_1mean,km_kid_1mean)
     return render(request, 'kids_result.html', {"name": Name2, "birth": birth, "a": a, "ch_la":ch_la,
                                            "hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,"cal_kid": cal_kid,
                                            "hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all,"cal_all": cal_all,"N_pick_type":N_pick_type,
