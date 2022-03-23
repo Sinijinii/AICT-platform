@@ -20,8 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Page Completion Step 2.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10__2_17__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10__2_19__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10__2_23__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_17_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_19_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/cal_km_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/cal_km_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/cal_km_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/cal_km_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/down_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/kid2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/kid_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/kids1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/kids2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/report.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/report2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/sc_hr_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/sc_hr_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/sc_hr_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/sc_hr_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-03-10_오후_2_23_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647503097858</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="&#10;AICT webpage kids_pattern final (Configuring error correction and error notification caused by lack of data)">
+      <created>1647506037642</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647506037642</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,10 +194,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1647503105083">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1647506052594">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1647503105083" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1647506052594" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -179,13 +209,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>864</line>
+          <line>869</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>372</line>
+          <line>376</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>262</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
