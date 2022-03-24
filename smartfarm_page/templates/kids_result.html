@@ -112,19 +112,19 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <div style="float: left; margin-light:20px; "><br><br>
-                            <label style=" font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">1. 일별</label>
+                            <label style=" font-size:19px; text-align:justify;font-family: 'Jua', sans-serif;">1. 일별</label>
                             <input type="radio" name="day[]" value="day" />
                         </div>
                         <div style="float: left; margin-light:20px; "><br><br>
-                            <label style=" font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">2. 요일별</label>
+                            <label style=" font-size:19px; text-align:justify;font-family: 'Jua', sans-serif;">2. 요일별</label>
                             <input type="radio" name="day[]" value="week" />
                         </div>
                         <div style="float: left; margin-light:20px; "><br><br>
-                            <label style=" font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">3. 월별</label>
+                            <label style=" font-size:19px; text-align:justify;font-family: 'Jua', sans-serif;">3. 월별</label>
                             <input type="radio" name="day[]" value="month" />
                         </div>
                         <div style="float: left; margin-light:20px; "><br><br>
-                            &nbsp;&nbsp;<button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                            &nbsp;&nbsp;<button type="submit" class="btn btn-primary" style="font-size:12px; border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1.5px solid black; background-color: rgba(0, 0, 0, 0.0); color: black; padding: 5px;">확인</button>
                             <br><br>
                         </div>
                     </div>
@@ -220,7 +220,7 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <h2 style="font-family: 'Jua', sans-serif;font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다.</h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;"><br>{{ zsc }}</h2>
+                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <h2 style="font-family: 'Jua', sans-serif;font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;"><br>{{ zsc }}</h2>
+                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -268,7 +268,7 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <h2 style="font-family: 'Jua', sans-serif;font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;"><br>{{ zsc }}</h2>
+                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500; font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <h2 style="font-family: 'Jua', sans-serif; font-weight:500;"><br><br><br>{{ name }} 어린이의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;"><br>{{ zsc }}</h2>
+                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
