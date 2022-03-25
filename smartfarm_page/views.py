@@ -77,7 +77,165 @@ def kids_result(request):
     # 측정정보
     kid_d = pd.DataFrame(list(All.objects.filter(name=Name2).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
     N_pick_type="N"
-    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,"kid_d":kid_d,"N_pick_type":N_pick_type,"nulldata":nulldata})
+    # 페이지 기본 "주 데이터"로 보이게
+    hr_kid_1mean = [];sc_kid_1mean = []; hr_all_1mean = []; sc_all_1mean = []; km_kid_1mean = []; cal_kid_1mean = []; km_all_1mean = []; cal_all_1mean = []
+    sc_hr = 0; cal_km = 0;
+    # 이상징후 발견 요일 확인
+    zsc = kid_all_data.loc[(kid_all_data['name'] == Name2) & ((kid_all_data['zsc'] == 2) | (kid_all_data['zsc'] == 0)), ['week']]
+    zsc = numpy.unique(zsc)
+    zsc = np.where(zsc == "Mon", "월요일", zsc);
+    zsc = np.where(zsc == "Tue", "화요일", zsc);
+    zsc = np.where(zsc == "Wed", "수요일", zsc);
+    zsc = np.where(zsc == "Thu", "목요일", zsc);
+    zsc = np.where(zsc == "Fri", "금요일", zsc);
+    zsc = str(zsc) + " 에" + " 이상징후가 나타난 것으로 예측됩니다."
+    # 주 데이터 뽑기
+    hr_all = [];sc_all = []; zsc_all = []; km_all = []; cal_all = [];
+    mon_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Mon"), ['heartrate', 'sc_field', 'zsc', 'day','time', 'week', 'km', 'cal', '반']]
+    hr_all.append(numpy.mean(mon_all["heartrate"]))
+    sc_all.append(numpy.mean(mon_all["sc_field"]))
+    km_all.append(numpy.mean(mon_all["km"].replace(np.nan, 0)))
+    cal_all.append(numpy.mean(mon_all["cal"].replace(np.nan, 0)))
+    tue_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Tue"), ['heartrate', 'sc_field', 'zsc', 'day','time', 'week', 'km', 'cal', '반']]
+    hr_all.append(numpy.mean(tue_all["heartrate"]))
+    sc_all.append(numpy.mean(tue_all["sc_field"]))
+    km_all.append(numpy.mean(tue_all["km"].replace(np.nan, 0)))
+    cal_all.append(numpy.mean(tue_all["cal"].replace(np.nan, 0)))
+    zsc_all.append(numpy.mean(tue_all["zsc"].replace(0, np.nan)))
+    wedn_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Wed"), ['heartrate', 'sc_field', 'zsc', 'day','time', 'week', 'km', 'cal', '반']]
+    hr_all.append(numpy.mean(wedn_all["heartrate"]))
+    sc_all.append(numpy.mean(wedn_all["sc_field"]))
+    km_all.append(numpy.mean(wedn_all["km"].replace(np.nan, 0)))
+    cal_all.append(numpy.mean(wedn_all["cal"].replace(np.nan, 0)))
+    thu_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Thu"), ['heartrate', 'sc_field', 'zsc', 'day','time', 'week', 'km', 'cal', '반']]
+    hr_all.append(numpy.mean(thu_all["heartrate"]))
+    sc_all.append(numpy.mean(thu_all["sc_field"]))
+    km_all.append(numpy.mean(thu_all["km"].replace(np.nan, 0)))
+    cal_all.append(numpy.mean(thu_all["cal"].replace(np.nan, 0)))
+    fri_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Fri"), ['heartrate', 'sc_field', 'zsc', 'day','time', 'week', 'km', 'cal', '반']]
+    hr_all.append(numpy.mean(fri_all["heartrate"]))
+    sc_all.append(numpy.mean(fri_all["sc_field"]))
+    km_all.append(numpy.mean(fri_all["km"].replace(np.nan, 0)))
+    cal_all.append(numpy.mean(fri_all["cal"].replace(np.nan, 0)))
+    # 개인 주별 평균값 구하기
+    hr_kid = []; sc_kid = []; zsc_kid = []; km_kid = []; cal_kid = [];
+    mon_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Mon") & (kid_all_data['name'] == Name2), ['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km', 'cal', '반']]
+    hr_kid.append(numpy.mean(mon_all["heartrate"]))
+    sc_kid.append(numpy.mean(mon_all["sc_field"]))
+    km_kid.append(numpy.mean(mon_all["km"].replace(np.nan, 0)))
+    cal_kid.append(numpy.mean(mon_all["cal"].replace(np.nan, 0)))
+    tue_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Tue") & (kid_all_data['name'] == Name2), ['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km', 'cal', '반']]
+    hr_kid.append(numpy.mean(tue_all["heartrate"]))
+    sc_kid.append(numpy.mean(tue_all["sc_field"]))
+    km_kid.append(numpy.mean(tue_all["km"].replace(np.nan, 0)))
+    cal_kid.append(numpy.mean(tue_all["cal"].replace(np.nan, 0)))
+    wedn_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Wed") & (kid_all_data['name'] == Name2), ['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km', 'cal', '반']]
+    hr_kid.append(numpy.mean(wedn_all["heartrate"]))
+    sc_kid.append(numpy.mean(wedn_all["sc_field"]))
+    km_kid.append(numpy.mean(wedn_all["km"].replace(np.nan, 0)))
+    cal_kid.append(numpy.mean(wedn_all["cal"].replace(np.nan, 0)))
+    thu_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Thu") & (kid_all_data['name'] == Name2), ['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km', 'cal', '반']]
+    hr_kid.append(numpy.mean(thu_all["heartrate"]))
+    sc_kid.append(numpy.mean(thu_all["sc_field"]))
+    km_kid.append(numpy.mean(thu_all["km"].replace(np.nan, 0)))
+    cal_kid.append(numpy.mean(thu_all["cal"].replace(np.nan, 0)))
+    fri_all = kid_all_data.loc[(kid_all_data['반'] == class_) & (kid_all_data['week'] == "Fri") & (kid_all_data['name'] == Name2), ['heartrate', 'sc_field', 'zsc', 'day', 'time', 'week', 'km', 'cal', '반']]
+    hr_kid.append(numpy.mean(fri_all["heartrate"]))
+    sc_kid.append(numpy.mean(fri_all["sc_field"]))
+    km_kid.append(numpy.mean(fri_all["km"].replace(np.nan, 0)))
+    cal_kid.append(numpy.mean(fri_all["cal"].replace(np.nan, 0)))
+    # 시각화 x축에 들어갈 라벨설정
+    ch_la = ['월요일', '화요일', '수요일', '목요일', '금요일']
+    pick = '요일별 모아보기'
+    # 최대 최소 심박수 체크
+    max_zsc = numpy.nanargmax(sc_kid)
+    max_zsc = ch_la[max_zsc]
+    min_zsc = numpy.nanargmin(sc_kid)
+    min_zsc = ch_la[min_zsc]
+    # 평균 심박수, 걸음수, km,cal
+    heartrate = int(numpy.nanmean(hr_kid))
+    stepcount = int(numpy.nanmean(sc_kid)) * 6
+    # 데이터 평균선 추가
+    hr_kid_1mean.append(int(numpy.nanmean(hr_kid)))
+    sc_kid_1mean.append(int(numpy.nanmean(sc_kid)))
+    km_kid_1mean.append(int(numpy.nanmean(km_kid)))
+    cal_kid_1mean.append(int(numpy.nanmean(cal_kid)))
+    hr_all_1mean.append(int(numpy.nanmean(hr_all)))
+    sc_all_1mean.append(int(numpy.nanmean(sc_all)))
+    km_all_1mean.append(int(numpy.nanmean(km_all)))
+    cal_all_1mean.append(int(numpy.nanmean(cal_all)))
+    hr_kid_1mean = hr_kid_1mean * len(km_kid);
+    sc_kid_1mean = sc_kid_1mean * len(km_kid);
+    hr_all_1mean = hr_all_1mean * len(km_kid);
+    sc_all_1mean = sc_all_1mean * len(km_kid);
+    km_kid_1mean = km_kid_1mean * len(km_kid);
+    cal_kid_1mean = cal_kid_1mean * len(km_kid);
+    km_all_1mean = km_all_1mean * len(km_kid);
+    cal_all_1mean = cal_all_1mean * len(km_kid);
+    # 비교데이터 준비
+    hr_kid_mean = numpy.nanmean(hr_kid)
+    sc_kid_mean = numpy.nanmean(sc_kid)
+    km_kid_mean = numpy.nanmean(km_kid)
+    cal_kid_mean = numpy.nanmean(cal_kid)
+    hr_all_mean = numpy.nanmean(hr_all)
+    sc_all_mean = numpy.nanmean(sc_all)
+    km_all_mean = numpy.nanmean(km_all)
+    cal_all_mean = numpy.nanmean(cal_all)
+    # 심박수, 걸음수 비교
+    if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
+        sc_hr = 1
+    elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
+        sc_hr = 4
+    elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean > sc_all_mean):
+        sc_hr = 2
+    elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
+        sc_hr = 3
+    elif (hr_kid_mean == hr_all_mean) & (sc_kid_mean == sc_all_mean):
+        sc_hr = 0
+    # cal, km비교
+    if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
+        cal_km = 1
+    elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
+        cal_km = 4
+    elif (cal_kid_mean < cal_all_mean) & (km_kid_mean > km_all_mean):
+        cal_km = 2
+    elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
+        cal_km = 3
+    elif (cal_kid_mean == cal_all_mean) & (km_kid_mean == km_all_mean):
+        cal_km = 0
+    # 아이의 활동량 구하기 (1 : 비교적 차분, 2: ,3:평균, 4: 비교적 활동적, 5: 활동적)
+    if (cal_km == 3 and sc_hr == 3):
+        Active = 1
+    elif (cal_km == 1 and sc_hr == 1):
+        Active = 5
+    elif (cal_km == 4 and sc_hr == 1) or (cal_km == 1 and sc_hr == 4):
+        Active = 4
+    else:
+        Active = 3
+    # 리스트 내 널 값을 0으로 변경하기
+    hr_kid = nan_0(hr_kid, findIndexInList(hr_kid, np.nan))
+    sc_kid = nan_0(sc_kid, findIndexInList(sc_kid, np.nan))
+    cal_kid = nan_0(cal_kid, findIndexInList(cal_kid, np.nan))
+    km_kid = nan_0(km_kid, findIndexInList(km_kid, np.nan))
+    hr_all = nan_0(hr_all, findIndexInList(hr_all, np.nan))
+    sc_all = nan_0(sc_all, findIndexInList(sc_all, np.nan))
+    cal_all = nan_0(cal_all, findIndexInList(cal_all, np.nan))
+    km_all = nan_0(km_all, findIndexInList(km_all, np.nan))
+    # int값으로 형변환
+    cal_kid = list(map(int, cal_kid))
+    hr_kid = list(map(int, hr_kid))
+    km_kid = list(map(int, km_kid))
+    sc_kid = list(map(int, sc_kid))
+    cal_all = list(map(int, cal_all))
+    hr_all = list(map(int, hr_all))
+    km_all = list(map(int, km_all))
+    sc_all = list(map(int, sc_all))
+    return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,"kid_d":kid_d,"N_pick_type":N_pick_type,"nulldata":nulldata,
+                                                "name": Name2, "birth": birth, "a": a, "pick": pick, "ch_la": ch_la,"hr_kid": hr_kid, "sc_kid": sc_kid, "zsc_kid": zsc_kid, "km_kid": km_kid,
+                                                "cal_kid": cal_kid, "zsc": zsc,"hr_all": hr_all, "sc_all": sc_all, "zsc_all": zsc_all, "km_all": km_all, "cal_all": cal_all, "N_pick_type": N_pick_type,
+                                                "pick": pick, "heartrate": heartrate, "stepcount": stepcount,"Active": Active, "max_zsc": max_zsc, "min_zsc": min_zsc,"sc_hr": sc_hr, "cal_km": cal_km,
+                                                "hr_kid_1mean": hr_kid_1mean, "sc_kid_1mean": sc_kid_1mean,"km_kid_1mean": km_kid_1mean,"cal_kid_1mean": cal_kid_1mean, "hr_all_1mean": hr_all_1mean,
+                                                "sc_all_1mean": sc_all_1mean, "km_all_1mean": km_all_1mean,"cal_all_1mean": cal_all_1mean})
 
 
 
@@ -166,9 +324,7 @@ def pick_part(request):
         sc_kid.append(numpy.mean(fri_all["sc_field"]))
         km_kid.append(numpy.mean(fri_all["km"].replace(np.nan,0)))
         cal_kid.append(numpy.mean(fri_all["cal"].replace(np.nan,0)))
-
         # 시각화 x축에 들어갈 라벨설정
-
         ch_la = ['월요일', '화요일', '수요일', '목요일', '금요일']
         pick='요일별 모아보기'
         # 최대 최소 심박수 체크
@@ -176,7 +332,6 @@ def pick_part(request):
         max_zsc = ch_la[max_zsc]
         min_zsc = numpy.nanargmin(sc_kid)
         min_zsc = ch_la[min_zsc]
-
         # 평균 심박수, 걸음수, km,cal
         heartrate = int(numpy.nanmean(hr_kid))
         stepcount = int(numpy.nanmean(sc_kid)) * 6
