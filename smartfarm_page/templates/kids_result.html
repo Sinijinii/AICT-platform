@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 <html>
 <head>
@@ -11,7 +10,8 @@
 <title>영유아보육안전</title>
 <meta name="description" content="">
 <meta name="author" content="">
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <!-- Favicons
     ================================================== -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -46,7 +46,9 @@
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<![endif]-->
+<!-- 네이버 지도 api -->
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=u6lfj6h1vc"></script>
 </head>
 <body class="page" style="background-image: url({% static 'smartfarm_page/assets/img/kids2.png' %})">
 <!-- Navigation
@@ -181,10 +183,33 @@
                     <td colspan="4" style="border: 0.5px ; text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:25px;">총 : {{classall}} 명</td>
                 </tr>
                 </tfoot>
-            </table>
-            </center>
-            <br><br><br><br>
-            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/report2.png' %}" width="500" height="450" alt=""></h2>
+            </table><br><br><br><br>
+                <div class="flex-container"; style=" padding:0px 0px;">
+                    <div class="container px-xl-6 bg-light">
+                        <div class="col-sm-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary" style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:20px;">{{ a.values.get.어린이집 }}</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <div id="map" style="width:100%;height:375px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <div class="card shadow mb-4"><br><br>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">주소 : (16237) 경기도 수원시 팔달구 경수대로642번길 41-12 (우만동)</h2>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">전화번호 : 0507-1361-5716</h2>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">운영시간 : 07:30 ~ 19:30 (평일기준)</h2>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">통학차랑 운영 : 운영</h2><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br>
+            <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/report2.png' %}" width="500" height="450" alt=""></h2><br><br>
+        </center>
         </div>
     </div>
 </div>
@@ -471,7 +496,6 @@
            {% endif %}
                 {% endif %}
 {% endif %}
-
                 <br><br><br><br><br>
                 <!--download
                 <a href="/images/myw3schoolsimage.pdf" download="newfilename">Download the pdf &nbsp; <img src="{% static 'smartfarm_page/assets/img/down.png' %}" width="40" height="40" alt=""></a>
@@ -520,6 +544,17 @@
         </div>
     </div><br><br>
 </footer>
+<script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.284465303136194, 127.03091474890738),
+            zoom: 11
+        };
+        var map = new naver.maps.Map('map', mapOptions);
+        var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.284465303136194, 127.03091474890738),
+        map: map
+});
+</script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -897,6 +932,7 @@ new Chart(document.getElementById("stepcount"), {
             });
 
 </script>
+
   </body>
 
 </html>
