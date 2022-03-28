@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Page Completion Step 2." />
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Page Completion Step 2.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_data_fileupload.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_data_fileupload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648195063527</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="&#10;AICT webpage kids_pattern final (default page)">
+      <created>1648195394814</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1648195394814</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,10 +217,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1648195089130">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1648195396817">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1648195089130" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1648195396817" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
