@@ -66,8 +66,6 @@ def kids_result(request):
     class_i=len(AllKids.objects.filter(반=class_,성향="내향적"))
     class_b=len(AllKids.objects.filter(반=class_,성별='남'))
     class_g = len(AllKids.objects.filter(반=class_, 성별='여'))
-    print('전체',class_all,'외향:',class_e,'내향:',class_i)
-    print('sdfsdfsd', class_b,class_g)
     if AllKids.objects.filter(name=Name2,어린이집=center, 반=class_, 생년월일=birth).exists():
         not_exist = False
     else:
@@ -76,16 +74,21 @@ def kids_result(request):
         E = True
     else:
         E = False
-    print("bc",All.objects.filter(name=Name2))
     if All.objects.filter(name=Name2).exists():
         nulldata=False
     else: nulldata=True
-    print(nulldata)
+    if AllKids.objects.filter(name=Name2,어린이집='예닮어린이집'):
+        kindergarten = "예닮"
+        Address = (37.284465303136194, 127.03091474890738)
+    else:
+        kindergarten = "평택"
+        Address = (36.9921075,127.1129451)
+
     # 측정정보
     kid_d = pd.DataFrame(list(All.objects.filter(name=Name2).values('heartrate', 'sc_field', 'error', 'zsc', 'day', 'time', 'week','name','cal','km')))
     N_pick_type="N"
     return render(request, 'kids_result.html', {"students": students, "name":Name2,"not_exist":not_exist,"birth":birth,"a":a,"E":E,"kid_d":kid_d,"N_pick_type":N_pick_type,"nulldata":nulldata,
-                                                "classall":class_all,"classe": class_e, "classi": class_i, "classb" : class_b, "classg" : class_g})
+                                                "classall":class_all,"classe": class_e, "classi": class_i, "classb" : class_b, "classg" : class_g,"kindergarten":kindergarten,"Address":Address})
 
 
 

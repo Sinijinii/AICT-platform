@@ -201,10 +201,17 @@
                         </div>
                         <div class="col-sm-6" >
                             <div class="card shadow mb-4"><br><br>
+                                {% if kindergarten == "예닮" %}
                                 <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">주소 : (16237) 경기도 수원시 팔달구 경수대로642번길 41-12 (우만동)</h2>
                                 <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">전화번호 : 0507-1361-5716</h2>
                                 <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">운영시간 : 07:30 ~ 19:30 (평일기준)</h2>
                                 <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">통학차랑 운영 : 운영</h2><br><br>
+                                {% elif kindergarten == "평택" %}
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">주소 : 경기도 평택시 ---- </h2>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">전화번호 : 000-0000-0000</h2>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">운영시간 : 00:00 ~ 00:00 (평일기준)</h2>
+                                <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif; font-size:30px;">통학차랑 운영 : - </h2><br><br><br>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -548,12 +555,12 @@
 <!-- 네이버 지도 (예닮어린이집 위.경도로 설정해둠. -->
 <script>
         var mapOptions = {
-            center: new naver.maps.LatLng(37.284465303136194, 127.03091474890738),
+            center: new naver.maps.LatLng{{Address}},
             zoom: 11
         };
         var map = new naver.maps.Map('map', mapOptions);
         var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.284465303136194, 127.03091474890738),
+        position: new naver.maps.LatLng{{Address}},
         map: map
 });
 </script>
