@@ -11,7 +11,6 @@
 <title>영유아보육안전</title>
 <meta name="description" content="">
 <meta name="author" content="">
-
 <!-- Favicons
     ================================================== -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -54,8 +53,7 @@
       <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
           <a class="navbar-brand" href="{% url 'main'%}"><img src="{% static 'smartfarm_page/assets/img/logo.png' %}?after" class="img-responsive"><span style=" color:#525249;">공공융합플랫폼</span></a> </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <!--nav icon-->
           <a id="nav-icon"> <span></span> <span></span> <span></span> </a>
@@ -99,9 +97,9 @@
                 <div class="form-group">
                     <label for="exampleInputcheck" style="font-size:15px;">어린이집</label>
                     <select name="C_name" class="form-control" id="exampleInputcheck" placeholder="어린이집" style="height:45px;font-size:15px;">
-                        <option value="예닮어린이집" >예닮어린이집
-                        <option value="평택어린이집">평택어린이집
-                        </select><br>
+                        <option value="예닮어린이집" >예닮어린이집</option>
+                        <option value="평택어린이집">평택어린이집</option>
+                    </select><br>
                     <label for="exampleInputcheck" style="font-size:15px;">반</label>
                     <select name="class" class="form-control" id="exampleInputcheck2" placeholder="반" style="height:45px;font-size:15px;">
                         <optgroup label="예닮어린이집">
@@ -112,13 +110,14 @@
                             <option value="행복한마루반">마루반</option>
                             <option value="행복한누리반">누리반</option>
                             <option value="행복한샛별반">샛별반</option>
+                        </optgroup>
                         <optgroup label="평택어린이집">
-                            <option value="독수리반" >독수리반
-                            <option value="다람쥐반">다람쥐반
-                            <option value="병아리반">병아리반
-                            </select><br>
+                            <option value="독수리반" >독수리반</option>
+                            <option value="다람쥐반">다람쥐반</option>
+                            <option value="병아리반">병아리반</option>
+                        </optgroup>
+                    </select><br>
                 </div>
-
 <!--                 <div class="form-group">-->
 <!--                    <label for="exampleInputPassword1">Password</label>-->
 <!--                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
@@ -138,9 +137,6 @@
                   <input  name="data_pass" type="password" class="form-control" id="exampleInput" placeholder="password" style="height:45px;font-size:15px;" required>
               </div><br><br><br>
           </form>
-
-      <!--blog posts container-->
-
     </div>
   </div>
  </div>

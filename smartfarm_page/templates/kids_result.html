@@ -29,8 +29,6 @@
 <!--Using JS-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Stylesheet
-
-
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="{% static 'smartfarm_page/css/stylehj.css' %}?after">
 <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700|Montserrat:100,200,300,300i,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -229,7 +227,6 @@
         <h3 style="color:#ebbf7a; font-size: 35px; font-weight: 600;font-family: 'Jua', sans-serif;">{{ pick }}</h3>
         <div class="jb-text"style=" padding: 30px 20px;">
             <center>
-
                 {% if days %}
                 <form action="{% url 'pick_date'%}" method="POST">
                     {% csrf_token %}
@@ -246,7 +243,7 @@
                 <form action="{% url 'pick_month'%}" method="POST">
                     {% csrf_token %}
                     <div style="float: left; margin-right:10px; "><br><br>
-                        <label  style="font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">3. 월별 : 월 선택 </label>
+                        <label  style="font-size:15px; text-align:justify; font-family: 'Do Hyeon', sans-serif;">3. 월별 : 월 선택 </label>
                         <select name="month" class="form-control" placeholder="month" style="height:45px;font-size:15px;">
                             <optgroup label="예닮어린이집">
                                 <option value="1">1</option>
@@ -304,8 +301,8 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Jua', sans-serif;font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다.</h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
+                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다.</h2>
+                                        <h2 style="color:#FFA07A; font-family: 'Do Hyeon', sans-serif; font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +316,7 @@
                             <div class="card shadow mb-4" style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e4.png' %}" width="480" height="300" alt=""><br>활동량 : 다소 활동적</h2>
+                                        <h2 style=" text-align: center; font-family: 'Do Hyeon', sans-serif;"><img src="{% static 'smartfarm_page/assets/img/e4.png' %}" width="480" height="300" alt=""><br>활동량 : 다소 활동적</h2>
                                     </div>
                                 </div>
                             </div>
@@ -328,8 +325,8 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Jua', sans-serif;font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
+                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="color:#FFA07A; font-family: 'Do Hyeon', sans-serif; font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -343,7 +340,7 @@
                             <div class="card shadow mb-4" style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e2.png' %}" width="480" height="300" alt=""><br>활동량 : 다소 차분함</h2>
+                                        <h2 style=" text-align: center; font-family: 'Do Hyeon', sans-serif;"><img src="{% static 'smartfarm_page/assets/img/e2.png' %}" width="480" height="300" alt=""><br>활동량 : 다소 차분함</h2>
                                     </div>
                                 </div>
                             </div>
@@ -352,8 +349,8 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Jua', sans-serif;font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500; font-size:24px;"><br>{{ zsc }}</h2>
+                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="color:#FFA07A; font-family: 'Do Hyeon', sans-serif; font-weight:500; font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -367,7 +364,7 @@
                             <div class="card shadow mb-4" style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="480" height="300" alt=""><br>활동량 : 평균</h2>
+                                        <h2 style=" text-align: center;font-family: 'Do Hyeon', sans-serif;"><img src="{% static 'smartfarm_page/assets/img/e3.png' %}" width="480" height="300" alt=""><br>활동량 : 평균</h2>
                                     </div>
                                 </div>
                             </div>
@@ -376,8 +373,8 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Jua', sans-serif; font-weight:500;"><br><br><br>{{ name }} 어린이의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
-                                        <h2 style="color:#FFA07A;font-family: 'Jua', sans-serif;font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
+                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:600;"><br><br><br>{{ name }} 어린이의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="color:#FFA07A;font-family: 'Do Hyeon', sans-serif; font-weight:600;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
                             </div>
