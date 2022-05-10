@@ -46,6 +46,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648709144139</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="&#10;AICT webpage version3 final">
+      <created>1649203671598</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1649203671646</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +250,8 @@
     <MESSAGE value="&#10;AICT webpage kids_pattern final (abnormal symptom prediction)" />
     <MESSAGE value="&#10;AICT webpage kids_pattern final (default page)" />
     <MESSAGE value="&#10;Add a map to the kids_result default page(Naver API)" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;Add a map to the kids_result default page(Naver API)" />
+    <MESSAGE value="&#10;AICT webpage version3 final" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;AICT webpage version3 final" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1646975419864">
@@ -257,10 +266,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1648597636425">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1649203737934">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1648597636425" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1649203737934" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
