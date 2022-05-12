@@ -232,7 +232,7 @@
                     {% csrf_token %}
                     <div style="float: left; margin-right:20px; "><br><br>
                         <label  style="font-size:15px; text-align:justify;font-family: 'Jua', sans-serif;">1. 일별 : 날짜 선택 </label>
-                        <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-02-18"  style="height:45px;width:120;font-size:15px; text-align:justify;" required>
+                        <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-12-31"  style="height:45px;width:120;font-size:15px; text-align:justify;" required>
                     </div>
                     <div style="float: left; margin-right:20px; "><br><br><br><br>
                         <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
@@ -250,7 +250,7 @@
                                 <option value="2" disabled>2</option>
                                 <option value="3" disabled>3</option>
                                 <option value="4" disabled>4</option>
-                                <option value="5" disabled>5</option>
+                                <option value="5">5</option>
                                 <option value="6" disabled>6</option>
                                 <option value="7" disabled>7</option>
                                 <option value="8" disabled>8</option>
@@ -277,7 +277,7 @@
                     {% csrf_token %}
                     <div style="float: left; margin-right:padding:10px 0px; "><br><br>
                         <label  style="font-size:15px; text-align:justify">1. 일별 : 날짜 선택 </label>
-                        <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-02-18"  style="height:45px;width:120;font-size:15px; text-align:justify;" required>
+                        <input name="date_pick" type="date"  class="form-control"  min="2021-06-01" max="2022-12-31"  value="today " style="height:45px;width:120;font-size:15px; text-align:justify;" required>
                     </div>
                     <div style="float: left; margin-right:20px; "><br><br><br><br>
                         <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
