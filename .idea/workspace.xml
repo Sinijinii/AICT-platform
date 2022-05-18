@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Page Completion Step 2.">
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Add May data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652146893879</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add May data">
+      <created>1652334081491</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1652334081491</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +267,8 @@
     <MESSAGE value="&#10;Add a map to the kids_result default page(Naver API)" />
     <MESSAGE value="&#10;AICT webpage version3 final" />
     <MESSAGE value="Data on changes in daycare centers in 2022 were added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Data on changes in daycare centers in 2022 were added." />
+    <MESSAGE value="Add May data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add May data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1646975419864">
@@ -275,10 +283,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1652147007256">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1652334102588">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1652147007255" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1652334102588" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

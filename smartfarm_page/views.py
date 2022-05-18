@@ -217,9 +217,9 @@ def pick_part(request):
         # 심박수, 걸음수 비교
         if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
             sc_hr = 1
-        elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
-            sc_hr = 4
         elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean > sc_all_mean):
+            sc_hr = 4
+        elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
             sc_hr = 2
         elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
             sc_hr = 3
@@ -228,9 +228,9 @@ def pick_part(request):
         # cal, km비교
         if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
             cal_km = 1
-        elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
-            cal_km = 4
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean > km_all_mean):
+            cal_km = 4
+        elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 2
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 3
@@ -406,9 +406,9 @@ def pick_date(request):
         # 심박수, 걸음수 비교
         if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
             sc_hr=1
-        elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
-            sc_hr=4
         elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean > sc_all_mean):
+            sc_hr=4
+        elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
             sc_hr=2
         elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
             sc_hr = 3
@@ -417,9 +417,9 @@ def pick_date(request):
         # cal, km비교
         if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
             cal_km=1
-        elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
-            cal_km=4
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean > km_all_mean):
+            cal_km=4
+        elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km=2
         elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
             cal_km = 3
@@ -568,9 +568,9 @@ def pick_month(request):
     # 심박수, 걸음수 비교
     if (hr_kid_mean > hr_all_mean) & (sc_kid_mean > sc_all_mean):
         sc_hr = 1
-    elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
-        sc_hr = 4
     elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean > sc_all_mean):
+        sc_hr = 4
+    elif (hr_kid_mean > hr_all_mean) & (sc_kid_mean < sc_all_mean):
         sc_hr = 2
     elif (hr_kid_mean < hr_all_mean) & (sc_kid_mean < sc_all_mean):
         sc_hr = 3
@@ -579,9 +579,9 @@ def pick_month(request):
     # cal, km비교
     if (cal_kid_mean > cal_all_mean) & (km_kid_mean > km_all_mean):
         cal_km = 1
-    elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
-        cal_km = 4
     elif (cal_kid_mean < cal_all_mean) & (km_kid_mean > km_all_mean):
+        cal_km = 4
+    elif (cal_kid_mean > cal_all_mean) & (km_kid_mean < km_all_mean):
         cal_km = 2
     elif (cal_kid_mean < cal_all_mean) & (km_kid_mean < km_all_mean):
         cal_km = 3
