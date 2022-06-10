@@ -246,6 +246,38 @@
                         <label  style="font-size:15px; text-align:justify; font-family: 'Do Hyeon', sans-serif;">3. 월별 : 월 선택 </label>
                         <select name="month" class="form-control" placeholder="month" style="height:45px;font-size:15px;">
                             <optgroup label="예닮어린이집">
+                                <option value="1">1월</option>
+                                <option value="2" disabled>2월</option>
+                                <option value="3" disabled>3월</option>
+                                <option value="4" disabled>4월</option>
+                                <option value="5">5월</option>
+                                <option value="6">6월</option>
+                                <option value="7" disabled>7월</option>
+                                <option value="8" disabled>8월</option>
+                                <option value="9" disabled>9월</option>
+                                <option value="10" disabled>10월</option>
+                                <option value="11" disabled>11월</option>
+                                <option value="12" disabled>12월</option>
+                            </optgroup>
+                            <optgroup label="평택어린이집">
+                                <option value="6" >6월</option>
+                            </optgroup>
+                        </select><br>
+                    </div>
+                    <div style="float: left; margin-right:20px; "><br><br><br><br>
+                        <button type="submit" class="btn btn-primary" style="border-top-left-radius:5px; border-bottom-left-radius:5px; border: 1px solid black; background-color: rgba(0,0,0,0); color: black; padding: 5px;">확인</button>
+                    </div><br>
+                    <div class="row mb-3"></div>
+                </form>
+                {% endif %}
+                {% if not_month %}
+                <h3 >⚠️ 해당 날에는 데이터가 없습니다. 다시 확인해주세요. ⚠️</h3>
+                <form action="{% url 'pick_month'%}" method="POST">
+                    {% csrf_token %}
+                    <div style="float: left; margin-right:10px; "><br><br>
+                        <label  style="font-size:15px; text-align:justify; font-family: 'Do Hyeon', sans-serif;">3. 월별 : 월 선택 </label>
+                        <select name="month" class="form-control" placeholder="month" style="height:45px;font-size:15px;">
+                            <optgroup label="예닮어린이집">
                                 <option value="1">1</option>
                                 <option value="2" disabled>2</option>
                                 <option value="3" disabled>3</option>
@@ -270,7 +302,6 @@
                     <div class="row mb-3"></div>
                 </form>
                 {% endif %}
-
                 {% if not_day %}
                 <h3 >⚠️ 해당 날에는 데이터가 없습니다. 다시 확인해주세요. ⚠️</h3>
                 <form action="{% url 'pick_date'%}" method="POST">
@@ -415,7 +446,7 @@
                         <div class="col-sm-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary" >km</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary" >거리(m)</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
@@ -476,23 +507,23 @@
                                         {% if cal_km == 1 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_1.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; km ⇧</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; 거리(m) ⇧</h2>
                                         {% elif cal_km == 2 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_2.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; km ⇩</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; 거리(m) ⇩</h2>
                                         {% elif cal_km == 3 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_3.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; km ⇩</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; 거리(m) ⇩</h2>
                                         {% elif cal_km == 4 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_4.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; km ⇧</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; 거리(m) ⇧</h2>
                                         {% elif cal_km == 0 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_0.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리: - &nbsp; km: -</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리: - &nbsp; 거리(m): -</h2>
                                         {% endif %}
                                     </div>
                                 </div>

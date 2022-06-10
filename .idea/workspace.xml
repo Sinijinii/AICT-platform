@@ -19,8 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Add May data">
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Correction of invalid data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +52,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -242,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652334081491</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Correction of invalid data">
+      <created>1652832603213</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1652832603213</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,9 +282,14 @@
     <MESSAGE value="&#10;AICT webpage version3 final" />
     <MESSAGE value="Data on changes in daycare centers in 2022 were added." />
     <MESSAGE value="Add May data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add May data" />
+    <MESSAGE value="Correction of invalid data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction of invalid data" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1281" y="350" key="#Notifications" timestamp="1653955700494">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1281" y="350" key="#Notifications/0.0.2560.1040@0.0.2560.1040" timestamp="1653955700494" />
     <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1646975419864">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -298,13 +317,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>877</line>
+          <line>941</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
-          <line>384</line>
+          <line>441</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>364</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
