@@ -39,6 +39,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -88,6 +90,36 @@
    table, th, td,tr {
       border: 0.5px solid #bcbcbc;
    }
+
+   .jb-text_result {
+   width: 97%;
+   border-top-left-radius:5px; border-bottom-left-radius:5px;
+   border-top-right-radius:5px; border-bottom-right-radius:5px;
+   background-color: white;
+   text-align: left;
+   border: 1px solid #D3D3D3;
+   padding: 30px 10px;
+   }
+   table {
+      width: 50%;
+      text-align: center;
+   }
+   table, th, td,tr {
+      border: 0.5px solid #bcbcbc;
+   }
+
+   @font-face {
+
+  font-family: gyeonggi_Light;
+
+  src: url("../static/smartfarm_page/font/woff/Title_Light.woff");
+  }
+  @font-face {
+
+  font-family: gyeonggi_Medium;
+
+  src: url("../static/smartfarm_page/font/woff/Title_Medium.woff");
+  }
 </style>
 <!-- banner Page
     ==========================================-->
@@ -283,7 +315,7 @@
                                 <option value="3" disabled>3</option>
                                 <option value="4" disabled>4</option>
                                 <option value="5">5</option>
-                                <option value="6" disabled>6</option>
+                                <option value="6">6</option>
                                 <option value="7" disabled>7</option>
                                 <option value="8" disabled>8</option>
                                 <option value="9" disabled>9</option>
@@ -332,7 +364,7 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다.</h2>
+                                        <h2 style="font-family: 'gyeonggi_medium', sans-serif;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다.</h2>
                                         <h2 style="color:#FFA07A; font-family: 'Do Hyeon', sans-serif; font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
@@ -356,7 +388,7 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="font-family: 'gyeonggi_medium', sans-serif; "><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
                                         <h2 style="color:#FFA07A; font-family: 'Do Hyeon', sans-serif; font-weight:500;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
@@ -380,7 +412,7 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:500;"><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="font-family: 'gyeonggi_medium', sans-serif; "><br><br><br>{{ name }}의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
                                         <h2 style="color:#FFA07A; font-family: 'Do Hyeon', sans-serif; font-weight:500; font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
@@ -404,7 +436,7 @@
                             <div class="card shadow mb-4"style="border:0px;">
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <h2 style="font-family: 'Do Hyeon', sans-serif; font-weight:600;"><br><br><br>{{ name }} 어린이의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
+                                        <h2 style="font-family: 'gyeonggi_medium', sans-serif; "><br><br><br>{{ name }} 어린이의 하루평균 심박수는 {{heartrate}}bp,<br> 하루 한시간평균 걸음수는 {{stepcount}}입니다.<br>비교적으로 {{ max_zsc }}에 활동량이 많으며 <br> {{ min_zsc }}에 활동량이 낮습니다. </h2>
                                         <h2 style="color:#FFA07A;font-family: 'Do Hyeon', sans-serif; font-weight:600;font-size:24px;"><br>{{ zsc }}</h2>
                                     </div>
                                 </div>
@@ -507,30 +539,130 @@
                                         {% if cal_km == 1 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_1.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; 거리(m) ⇧</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; 거리 ⇧</h2>
                                         {% elif cal_km == 2 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_2.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; 거리(m) ⇩</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇧ &nbsp; 거리 ⇩</h2>
                                         {% elif cal_km == 3 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_3.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; 거리(m) ⇩</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; 거리 ⇩</h2>
                                         {% elif cal_km == 4 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_4.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; 거리(m) ⇧</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리 ⇩ &nbsp; 거리 ⇧</h2>
                                         {% elif cal_km == 0 %}
                                         <h2 style=" text-align: center;font-family: 'Jua', sans-serif ;"><img src="{% static 'smartfarm_page/assets/img/cal_km_0.png' %}" width="460" height="350" alt="">
                                         </h2>
-                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리: - &nbsp; 거리(m): -</h2>
+                                        <h2 style="font-family: 'Jua', sans-serif;">칼로리: - &nbsp; 거리: -</h2>
                                         {% endif %}
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="row mb-4"><br></div><br><br>
+                        <div class="jb-text_result" style="padding: 10px 100px; font-family: 'Jua', sans-serif;">
+                            <center>
+                                {% if sc_hr == 1 and cal_km == 1 %}
+                                <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 데이터 측정 결과 {{name}}어린이는 소근육보다 대근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 소근육운동을 추천합니다.</h2>
+                                <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 소근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공놀이, 전화기 놀이, 컵 잡기 놀이, 스펀지 비누 장난, 피아노 치기, 포크로 음식 찍기
+                                    <br> ◎ 5~7세 : 단추 채우기, 인형 목욕시키기, 인형 옷 입히기, 공 주고받기, 가위로 종이 자르기</h2><br><br>
+                                <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표<br></a></div>
+                                <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
+                                    이는 중추신경계, 말초신경계, 근골격계에 문제가 있을 경우 운동 장애 및 신체, 인지, 정서 발달에 영향을 주는 영역입니다. </h2><br>
+                                <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
+                                    대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
+                                </h2>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+                                {% elif sc_hr == 4 and cal_km == 1 %}
+                                <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 『 데이터 측정 결과 {{name}}어린이는 소근육보다 대근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 소근육운동을 추천합니다. 』</h2>
+                                <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 소근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공놀이, 전화기 놀이, 컵 잡기 놀이, 스펀지 비누 장난, 피아노 치기, 포크로 음식 찍기
+                                    <br> ◎ 5~7세 : 단추 채우기, 인형 목욕시키기, 인형 옷 입히기, 공 주고받기, 가위로 종이 자르기</h2><br><br>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;표 닫기<br></a></div>
+                                <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
+                                <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
+                                    이는 중추신경계, 말초신경계, 근골격계에 문제가 있을 경우 운동 장애 및 신체, 인지, 정서 발달에 영향을 주는 영역입니다. </h2><br>
+                                <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
+                                    대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
+                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+
+                                {% elif sc_hr == 3 and cal_km == 3 %}
+                                <h2 style="font-family: 'gyeonggi_medium', sans-serif;"> 데이터 측정 결과 {{name}}어린이에게는 소근육과 대근육 발달에 필요한 운동을 추천합니다.</h2>
+                                <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 대근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공굴리기, 마사지, 블록놀이, 물건 쌓고 무너뜨리기, 움직이는 사물 보여주기, 물장구 치기
+                                    <br> ◎ 5~7세 : 눈 감고 서기, 손잡고 계단 오르내리기, 다양하게 걷기, 꼬리잡기 놀이, 달리기 경주, 자전거 타기</h2>
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 소근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공놀이, 전화기 놀이, 컵 잡기 놀이, 스펀지 비누 장난, 피아노 치기, 포크로 음식 찍기
+                                    <br> ◎ 5~7세 : 단추 채우기, 인형 목욕시키기, 인형 옷 입히기, 공 주고받기, 가위로 종이 자르기</h2><br><br>
+                                <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표<br></a></div>
+                                <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
+                                    이는 중추신경계, 말초신경계, 근골격계에 문제가 있을 경우 운동 장애 및 신체, 인지, 정서 발달에 영향을 주는 영역입니다. </h2><br>
+                                <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
+                                    대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
+                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+
+                                {% elif sc_hr == 2 and cal_km == 2 %}
+                                <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 데이터 측정 결과 {{name}}어린이는 대근육보다 소근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 대근육운동을 추천합니다.</h2>
+                                <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 대근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공굴리기, 마사지, 블록놀이, 물건 쌓고 무너뜨리기, 움직이는 사물 보여주기, 물장구 치기
+                                    <br> ◎ 5~7세 : 눈 감고 서기, 손잡고 계단 오르내리기, 다양하게 걷기, 꼬리잡기 놀이, 달리기 경주, 자전거 타기</h2><br><br>
+                                <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
+                                <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
+                                    이는 중추신경계, 말초신경계, 근골격계에 문제가 있을 경우 운동 장애 및 신체, 인지, 정서 발달에 영향을 주는 영역입니다. </h2><br>
+                                <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
+                                    대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
+                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+
+                                {% elif sc_hr == 2 and cal_km == 3 %}
+                                <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 데이터 측정 결과 {{name}}어린이는 대근육보다 소근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 대근육운동을 추천합니다.</h2>
+                                <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 대근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공굴리기, 마사지, 블록놀이, 물건 쌓고 무너뜨리기, 움직이는 사물 보여주기, 물장구 치기
+                                    <br> ◎ 5~7세 : 눈 감고 서기, 손잡고 계단 오르내리기, 다양하게 걷기, 꼬리잡기 놀이, 달리기 경주, 자전거 타기</h2><br><br>
+                                <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
+                                <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
+                                    이는 중추신경계, 말초신경계, 근골격계에 문제가 있을 경우 운동 장애 및 신체, 인지, 정서 발달에 영향을 주는 영역입니다. </h2><br>
+                                <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
+                                    대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
+                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+
+                                {% elif sc_hr == 1 and cal_km == 2 or sc_hr == 1 and cal_km == 3 or sc_hr == 1 and cal_km == 4  or sc_hr == 3 and cal_km == 1 or sc_hr == 3 and cal_km == 4 or sc_hr == 4 and cal_km == 1 or sc_hr == 4 and cal_km == 2 or sc_hr == 4 and cal_km == 3 or sc_hr == 2 and cal_km == 1 or sc_hr == 2 and cal_km == 4  %}
+                                <h2 style="font-family: 'gyeonggi_medium', sans-serif;"> 데이터 측정 결과 {{name}}어린이는 적절하게 발달이 이루어진 상태입니다.<br>현재 적절히 발달이 되었다 하더라도 지속적인 관리가 필요합니다. <br>{{name}}어린이는 연령대별 권장 운동을 추천합니다.</h2>
+                                <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 연령대별 권장 운동 ⚽ <br><br>◎ 0~4세 : 신체활동의 즐거움이 커지도록 유도되어야 하며, 부모나 성인 보호자의 보호 아래서 자유로운 탐험활동을 할 수 있도록 해야 한다.
+                                    <br>➱ 추천활동 : 동네 산책, 자유로운 실외 놀이 등<br>
+                                    <br>◎ 5~7세 : 취학 전 아동의 신체활동은 부모와 보호자가 안전을 고려하여 지켜보는 가운데 재미와 탐험, 도전을 강조한 자유 놀이가 권장된다. 변화가 거의 없는 편평한 바닥에서 부모가 놀이 방식을 먼저 보여주거나 설명해주는 구조화되지 않은 자유놀이에 참가하는 것이 좋다.
+                                    <br>➱ 추천 활동 : 달리기, 수영, 부모와 함께 공 던지기, 받기, 부모와 함께 오래 걷기</h2><br><br>
+                                <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
+                                <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
+                                    이는 중추신경계, 말초신경계, 근골격계에 문제가 있을 경우 운동 장애 및 신체, 인지, 정서 발달에 영향을 주는 영역입니다. </h2><br>
+                                <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
+                                <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
+                                    대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
+                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+
+
+
+                                {% endif %}
+                            </center></div>
                     </div>
                 </div>
+
+        </div>
+    </div>
+</div>
            {% endif %}
                 {% endif %}
 {% endif %}
@@ -612,6 +744,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <!-- Page level custom scripts -->
 <script src="{% static 'smartfarm_page/js/chart-area-demo.js' %}"></script>
+<script type="text/javascript">
+    $('#hide_more_button').click(function(){
+        $('#more_comment').show();
+        $('#more_comment2').show();
+        $('#more_comment3').show();
+        $('#more_comment4').show();
+        $('#show_more_button').show();
+        $('#hide_more_button').hide();
+    });
+    $('#show_more_button').click(function(){
+        $('#more_comment').hide();
+        $('#more_comment2').hide();
+        $('#more_comment3').hide();
+        $('#more_comment4').hide();
+        $('#show_more_button').hide();
+        $('#hide_more_button').show();
+    });
+</script>
 <script>
 new Chart(document.getElementById("heartrate"), {
             type: 'bar',
@@ -969,6 +1119,8 @@ new Chart(document.getElementById("stepcount"), {
                 }
                 }
             });
+
+
 
 </script>
 

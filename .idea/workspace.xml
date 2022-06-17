@@ -19,15 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Correction of invalid data">
+    <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Reset Reference for Distance">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,12 +61,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hmwon\Desktop\YJM\aict_JM\smartfarm_page\static\smartfarm_page\assets\img" />
       <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\smartfarm_page\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HLK\Desktop\김혜린\django_practice\static\smartfarm_page\assets\img" />
     </key>
   </component>
   <component name="RunManager">
@@ -256,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652832603213</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Reset Reference for Distance">
+      <created>1654846661727</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654846661727</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -283,17 +290,18 @@
     <MESSAGE value="Data on changes in daycare centers in 2022 were added." />
     <MESSAGE value="Add May data" />
     <MESSAGE value="Correction of invalid data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction of invalid data" />
+    <MESSAGE value="Reset Reference for Distance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset Reference for Distance" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1281" y="350" key="#Notifications" timestamp="1653955700494">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1281" y="350" key="#Notifications/0.0.2560.1040@0.0.2560.1040" timestamp="1653955700494" />
-    <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1646975419864">
+    <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1655270138202">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1060" y="275" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1646975419864" />
+    <state x="1060" y="275" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1655270138157" />
     <state x="251" y="90" key="MergeDialog" timestamp="1646890281746">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -302,10 +310,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1652334102588">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1654846767259">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1652334102588" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1654846767259" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -329,6 +337,16 @@
           <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
           <line>364</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>311</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/smartfarm_page/views.py</url>
+          <line>510</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

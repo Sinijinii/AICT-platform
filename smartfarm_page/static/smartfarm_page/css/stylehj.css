@@ -100,7 +100,11 @@ h7 {
 	font-weight: 600;
 	font-size: 30px;
 }
-
+gyeonggi {
+    font-family: 'gyeonggi', sans-serif;
+    font-weight: 650;
+	font-size: 28px;
+}
 
 .display-header {
 	font-size: 62px;
