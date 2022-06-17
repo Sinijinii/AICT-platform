@@ -21,12 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a6f975a2-c647-4d3b-9842-6e742afb3348" name="Default Changelist" comment="Reset Reference for Distance">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/assets/img/cal_km4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/static/smartfarm_page/css/stylehj.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/smartfarm_page/templates/kids_result.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +257,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654846661727</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add Data Analysis Results">
+      <created>1655446095403</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1655446095574</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add Data Analysis Results">
+      <created>1655446144485</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1655446144485</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,7 +299,8 @@
     <MESSAGE value="Add May data" />
     <MESSAGE value="Correction of invalid data" />
     <MESSAGE value="Reset Reference for Distance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reset Reference for Distance" />
+    <MESSAGE value="Add Data Analysis Results" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Data Analysis Results" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1281" y="350" key="#Notifications" timestamp="1653955700494">
@@ -310,10 +319,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1654846767259">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1655446166534">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1654846767259" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1655446166534" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
