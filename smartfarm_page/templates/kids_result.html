@@ -569,6 +569,7 @@
                                 <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 소근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공놀이, 전화기 놀이, 컵 잡기 놀이, 스펀지 비누 장난, 피아노 치기, 포크로 음식 찍기
                                     <br> ◎ 5~7세 : 단추 채우기, 인형 목욕시키기, 인형 옷 입히기, 공 주고받기, 가위로 종이 자르기</h2><br><br>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;표 닫기<br></a></div>
                                 <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표<br></a></div>
                                 <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
@@ -577,7 +578,7 @@
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
                                     대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
                                 </h2>
-                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+
                                 {% elif sc_hr == 4 and cal_km == 1 %}
                                 <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 『 데이터 측정 결과 {{name}}어린이는 소근육보다 대근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 소근육운동을 추천합니다. 』</h2>
                                 <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
@@ -591,7 +592,7 @@
                                 <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
                                     대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
-                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+                                </h2>
 
                                 {% elif sc_hr == 3 and cal_km == 3 %}
                                 <h2 style="font-family: 'gyeonggi_medium', sans-serif;"> 『 데이터 측정 결과 {{name}}어린이에게는 소근육과 대근육 발달에 필요한 운동을 추천합니다. 』</h2>
@@ -600,6 +601,7 @@
                                     <br> ◎ 5~7세 : 눈 감고 서기, 손잡고 계단 오르내리기, 다양하게 걷기, 꼬리잡기 놀이, 달리기 경주, 자전거 타기</h2>
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 소근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공놀이, 전화기 놀이, 컵 잡기 놀이, 스펀지 비누 장난, 피아노 치기, 포크로 음식 찍기
                                     <br> ◎ 5~7세 : 단추 채우기, 인형 목욕시키기, 인형 옷 입히기, 공 주고받기, 가위로 종이 자르기</h2><br><br>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;표 닫기<br></a></div>
                                 <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표<br></a></div>
                                 <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
@@ -607,13 +609,14 @@
                                 <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
                                     대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
-                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+                                </h2>
 
                                 {% elif sc_hr == 2 and cal_km == 2 %}
                                 <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 『 데이터 측정 결과 {{name}}어린이는 대근육보다 소근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 대근육운동을 추천합니다. 』</h2>
                                 <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 대근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공굴리기, 마사지, 블록놀이, 물건 쌓고 무너뜨리기, 움직이는 사물 보여주기, 물장구 치기
                                     <br> ◎ 5~7세 : 눈 감고 서기, 손잡고 계단 오르내리기, 다양하게 걷기, 꼬리잡기 놀이, 달리기 경주, 자전거 타기</h2><br><br>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;표 닫기<br></a></div>
                                 <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
                                 <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
@@ -621,13 +624,14 @@
                                 <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
                                     대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
-                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+                                </h2>
 
                                 {% elif sc_hr == 2 and cal_km == 3 %}
                                 <h2 style="font-family: 'gyeonggi_medium';, sans-serif;"> 『 데이터 측정 결과 {{name}}어린이는 대근육보다 소근육이 활발히 발달된 상태입니다. <br>{{name}}어린이에게는 대근육운동을 추천합니다. 』</h2>
                                 <img src="{% static 'smartfarm_page/assets/img/arrow.png' %}" width="50" height="50" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif;">⚽ 대근육 발달에 좋은 운동 ⚽<br><br> ◎ 0~4세 : 공굴리기, 마사지, 블록놀이, 물건 쌓고 무너뜨리기, 움직이는 사물 보여주기, 물장구 치기
                                     <br> ◎ 5~7세 : 눈 감고 서기, 손잡고 계단 오르내리기, 다양하게 걷기, 꼬리잡기 놀이, 달리기 경주, 자전거 타기</h2><br><br>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;표 닫기<br></a></div>
                                 <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
                                 <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
@@ -635,7 +639,7 @@
                                 <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
                                     대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
-                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+                                </h2>
 
                                 {% elif sc_hr == 1 and cal_km == 2 or sc_hr == 1 and cal_km == 3 or sc_hr == 1 and cal_km == 4  or sc_hr == 3 and cal_km == 1 or sc_hr == 3 and cal_km == 4 or sc_hr == 4 and cal_km == 1 or sc_hr == 4 and cal_km == 2 or sc_hr == 4 and cal_km == 3 or sc_hr == 2 and cal_km == 1 or sc_hr == 2 and cal_km == 4  %}
                                 <h2 style="font-family: 'gyeonggi_medium', sans-serif;"> 『 데이터 측정 결과 {{name}}어린이는 적절하게 발달이 이루어진 상태입니다.<br>현재 적절히 발달이 되었다 하더라도 지속적인 관리가 필요합니다. <br>{{name}}어린이는 연령대별 권장 운동을 추천합니다. 』</h2>
@@ -644,6 +648,7 @@
                                     <br>➱ 추천활동 : 동네 산책, 자유로운 실외 놀이 등<br>
                                     <br>◎ 5~7세 : 취학 전 아동의 신체활동은 부모와 보호자가 안전을 고려하여 지켜보는 가운데 재미와 탐험, 도전을 강조한 자유 놀이가 권장된다. 변화가 거의 없는 편평한 바닥에서 부모가 놀이 방식을 먼저 보여주거나 설명해주는 구조화되지 않은 자유놀이에 참가하는 것이 좋다.
                                     <br>➱ 추천 활동 : 달리기, 수영, 부모와 함께 공 던지기, 받기, 부모와 함께 오래 걷기</h2><br><br>
+                                <div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;표 닫기<br></a></div>
                                 <div id="hide_more_button"><a id=hide_button_count>&nbsp;영유아 발달선별검사(K-DST) 표 <br></a></div>
                                 <img id="more_comment2" src="{% static 'smartfarm_page/assets/img/영유아_대근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment4">① 대근육운동 발달 <br>대근육운동 능력은 팔다리, 고개, 몸통 등을 움직이는 활동과 목 가누기, 기기, 걷기, 달리기, 차기 등으로 발달 상태를 평가하는 영역입니다.
@@ -651,7 +656,7 @@
                                 <img id="more_comment" src="{% static 'smartfarm_page/assets/img/영유아_소근육.png' %}" alt="">
                                 <h2 style="font-family: 'gyeonggi_Light', sans-serif; font-size :20px;" id="more_comment3">② 소근육운동 발달 <br>소근육운동 발달은 미세함과 정교함이 필요한 신체 움직임을 평가하는 영역입니다.
                                     대근육이 발달한 유아가 몸의 균형을 잡을 수 있을 때 발달하는 영역이기도 합니다. 유아가 자신이 의도한 대로 손을 움직여 원하는 대상을 직접 탐색하고 시험해 보는 능력을 통해 발달 상태를 체크할 수 있습니다.
-                                </h2><div id="show_more_button" style="display:none;"><a id=show_button_count>&nbsp;닫기<br></a></div>
+                                </h2>
 
                                 {% endif %}
                             </center></div>

@@ -271,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655446144485</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add Data Analysis Results">
+      <created>1655450163708</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1655450163708</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,10 +326,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="921" y="284" key="MultipleFileMergeDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1646890281753" />
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1655446166534">
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2" timestamp="1655450185001">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1655446166534" />
+    <state x="1139" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1655450185001" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
