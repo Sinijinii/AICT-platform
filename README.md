@@ -5,4 +5,5 @@
 ✌유아 활동 데이터 기반 행동 패턴 분석 및 안전 보육 모니터링 기술개발
 ---
 ### Kid Pattern Analysis Final Page
-![result.PNG]
+![캡처](/result.PNG)
+
